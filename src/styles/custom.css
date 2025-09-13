@@ -1,0 +1,36 @@
+:root {
+  --sl-color-accent-low: #6366f120;
+  --sl-color-accent: #6366f1;
+  --sl-color-accent-high: #4f46e5;
+}
+
+/* Terminal aesthetic */
+.terminal-box {
+  background: #1e1e1e;
+  border: 2px solid #6366f1;
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Multi-agent visualization */
+.agent-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.agent-card {
+  padding: 1rem;
+  border: 2px solid var(--sl-color-accent);
+  border-radius: 8px;
+  background: var(--sl-color-accent-low);
+}
+
+/* Hero gradient */
+.hero-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
