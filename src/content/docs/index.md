@@ -1,9 +1,9 @@
 ---
-title: Collective Context
+title: Collective Context (CC)
 description: Pragmatische Multi-Agent KI-Orchestrierung
 ---
 
-# Collective Context: Sichere Multi-Agent Orchestrierung
+# CC Multi-Agent Orchestrierung
 
 > Die Stärke der Innovation ist wie ein Kunstwerk; sie wird lebendig, wenn visionäre Ideen und neuartige Werkzeuge zusammenfließen. An alle Entwickler dieser Welt: Lasst uns gemeinsam zu neuen Ufern aufbrechen. 🚀
 
