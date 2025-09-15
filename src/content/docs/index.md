@@ -3,7 +3,9 @@ title: Collective Context
 description: Pragmatische Multi-Agent KI-Orchestrierung
 ---
 
-# Collective Context: Pragmatische Multi-Agent Orchestrierung
+# Collective Context: Sichere Multi-Agent Orchestrierung
+
+**🔒 Security Update**: Version 0.2.0 mit wichtigen Sicherheits-Verbesserungen verfügbar. [Details →](/security/notice)
 
 > Die Stärke der Innovation ist wie ein Kunstwerk; sie wird lebendig, wenn visionäre Ideen und neuartige Werkzeuge zusammenfließen. An alle Entwickler dieser Welt: Lasst uns gemeinsam zu neuen Ufern aufbrechen. 🚀
 
@@ -15,6 +17,12 @@ Hybrid-Ansatz mit FOSS + Selected Proprietary Tools:
 - ✅ Multi-Provider Support (OpenRouter, PublicAI, Anthropic)
 - ✅ Self-Hosting Option für 100% Privacy
 - ✅ KAIZEN: Lernen aus der Praxis
+
+### Status
+- ✅ Security Audit durchgeführt (September 2025)
+- ✅ Kritische Fixes implementiert
+- ✅ JSON-basierte sichere Konfiguration
+- ✅ Aktive Entwicklung und Support
 
 ## 🌐 Unprecedented Flexibility
 

@@ -125,9 +125,53 @@ tmux kill-server
 pip install --user collective-context-commander
 ```
 
+## 🔒 Sicherheits-Best Practices
+
+### Environment Variables einrichten
+
+**Niemals API Keys im Code speichern!**
+
+```bash
+# .env Datei erstellen (NICHT ins Repository committen!)
+cat > .env << EOF
+ANTHROPIC_API_KEY=sk-ant-...
+OPENROUTER_API_KEY=sk-or-...
+EOF
+
+# .env zu .gitignore hinzufügen
+echo ".env" >> .gitignore
+```
+
+### Sichere Konfiguration
+
+Seit v0.2.0 nutzt CCC JSON-basierte Konfigurationen:
+
+```json
+// config-json/global/config.json
+{
+  "prompts": {
+    "system": "You are a helpful assistant"
+  },
+  "settings": {
+    "temperature": 0.7
+  }
+}
+```
+
+**Wichtig**: Keine `.ts` Konfigurationsdateien mehr verwenden!
+
+### Berechtigungen einschränken
+
+```bash
+# Nur notwendige Berechtigungen
+chmod 600 .env
+chmod 644 config-json/**/*.json
+```
+
 ## Next Steps
 
 Nach erfolgreicher Installation:
 1. [CLI Reference](/ccc/cli/) - Alle verfügbaren Commands
 2. [Quick Start](/quickstart/4-agent-setup/) - Erstes Multi-Agent Setup
 3. [Workflows](/agents/tmux-workflows/) - Tmux Integration nutzen
+4. [Security Notice](/security/notice/) - Wichtige Sicherheitsinformationen

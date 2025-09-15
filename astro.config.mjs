@@ -85,6 +85,19 @@ export default defineConfig({
             { label: 'CLI Reference', link: '/ccc/cli' },
           ],
         },
+        {
+          label: '🔒 Security',
+          items: [
+            { label: 'Security Notice', link: '/security/notice' },
+            { label: 'Security Policy', link: '/security/policy' },
+          ],
+        },
+        {
+          label: '❓ Support',
+          items: [
+            { label: 'FAQ', link: '/faq' },
+          ],
+        },
       ],
     }),
     react(),
