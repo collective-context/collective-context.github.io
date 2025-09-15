@@ -39,11 +39,11 @@ sudo apt update && sudo apt install python3 python3-pip tmux git
 
 ```bash
 # Via pip (empfohlen)
-pip install collective-context-commander
+pip install ccc
 
 # Oder von Source
-git clone https://github.com/collective-context/ccc-commander
-cd ccc-commander
+git clone https://github.com/collective-context/ccc
+cd ccc
 pip install -e .
 ```
 
@@ -195,7 +195,7 @@ Nach erfolgreicher Installation:
 ## Getting Help
 
 - **Documentation**: https://collective-context.org
-- **GitHub Issues**: https://github.com/collective-context/ccc-commander/issues
+- **GitHub Issues**: https://github.com/collective-context/ccc/issues
 - **Discord Community**: https://discord.gg/collective-context
 
 ---

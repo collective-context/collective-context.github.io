@@ -27,7 +27,7 @@ Unser bewährtes Setup mit 4 spezialisierten KI-Agenten:
 
 ### Step 1: CCC Commander
 ```bash
-pip install collective-context-commander
+pip install ccc
 ```
 
 ### Step 2: API Configuration

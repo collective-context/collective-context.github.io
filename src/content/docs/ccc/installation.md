@@ -16,13 +16,13 @@ description: CCC Commander installieren und einrichten
 
 ### Option 1: pip (Empfohlen)
 ```bash
-pip install collective-context-commander
+pip install ccc
 ```
 
 ### Option 2: From Source
 ```bash
-git clone https://github.com/collective-context/ccc-commander
-cd ccc-commander
+git clone https://github.com/collective-context/ccc
+cd ccc
 pip install -e .
 ```
 

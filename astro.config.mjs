@@ -66,6 +66,13 @@ export default defineConfig({
           autogenerate: { directory: 'guides' },
         },
         {
+          label: '📚 Case Studies',
+          items: [
+            { label: 'Übersicht', link: '/case-studies/' },
+            { label: '#001: Website Launch', link: '/case-studies/001-website-launch' },
+          ],
+        },
+        {
           label: '✈️ Checklists',
           autogenerate: { directory: 'checklists' },
         },
