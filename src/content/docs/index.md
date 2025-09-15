@@ -1,66 +1,113 @@
 ---
 title: Collective Context
-description: Multi-Agent KI-Orchestrierung für 10x Produktivität
+description: Pragmatische Multi-Agent KI-Orchestrierung
 ---
 
-# Collective Context (CC)
+# Collective Context: Pragmatische Multi-Agent Orchestrierung
 
-**Die Evolution der Software-Entwicklung durch Multi-Agent KI-Orchestrierung**
+**Evolution statt Revolution**: Hybrid-Ansatz mit FOSS + Selected Proprietary Tools
+
+- ✅ Zugang zu **300+ KI-Modellen** über OpenRouter (Cloud & Self-Hosted)
+- ✅ Hauptsächlich Open Source (3 von 4 Agents nutzen Aider)
+- ✅ Claude-2 testet unseren CCC Commander
+- ✅ Multi-Provider Support (OpenRouter, PublicAI, Anthropic)
+- ✅ Self-Hosting Option für 100% Privacy
+- ✅ KAIZEN: Lernen aus der Praxis
+
+## 🌐 Unprecedented Flexibility
+
+Mit OpenRouter können alle Agents aus über 300 Modellen wählen:
+- **Cloud**: Claude, GPT-4, Gemini, Mistral, Llama, DeepSeek...
+- **Local**: Eigene Modelle via Ollama, vLLM, LocalAI
+- **Hybrid**: Mix aus Cloud und Self-Hosted je nach Anforderung
 
 ## 🚀 Quick Start
 
-### CCC Commander Installation
+### Hybrid Multi-Provider Setup
 
 ```bash
+# Aider Installation (für Claude-1, Aider-1, Aider-2)
+pip install aider-chat[voice]
+
+# OpenRouter (300+ Modelle)
+export OPENROUTER_API_KEY='sk-or-v1-...'
+
+# PublicAI (Schweizer Datenschutz)
+export PUBLICAI_API_KEY='pub-...'
+
+# CCC Commander (für Claude-2)
 git clone https://github.com/collective-context/ccc.git
-cd ccc
-chmod +x ccc
-sudo ln -sf "$(pwd)/ccc" /usr/local/bin/ccc
 ```
 
-## 🎭 Das Orchestra Pattern
+## 🎭 Das Hybrid Orchestra Pattern
 
-Ein zentraler "Dirigent" koordiniert spezialisierte KI-Agenten:
+4 spezialisierte Agents mit pragmatischer Tool-Auswahl:
 
-- **Claude-1**: System Architect (Temperature 0.3)
-- **Claude-2**: Code Reviewer (Temperature 0.1)
-- **Aider-1**: Main Developer (Temperature 0.5)
-- **Aider-2**: Parallel Dev (Temperature 0.5)
+| Agent | Tool | Provider | Model | Focus |
+|-------|------|----------|-------|-------|
+| **Claude-1** | Aider | OpenRouter | Claude 3.5 Sonnet | System Architecture |
+| **Claude-2** | CCC/Claude Code | Anthropic | Claude 3.5 Sonnet | Development + CCC Testing |
+| **Aider-1** | Aider | OpenRouter | DeepSeek Coder | Core Implementation |
+| **Aider-2** | Aider | PublicAI | Apertus v1 | Privacy-First Testing |
 
-## 📊 Warum CC?
+## 💡 Warum Hybrid statt 100% FOSS?
 
-### Probleme die wir lösen
-- Kontext-Verlust bei jeder neuen Session
-- Isolierte KI-Agenten ohne Koordination
-- Wiederholte Erklärungen und Setup
-- Fehlende Persistenz
+### 🎯 Pragmatismus über Purismus
+- **Tool Comparison**: Direkter Vergleich Aider vs CCC
+- **Risk Mitigation**: Bewährte Workflows als Fallback
+- **Real-World Testing**: Claude-2 testet unseren eigenen CCC Commander
+- **KAIZEN Evolution**: Datenbasierte Entscheidungen statt ideologische
 
-### Unsere Lösung
-- Persistenter Kontext durch CONTEXT.md
-- Multi-Agent Orchestrierung
-- 10x Produktivität durch Parallelisierung
-- Reproducible Builds trotz KI
+### 🔄 Evolution Path
+1. **Phase 1**: Hybrid Setup (aktuell)
+2. **Phase 2**: Performance-Daten sammeln (3 Monate)
+3. **Phase 3**: Optimierung basierend auf Erfahrung (6 Monate)
+
+### 💰 Cost & Flexibility Benefits
+
+| Metrik | Rein Proprietär | CC Hybrid | Potential FOSS |
+|--------|-----------------|-----------|----------------|
+| Monatliche Kosten | $150 | $80 | $40 |
+| Provider-Optionen | 1 | 300+ | 300+ |
+| Privacy Control | ❌ | ✅ | ✅ |
+| Tool Transparency | 25% | 75% | 100% |
+
+## 🔒 Privacy-First Options
+
+- **Standard**: OpenRouter für Performance und Modell-Vielfalt
+- **Privacy**: PublicAI/Apertus für DSGVO-Compliance (Schweizer Server)
+- **Self-Hosted**: Ollama für vollständige Kontrolle
+- **Hybrid**: Mix je nach Sensitivität der Daten
 
 ## 📚 Documentation
 
-- [4-Agent Setup Guide](/quickstart/4-agent-setup/)
-- [Orchestra Pattern](/patterns/orchestra/)
+- [Hybrid Multi-Provider Setup Guide](/guides/multi-provider-setup/)
+- [Migration von Claude Code](/guides/migration-from-claude-code/)
+- [Tmux Hybrid Workflows](/agents/tmux-workflows/)
+- [Orchestra Pattern (Hybrid)](/patterns/orchestra/)
 - [Case Studies](/case-studies/)
-- [CCC Tool Reference](https://github.com/collective-context/ccc)
 
 ## 💬 Community
 
 - [GitHub Discussions](https://github.com/collective-context/ccc/discussions)
 - Discourse Forum: Coming soon auf [NexusLibre.DE](https://NexusLibre.DE)
 
-## 🤝 Philosophie
+## 🤝 Pragmatische Philosophie
 
-> "Gemeinsam statt einsam - Aufbau einer echten Schwarmintelligenz zum Wohle ALLER"
+> "Perfect is the enemy of good" - Wir wählen Tools die funktionieren, nicht die ideologisch reinen.
 
-- **Ubuntu meets Ubuntu**: Open Source als Lebensweise
-- **Kaizen**: Kontinuierliche Verbesserung
-- **Crew Resource Management**: Zusammenarbeit auf Augenhöhe
+### KAIZEN-Prinzip in Action
+- **Evolution > Revolution**: Schrittweise Verbesserung
+- **Data > Ideology**: Entscheidungen basierend auf Messungen
+- **Pragmatism > Purism**: Was funktioniert gewinnt
+- **Learning > Dogma**: Kontinuierliche Anpassung
+
+### Unsere Hybrid-Evolution
+1. **September 2025**: Pragmatischer Hybrid-Ansatz
+2. **Multi-Provider**: 300+ Modelle verfügbar
+3. **Privacy-First**: Europäische Datenschutz-Optionen
+4. **Cost-Efficient**: 40-70% Kosteneinsparung je nach Strategy
 
 ---
 
-[Get Started with CCC →](https://github.com/collective-context/ccc)
+[Get Started with Hybrid CC →](https://github.com/collective-context/ccc)

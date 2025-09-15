@@ -1,45 +1,67 @@
 ---
-title: Multi-Agent System Übersicht
-description: Das Collective Context 4-Agent System im Detail
+title: Agent Roles & Configuration
+description: Hybrid Multi-Provider Architektur im CC Workflow
 ---
 
-# Multi-Agent System Übersicht
+# Agent Roles im Collective Context
 
-Das Collective Context System orchestriert spezialisierte KI-Agenten für maximale Produktivität.
+## 🔄 Pragmatischer Hybrid-Ansatz: Evolution statt Revolution
 
-## Die 4 Kern-Agenten
+Nach dem KAIZEN-Prinzip führen wir eine **schrittweise Migration** durch, die es uns ermöglicht, aus der Praxis zu lernen und Tools zu vergleichen:
 
-### 🏗️ Claude-1: System Architect
-- **Rolle**: High-Level Design und Architektur-Entscheidungen
-- **Temperature**: 0.3 (präzise, konsistent)
-- **Fokus**: System-Design, ADRs, Technologie-Stack
+- **Claude-1**: Migriert zu Aider (FOSS)
+- **Claude-2**: Behält Claude Code/CCC für Testing und Vergleiche
+- **Aider-1/2**: Bleiben bei Aider als FOSS-Agents
 
-### 🔍 Claude-2: Code Reviewer
-- **Rolle**: Qualitätssicherung und Best Practices
-- **Temperature**: 0.1 (strikt, regelbasiert)
-- **Fokus**: Code Reviews, Security, Performance
+## 📊 Agent-Konfiguration im CC Workflow
 
-### 💻 Aider-1: Main Developer
-- **Rolle**: Haupt-Implementation
-- **Temperature**: 0.5 (kreativ, aber fokussiert)
-- **Fokus**: Feature-Entwicklung, Core-Funktionalität
+| Agent | Tool | Provider | Model | Temperature | Focus |
+|-------|------|----------|-------|-------------|-------|
+| **Claude-1** | Aider | OpenRouter | Claude 3.5 Sonnet | 0.3 | System Architecture, Design Decisions |
+| **Claude-2** | Claude Code/CCC | Anthropic | Claude 3.5 Sonnet | 0.1 | Development, Documentation, CCC Testing |
+| **Aider-1** | Aider | OpenRouter | DeepSeek Coder | 0.5 | Implementation, Features |
+| **Aider-2** | Aider | PublicAI | Apertus v1 | 0.5 | Tests, Refactoring, Privacy Compliance |
 
-### 🔧 Aider-2: Parallel Developer
-- **Rolle**: Tests, Docs, Refactoring
-- **Temperature**: 0.5 (adaptiv)
-- **Fokus**: Testing, Dokumentation, Code-Optimierung
+## 🌟 Browser-Orchestrator
 
-## Workflow Integration
+**Claude-Max** (Browser Chat) fungiert als Meta-Orchestrator:
+- Erstellt strukturierte Arbeitspakete
+- Koordiniert die 4 Terminal-Agenten
+- Persistiert Wissen über Sessions hinweg
+- Temperature: 0.5
 
-Das System arbeitet nach dem **Orchestra Pattern**: Ein Dirigent (User/Claude-1) koordiniert spezialisierte Musiker (Agenten) für harmonische Ergebnisse.
+## 💡 Warum diese Hybrid-Lösung?
 
-```
-User Input → Claude-1 (Design) → Aider-1/2 (Implementation) → Claude-2 (Review) → Quality Output
-```
+### 1. **Pragmatismus**: Schrittweise Migration ermöglicht Vergleiche
+- Direkter Performance-Vergleich zwischen Aider und Claude Code
+- Reduziertes Risiko durch schrittweise Umstellung
+- Best-of-both-worlds Ansatz
 
-## Success Metrics
+### 2. **Testing**: Claude-2 testet unseren CCC Commander in der Praxis
+- Real-world Testing des eigenen CCC Tools
+- Dogfooding: Wir nutzen was wir entwickeln
+- Baseline für Performance-Messungen
 
-- **10x Development Speed**
-- **89% Test Coverage**
-- **48h Time to MVP**
-- **$112 API Costs per Project**
+### 3. **KAIZEN**: Lernen aus der Praxis, kontinuierliche Verbesserung
+- Datenbasierte Entscheidungen statt ideologische
+- Iterative Optimierung basierend auf Erfahrung
+- Flexibilität für Anpassungen
+
+### 4. **Flexibilität**: Beide Tool-Welten verfügbar
+- FOSS-Option für Privacy-kritische Tasks
+- Proprietäre Option als Fallback
+- Multi-Provider für maximale Resilience
+
+## 🌐 Unprecedented Flexibility
+
+Mit OpenRouter haben alle Agents Zugang zu **300+ Modellen**:
+- **Cloud**: Claude, GPT-4, Gemini, Mistral, Llama, DeepSeek...
+- **Local**: Eigene Modelle via Ollama, vLLM, LocalAI
+- **Hybrid**: Mix aus Cloud und Self-Hosted je nach Anforderung
+
+## 🔒 Privacy & Compliance Options
+
+- **Standard**: OpenRouter für Performance und Vielfalt
+- **Privacy-First**: PublicAI/Apertus für DSGVO-Compliance
+- **Self-Hosted**: Ollama für vollständige Kontrolle
+- **Hybrid**: Mix je nach Sensitivität der Daten
