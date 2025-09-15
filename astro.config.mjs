@@ -70,6 +70,7 @@ export default defineConfig({
           items: [
             { label: 'Übersicht', link: '/case-studies/' },
             { label: '#001: Website Launch', link: '/case-studies/001-website-launch' },
+            { label: '#002: Open Source Migration', link: '/case-studies/002-open-source-migration' },
           ],
         },
         {
