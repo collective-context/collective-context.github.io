@@ -5,7 +5,8 @@ description: Pragmatische Multi-Agent KI-Orchestrierung
 
 # Collective Context: Sichere Multi-Agent Orchestrierung
 
-**🔒 Security Update**: Version 0.2.0 mit wichtigen Sicherheits-Verbesserungen verfügbar. [Details →](/security/notice)
+## **🔒 Security Update**
+Version 0.2.0 mit wichtigen Sicherheits-Verbesserungen verfügbar. [Details →](/security/notice)
 
 > Die Stärke der Innovation ist wie ein Kunstwerk; sie wird lebendig, wenn visionäre Ideen und neuartige Werkzeuge zusammenfließen. An alle Entwickler dieser Welt: Lasst uns gemeinsam zu neuen Ufern aufbrechen. 🚀
 
