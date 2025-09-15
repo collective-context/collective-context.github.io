@@ -1,101 +1,115 @@
 ---
-title: Collective Context System
+title: Collective Context
 description: Multi-Agent KI-Orchestrierung für 10x Produktivität
 template: splash
 hero:
-  tagline: Orchestriere 4 KI-Agenten parallel in tmux. Claude-1 & Claude-2 arbeiten mit Aider-1 & Aider-2. Die Zukunft der Software-Entwicklung ist JETZT.
+  tagline: Revolutioniere deine Entwicklung mit Multi-Agent KI-Orchestrierung
+  image:
+    file: ../../assets/houston.webp
   actions:
-    - text: 4-Agent Setup starten →
-      link: /quickstart/4-agent-setup/
+    - text: CCC Commander installieren
+      link: https://github.com/collective-context/ccc
+      icon: right-arrow
       variant: primary
-    - text: Tmux Workflows
-      link: /agents/tmux-workflows/
+    - text: Documentation
+      link: /quickstart/4-agent-setup/
+      icon: book
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+# 🚀 Collective Context (CC)
 
-## 🎯 Der CC Standard: Multi-Instanz KI-Orchestrierung
+## Die Evolution der Software-Entwicklung
 
-**4 parallele KI-Agenten in tmux** - keine Theorie, sondern battle-tested Praxis.
+**Collective Context** löst das fundamentale Problem der KI-unterstützten Entwicklung: **Kontext-Amnesie**.
+
+Statt jeden Tag bei Null zu beginnen, erschaffen wir einen persistenten, gemeinsamen Wissensraum für die Zusammenarbeit zwischen Menschen und KI-Systemen.
+
+## 🎭 Das Orchestra Pattern
 
 ```
-┌─────────────────┬─────────────────┐
-│   Claude-1      │   Claude-2      │
-│   (Architect)   │   (Reviewer)    │
-├─────────────────┼─────────────────┤
-│   Aider-1       │   Aider-2       │
-│   (Main Dev)    │   (Parallel)    │
-└─────────────────┴─────────────────┘
+        User (Dirigent)
+            ↓
+    ┌───────┴───────┐
+    ↓               ↓
+Claude-1        Claude-2
+    ↓               ↓
+    └───────┬───────┘
+            ↓
+      Aider-1/2
 ```
 
-<CardGrid stagger>
-  <Card title="Parallele Execution" icon="rocket">
-    **Claude-1** designt während **Claude-2** reviewt. **Aider-1** implementiert während **Aider-2** Tests schreibt.
-  </Card>
-  
-  <Card title="10x Produktivität" icon="seti:config">
-    48h MVP mit 25.000 Zeilen Code. 89% Test Coverage. $112 API Kosten. Dokumentierte Erfolge.
-  </Card>
-  
-  <Card title="Tmux Integration" icon="laptop">
-    Alle Agenten in einem Terminal. Volle Kontrolle. Native Workflows. Kein Browser-Tab-Chaos.
-  </Card>
-  
-  <Card title="Battle-Tested" icon="approve-check">
-    Entwickelt in realen Projekten. Optimiert für Effizienz. Produktionsreif.
-  </Card>
-</CardGrid>
+### Die 4 Kern-Agenten
 
-## 🚀 Quick Start in 5 Minuten
+| Agent | Rolle | Temperature | Fokus |
+|-------|-------|------------|-------|
+| **Claude-1** | System Architect | 0.3 | Design, Architecture, ADRs |
+| **Claude-2** | Code Reviewer | 0.1 | Quality, Security, Best Practices |
+| **Aider-1** | Main Developer | 0.5 | Implementation, Features |
+| **Aider-2** | Parallel Dev | 0.5 | Tests, Refactoring, Docs |
+
+## 🔧 CCC Commander
+
+Das Herzstück des CC Systems - professionelle Multi-Agent Orchestrierung:
 
 ```bash
-# 1. Install CCC
-pip install ccc
+# Installation
+git clone https://github.com/collective-context/ccc.git
+cd ccc
+chmod +x ccc
+sudo ln -sf "$(pwd)/ccc" /usr/local/bin/ccc
 
-# 2. Setup tmux layout
-ccc tmux init --agents 4
-
-# 3. Start orchestration
-ccc orchestrate --start all
-
-# 4. Sync context
-ccc context init "Your project"
+# Erste Schritte
+ccc help
+ccc context
+ccc ses sta cl1
 ```
 
-[Vollständige Anleitung →](/quickstart/4-agent-setup/)
+### Features
 
-## 📊 Real-World Resultate
+- ✅ **Inter-Agent Communication**: Nachrichten zwischen allen Agenten
+- ✅ **Broadcast Messages**: Synchronisiere alle Agenten gleichzeitig
+- ✅ **Session Management**: Speichere und lade Arbeitsstände
+- ✅ **Context Sharing**: Gemeinsamer Wissensraum
+- ✅ **Alias Support**: Schnelle Commands (cl1, cl2, ai1, ai2)
 
-| Metric | Traditional | CC Multi-Agent | Improvement |
-|--------|------------|----------------|-------------|
-| Development Speed | 1x | 10x | **900%** |
-| Test Coverage | 40% | 89% | **122%** |
-| Time to MVP | 3-4 weeks | 48 hours | **10-14x** |
-| Team Size Required | 4-5 devs | 1 orchestrator | **80% reduction** |
+## 📊 Warum CC?
 
-## 🎮 Orchestration Patterns
+### Probleme die wir lösen
 
-### Sequential Pipeline
-```
-Claude-1 → Aider-1 → Claude-2 → Aider-2 → Production
-```
+- 🔴 **Kontext-Verlust**: Jede KI-Session startet bei Null
+- 🔴 **Isolation**: KI-Agenten arbeiten in Silos
+- 🔴 **Ineffizienz**: Wiederholte Erklärungen und Setup
+- 🔴 **Chaos**: Keine Koordination zwischen Agenten
 
-### Parallel Swarm  
-```
-[Claude-1 + Claude-2] ⟷ [Aider-1 + Aider-2]
-```
+### Unsere Lösung
 
-### Review Cycle
-```
-Claude-1 ⟷ Claude-2 (Design Review)
-Aider-1 ⟷ Aider-2 (Code Review)
-```
+- ✅ **Persistenter Kontext**: CONTEXT.md als Single Source of Truth
+- ✅ **Multi-Agent Orchestrierung**: Koordinierte Zusammenarbeit
+- ✅ **10x Produktivität**: Durch Parallelisierung und Spezialisierung
+- ✅ **Reproducible Builds**: Deterministischer Output trotz KI
+
+## 🎯 Quick Start
+
+1. **[4-Agent Setup Guide](/quickstart/4-agent-setup/)** - In 5 Minuten einsatzbereit
+2. **[CCC Installation](https://github.com/collective-context/ccc)** - Commander Tool Setup
+3. **[Orchestra Pattern](/patterns/orchestra/)** - Verstehe die Architektur
+4. **[Case Studies](/case-studies/)** - Erfolgsgeschichten aus der Praxis
 
 ## 💬 Community
 
 - **GitHub Discussions**: [Diskutiere mit uns](https://github.com/collective-context/ccc/discussions)
 - **Discourse Forum**: Coming soon auf [NexusLibre.DE](https://NexusLibre.DE)
+- **GitHub**: [collective-context](https://github.com/collective-context)
 
----
+## 📈 Projekt Status
 
-Built with ❤️ by [recode@ /DAO](https://github.com/recodeat) | [Discord](https://discord.gg/collective-context) | [GitHub](https://github.com/collective-context)
+- 🚀 **CCC v1.0** - Production Ready
+- 📚 **Documentation** - Live auf collective-context.org
+- 🎯 **Active Development** - Daily Updates
+- 👥 **Community** - Wachsend!
+
+## 🤝 Philosophie
+
+> "Gemeinsam statt einsam - Aufbau einer symbiotischen Mensch-KI Kollaboration"
+
+Collective Context ist mehr als ein Tool - es ist ein neues Paradigma für die Zukunft der Software-Entwicklung.
