@@ -7,7 +7,7 @@ description: Konfiguration von OpenRouter und PublicAI für CC
 
 ## 🚀 Quick Start
 
-### OpenRouter (200+ Modelle)
+### OpenRouter (300+ Modelle)
 
 1. Account erstellen auf [openrouter.ai](https://openrouter.ai)
 2. API Key generieren
