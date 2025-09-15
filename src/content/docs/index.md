@@ -1,100 +1,113 @@
 ---
 title: Collective Context
-description: 100% Open Source Multi-Agent KI-Orchestrierung
+description: Pragmatische Multi-Agent KI-Orchestrierung
 ---
 
-# Collective Context: 100% Open Source Multi-Agent Orchestrierung
+# Collective Context: Pragmatische Multi-Agent Orchestrierung
 
-**NEU**: Vollständige Migration zu Open Source Tools!
-- ✅ Aider statt proprietärer Lösungen
-- ✅ Multi-Provider Support (OpenRouter, PublicAI)
-- ✅ Schweizer Datenschutz-Option mit Apertus
+**Evolution statt Revolution**: Hybrid-Ansatz mit FOSS + Selected Proprietary Tools
 
-## 🎯 Unsere Prinzipien
+- ✅ Zugang zu **300+ KI-Modellen** über OpenRouter (Cloud & Self-Hosted)
+- ✅ Hauptsächlich Open Source (3 von 4 Agents nutzen Aider)
+- ✅ Claude-2 testet unseren CCC Commander
+- ✅ Multi-Provider Support (OpenRouter, PublicAI, Anthropic)
+- ✅ Self-Hosting Option für 100% Privacy
+- ✅ KAIZEN: Lernen aus der Praxis
 
-> "Freie Software darf ohne Vertraulichkeitsvereinbarungen von allen untersucht, verstanden und verbessert werden."
+## 🌐 Unprecedented Flexibility
 
-Das CC Projekt nutzt ausschließlich Tools, die diesen Prinzipien entsprechen.
+Mit OpenRouter können alle Agents aus über 300 Modellen wählen:
+- **Cloud**: Claude, GPT-4, Gemini, Mistral, Llama, DeepSeek...
+- **Local**: Eigene Modelle via Ollama, vLLM, LocalAI
+- **Hybrid**: Mix aus Cloud und Self-Hosted je nach Anforderung
 
 ## 🚀 Quick Start
 
-### Multi-Provider Setup (NEU)
+### Hybrid Multi-Provider Setup
 
 ```bash
-# Aider Installation (100% Open Source)
+# Aider Installation (für Claude-1, Aider-1, Aider-2)
 pip install aider-chat[voice]
 
-# OpenRouter (200+ Modelle)
+# OpenRouter (300+ Modelle)
 export OPENROUTER_API_KEY='sk-or-v1-...'
 
 # PublicAI (Schweizer Datenschutz)
 export PUBLICAI_API_KEY='pub-...'
+
+# CCC Commander (für Claude-2)
+git clone https://github.com/collective-context/ccc.git
 ```
 
-## 🎭 Das neue Orchestra Pattern
+## 🎭 Das Hybrid Orchestra Pattern
 
-4 spezialisierte Aider-Instanzen mit Multi-Provider Flexibilität:
+4 spezialisierte Agents mit pragmatischer Tool-Auswahl:
 
 | Agent | Tool | Provider | Model | Focus |
 |-------|------|----------|-------|-------|
-| **Aider-1** | Aider | OpenRouter | Claude 3.5 Sonnet | System Architecture |
-| **Aider-2** | Aider | PublicAI | Apertus v1 | Privacy-First Reviews |
-| **Aider-3** | Aider | OpenRouter | DeepSeek Coder | Core Implementation |
-| **Aider-4** | Aider | OpenRouter | Mixtral 8x22B | Tests & Documentation |
+| **Claude-1** | Aider | OpenRouter | Claude 3.5 Sonnet | System Architecture |
+| **Claude-2** | CCC/Claude Code | Anthropic | Claude 3.5 Sonnet | Development + CCC Testing |
+| **Aider-1** | Aider | OpenRouter | DeepSeek Coder | Core Implementation |
+| **Aider-2** | Aider | PublicAI | Apertus v1 | Privacy-First Testing |
 
-## 💡 Multi-Provider Vorteile
+## 💡 Warum Hybrid statt 100% FOSS?
 
-### 🚀 Flexibilität
-- **200+ Modelle** verfügbar
-- **Provider-Switching** je nach Task
-- **Keine Vendor Lock-in**
+### 🎯 Pragmatismus über Purismus
+- **Tool Comparison**: Direkter Vergleich Aider vs CCC
+- **Risk Mitigation**: Bewährte Workflows als Fallback
+- **Real-World Testing**: Claude-2 testet unseren eigenen CCC Commander
+- **KAIZEN Evolution**: Datenbasierte Entscheidungen statt ideologische
 
-### 💰 Kosten-Optimierung
-- **90% Ersparnis** durch intelligente Model-Auswahl
-- **Budget-Optionen**: Mixtral für einfache Tasks
-- **Premium on Demand**: Claude 3.5 nur bei Bedarf
+### 🔄 Evolution Path
+1. **Phase 1**: Hybrid Setup (aktuell)
+2. **Phase 2**: Performance-Daten sammeln (3 Monate)
+3. **Phase 3**: Optimierung basierend auf Erfahrung (6 Monate)
 
-### 🔒 Privacy-First
-- **Schweizer Server** mit Apertus (PublicAI)
-- **DSGVO-Compliance** garantiert
-- **Keine US-Abhängigkeit** für sensitive Projekte
+### 💰 Cost & Flexibility Benefits
 
-## 📊 Erfolgreiche Migration
+| Metrik | Rein Proprietär | CC Hybrid | Potential FOSS |
+|--------|-----------------|-----------|----------------|
+| Monatliche Kosten | $150 | $80 | $40 |
+| Provider-Optionen | 1 | 300+ | 300+ |
+| Privacy Control | ❌ | ✅ | ✅ |
+| Tool Transparency | 25% | 75% | 100% |
 
-| Metrik | Vorher (Proprietär) | Nachher (Open Source) |
-|--------|---------------------|------------------------|
-| Tool-Transparenz | 50% | **100%** |
-| Monatliche Kosten | $150 | **$60** |
-| Provider-Optionen | 1 | **200+** |
-| Datenschutz | ❌ | **✅** |
+## 🔒 Privacy-First Options
+
+- **Standard**: OpenRouter für Performance und Modell-Vielfalt
+- **Privacy**: PublicAI/Apertus für DSGVO-Compliance (Schweizer Server)
+- **Self-Hosted**: Ollama für vollständige Kontrolle
+- **Hybrid**: Mix je nach Sensitivität der Daten
 
 ## 📚 Documentation
 
-- [Multi-Provider Setup Guide](/guides/multi-provider-setup/)
+- [Hybrid Multi-Provider Setup Guide](/guides/multi-provider-setup/)
 - [Migration von Claude Code](/guides/migration-from-claude-code/)
-- [Orchestra Pattern (Updated)](/patterns/orchestra/)
-- [Case Study: Open Source Migration](/case-studies/002-open-source-migration/)
+- [Tmux Hybrid Workflows](/agents/tmux-workflows/)
+- [Orchestra Pattern (Hybrid)](/patterns/orchestra/)
+- [Case Studies](/case-studies/)
 
 ## 💬 Community
 
 - [GitHub Discussions](https://github.com/collective-context/ccc/discussions)
 - Discourse Forum: Coming soon auf [NexusLibre.DE](https://NexusLibre.DE)
 
-## 🤝 Open Source Philosophie
+## 🤝 Pragmatische Philosophie
 
-> "Gemeinsam statt einsam - Aufbau einer echten Schwarmintelligenz zum Wohle ALLER"
+> "Perfect is the enemy of good" - Wir wählen Tools die funktionieren, nicht die ideologisch reinen.
 
-### Ubuntu meets Ubuntu
-- **Open Source als Lebensweise**: Transparenz in allen Tools
-- **Community-Driven**: Kollektive Intelligenz statt Corporate Control
-- **Freedom**: Keine Abhängigkeit von proprietären Lösungen
+### KAIZEN-Prinzip in Action
+- **Evolution > Revolution**: Schrittweise Verbesserung
+- **Data > Ideology**: Entscheidungen basierend auf Messungen
+- **Pragmatism > Purism**: Was funktioniert gewinnt
+- **Learning > Dogma**: Kontinuierliche Anpassung
 
-### Unsere Evolution
-1. **September 2025**: Migration zu 100% Open Source
-2. **Multi-Provider**: Freiheit der Provider-Wahl
+### Unsere Hybrid-Evolution
+1. **September 2025**: Pragmatischer Hybrid-Ansatz
+2. **Multi-Provider**: 300+ Modelle verfügbar
 3. **Privacy-First**: Europäische Datenschutz-Optionen
-4. **Cost-Efficient**: 90% Kosteneinsparung möglich
+4. **Cost-Efficient**: 40-70% Kosteneinsparung je nach Strategy
 
 ---
 
-[Get Started with Open Source CC →](https://github.com/collective-context/ccc)
+[Get Started with Hybrid CC →](https://github.com/collective-context/ccc)

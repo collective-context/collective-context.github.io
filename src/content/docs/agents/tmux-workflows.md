@@ -1,6 +1,6 @@
 ---
 title: Tmux Workflow Setup
-description: Multi-Terminal Orchestrierung mit Aider Multi-Provider
+description: Hybrid Multi-Provider Terminal Orchestrierung
 ---
 
 # Tmux Workflow Setup
@@ -9,55 +9,55 @@ description: Multi-Terminal Orchestrierung mit Aider Multi-Provider
 
 ```bash
 # Neue tmux Session starten
-tmux new -s cc-work
+tmux new -s cc-hybrid
 
 # 4 Panes erstellen
 Ctrl+b %  # Vertikal teilen
 Ctrl+b "  # Horizontal teilen
 ```
 
-## Terminal Layout (NEU)
+## Terminal Layout (Hybrid Setup)
 
 ```
 ┌─────────────┬─────────────┐
-│  Aider-1    │  Aider-2    │
-│  Architect  │  Reviewer   │
-│  (Claude)   │  (Apertus)  │
+│  Claude-1   │  Claude-2   │
+│  (Aider)    │  (CCC/Code) │
+│  Architect  │  Dev + Docs │
 ├─────────────┼─────────────┤
-│  Aider-3    │  Aider-4    │
+│  Aider-1    │  Aider-2    │
 │  Main Dev   │  Parallel   │
-│  (DeepSeek) │  (Mixtral)  │
+│  (DeepSeek) │  (Apertus)  │
 └─────────────┴─────────────┘
 ```
 
 Browser: Claude-Max (Meta-Orchestrator)
 
-## Multi-Provider Workspace
+## Hybrid Multi-Provider Workspace
 
-### Pane 0 - Aider-1 (System Architect)
+### Pane 0 - Claude-1 (System Architect - FOSS Migration)
 ```bash
-# Claude 3.5 Sonnet via OpenRouter - höchste Qualität für Architecture
+# Claude-1 nutzt Aider mit Claude 3.5 via OpenRouter
 export OPENROUTER_API_KEY='sk-or-v1-...'
-aider --model openrouter/anthropic/claude-3.5-sonnet --architect
+aider --model openrouter/anthropic/claude-3.5-sonnet --temperature 0.3 --architect
 ```
 
-### Pane 1 - Aider-2 (Privacy-First Reviewer)
+### Pane 1 - Claude-2 (Dev + Docs - CCC Testing)
 ```bash
-# Apertus via PublicAI - Schweizer Datenschutz für Reviews
+# Claude-2 nutzt Claude Code/CCC für Testing und Baseline
+ccc ses sta cl2  # oder: claude-code
+```
+
+### Pane 2 - Aider-1 (Main Implementation - FOSS)
+```bash
+# Aider-1 mit DeepSeek Coder für Cost-Efficient Development
+aider --model openrouter/deepseek/deepseek-coder --temperature 0.5 --auto-commits --yes
+```
+
+### Pane 3 - Aider-2 (Privacy-First Testing - FOSS)
+```bash
+# Aider-2 mit Apertus für DSGVO-compliant Testing
 export PUBLICAI_API_KEY='pub-...'
-aider --model publicai/apertus-v1 --api-base https://api.publicai.co/v1 --review
-```
-
-### Pane 2 - Aider-3 (Main Implementation)
-```bash
-# DeepSeek Coder via OpenRouter - beste Code-Qualität für Hauptarbeit
-aider --model openrouter/deepseek/deepseek-coder --auto-commits --yes
-```
-
-### Pane 3 - Aider-4 (Tests & Docs)
-```bash
-# Mixtral via OpenRouter - kosteneffizient für Tests und Dokumentation
-aider --model openrouter/mistralai/mixtral-8x22b --test-cmd=pytest --yes
+aider --model publicai/apertus-v1 --api-base https://api.publicai.co/v1 --temperature 0.5 --test-cmd=pytest
 ```
 
 ## Navigation Commands
@@ -67,26 +67,33 @@ aider --model openrouter/mistralai/mixtral-8x22b --test-cmd=pytest --yes
 | `Ctrl+b →/←/↑/↓` | Navigate panes |
 | `Ctrl+b z` | Zoom pane |
 | `Ctrl+b d` | Detach session |
-| `tmux attach -t cc-work` | Reattach |
+| `tmux attach -t cc-hybrid` | Reattach |
 
-## Multi-Provider Setup Script
+## Hybrid Setup Script
 
-Save as `cc-multi-provider-setup.sh`:
+Save as `cc-hybrid-setup.sh`:
 
 ```bash
 #!/bin/bash
 
-# Multi-Provider CC Session Setup
-SESSION="cc-multi-provider"
+# CC Hybrid Session Setup
+SESSION="cc-hybrid"
 
 # Überprüfe API Keys
 if [[ -z "$OPENROUTER_API_KEY" ]]; then
-    echo "❌ OPENROUTER_API_KEY not set"
+    echo "❌ OPENROUTER_API_KEY not set (für Claude-1 & Aider-1)"
     exit 1
 fi
 
 if [[ -z "$PUBLICAI_API_KEY" ]]; then
-    echo "❌ PUBLICAI_API_KEY not set"
+    echo "❌ PUBLICAI_API_KEY not set (für Aider-2)"
+    exit 1
+fi
+
+# Überprüfe CCC Installation
+if ! command -v ccc &> /dev/null; then
+    echo "❌ CCC not installed (für Claude-2)"
+    echo "Install: https://github.com/collective-context/ccc"
     exit 1
 fi
 
@@ -99,34 +106,72 @@ tmux split-window -v
 tmux select-pane -t 0
 tmux split-window -v
 
-# Aider-1: Architecture (Claude 3.5)
-tmux send-keys -t 0 'aider --model openrouter/anthropic/claude-3.5-sonnet' C-m
+# Claude-1: Architecture mit Aider (FOSS)
+tmux send-keys -t 0 'aider --model openrouter/anthropic/claude-3.5-sonnet --temperature 0.3' C-m
 
-# Aider-2: Privacy Review (Apertus)
-tmux send-keys -t 1 'aider --model publicai/apertus-v1 --api-base https://api.publicai.co/v1' C-m
+# Claude-2: Development mit CCC (Testing)
+tmux send-keys -t 1 'ccc ses sta cl2' C-m
 
-# Aider-3: Main Dev (DeepSeek)
-tmux send-keys -t 2 'aider --model openrouter/deepseek/deepseek-coder --auto-commits' C-m
+# Aider-1: Main Dev mit DeepSeek (Cost-Efficient)
+tmux send-keys -t 2 'aider --model openrouter/deepseek/deepseek-coder --temperature 0.5 --auto-commits' C-m
 
-# Aider-4: Tests (Mixtral)
-tmux send-keys -t 3 'aider --model openrouter/mistralai/mixtral-8x22b --test-cmd=pytest' C-m
+# Aider-2: Privacy Testing mit Apertus (DSGVO)
+tmux send-keys -t 3 'aider --model publicai/apertus-v1 --api-base https://api.publicai.co/v1 --temperature 0.5' C-m
 
 # Attach zur Session
 tmux attach-session -t $SESSION
 ```
 
-## Cost Optimization Tips
+## Hybrid Strategy Benefits
 
-1. **Development Phase**: Nutze günstige Modelle (Mixtral, GPT-3.5)
-2. **Critical Reviews**: Upgrade zu Claude 3.5 Sonnet
-3. **Privacy Projects**: Ausschließlich Apertus
-4. **Budget Monitoring**: Setze Provider-Limits
+### 1. **Tool Comparison**
+- **Claude-1 (Aider)** vs **Claude-2 (CCC)** Performance-Vergleich
+- Direktes Feedback welches Tool für welche Tasks optimal ist
+- Datenbasierte Entscheidungen für zukünftige Migrations-Schritte
 
-## Provider-Switching Commands
+### 2. **CCC Real-World Testing**
+- Claude-2 nutzt unser eigenes CCC Tool in der täglichen Arbeit
+- Dogfooding: Wir entwickeln und nutzen gleichzeitig
+- Sofortiges Feedback für CCC Verbesserungen
+
+### 3. **Risk Mitigation**
+- Fallback-Option falls Aider-Probleme auftreten
+- Schrittweise Migration statt Big Bang
+- Bewährte Workflows bleiben verfügbar
+
+### 4. **Best of Both Worlds**
+- FOSS-Benefits: Transparenz, Community, Multi-Provider
+- Proprietär-Benefits: Stabilität, Integration, Support
+
+## Cost Optimization in Hybrid Mode
 
 ```bash
-# Quick provider switch aliases
-alias cc-premium="export AIDER_MODEL=openrouter/anthropic/claude-3.5-sonnet"
-alias cc-budget="export AIDER_MODEL=openrouter/mistralai/mixtral-8x7b"
-alias cc-privacy="export AIDER_MODEL=publicai/apertus-v1"
+# Budget-optimierte Aliases
+alias claude1-budget="aider --model openrouter/mistralai/mixtral-8x7b --temperature 0.3"
+alias aider1-budget="aider --model openrouter/openchat/openchat-7b --temperature 0.5"
+
+# Premium-Qualität für Critical Tasks
+alias claude1-premium="aider --model openrouter/anthropic/claude-3.5-sonnet --temperature 0.3"
+alias aider1-premium="aider --model openrouter/deepseek/deepseek-coder --temperature 0.5"
+
+# Privacy-First für sensitive Tasks
+alias aider2-privacy="aider --model publicai/apertus-v1 --api-base https://api.publicai.co/v1"
 ```
+
+## KAIZEN Evolution Path
+
+### Phase 1: Hybrid (Current)
+- Claude-1: Aider, Claude-2: CCC, Aider-1/2: Aider
+- Lernen und Vergleichen
+
+### Phase 2: Data-Driven Decision
+- Performance-Metriken sammeln
+- User Experience evaluieren
+- Cost-Benefit Analyse
+
+### Phase 3: Optimization
+- Best Tool für jeden Use Case
+- Möglicherweise vollständige FOSS-Migration
+- Oder optimierte Hybrid-Konfiguration
+
+*Evolution through Experience - Das ist der CC Way!*

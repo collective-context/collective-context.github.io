@@ -1,25 +1,26 @@
 ---
 title: Agent Roles & Configuration
-description: Die neue Multi-Provider Architektur im CC Workflow
+description: Hybrid Multi-Provider Architektur im CC Workflow
 ---
 
 # Agent Roles im Collective Context
 
-## 🔄 Paradigmenwechsel: Von Proprietary zu Open Source
+## 🔄 Pragmatischer Hybrid-Ansatz: Evolution statt Revolution
 
-Ab September 2025 nutzt das CC Projekt ausschließlich **Open Source Tools** für die Agent-Orchestrierung:
+Nach dem KAIZEN-Prinzip führen wir eine **schrittweise Migration** durch, die es uns ermöglicht, aus der Praxis zu lernen und Tools zu vergleichen:
 
-- **Früher**: Claude Code (proprietär) + Aider (FOSS)
-- **Neu**: Aider (FOSS) für ALLE Agenten mit Multi-Provider Support
+- **Claude-1**: Migriert zu Aider (FOSS)
+- **Claude-2**: Behält Claude Code/CCC für Testing und Vergleiche
+- **Aider-1/2**: Bleiben bei Aider als FOSS-Agents
 
-## 📊 Neue Rollenverteilung
+## 📊 Agent-Konfiguration im CC Workflow
 
 | Agent | Tool | Provider | Model | Temperature | Focus |
 |-------|------|----------|-------|-------------|-------|
-| **Aider-1** | Aider | OpenRouter | Claude 3.5 Sonnet | 0.3 | System Architecture, Design Decisions |
-| **Aider-2** | Aider | PublicAI | Apertus v1 | 0.1 | Code Review, Privacy Compliance |
-| **Aider-3** | Aider | OpenRouter | DeepSeek Coder | 0.5 | Implementation, Features |
-| **Aider-4** | Aider | OpenRouter | Mixtral 8x22B | 0.5 | Tests, Refactoring, Docs |
+| **Claude-1** | Aider | OpenRouter | Claude 3.5 Sonnet | 0.3 | System Architecture, Design Decisions |
+| **Claude-2** | Claude Code/CCC | Anthropic | Claude 3.5 Sonnet | 0.1 | Development, Documentation, CCC Testing |
+| **Aider-1** | Aider | OpenRouter | DeepSeek Coder | 0.5 | Implementation, Features |
+| **Aider-2** | Aider | PublicAI | Apertus v1 | 0.5 | Tests, Refactoring, Privacy Compliance |
 
 ## 🌟 Browser-Orchestrator
 
@@ -29,24 +30,38 @@ Ab September 2025 nutzt das CC Projekt ausschließlich **Open Source Tools** fü
 - Persistiert Wissen über Sessions hinweg
 - Temperature: 0.5
 
-## 💡 Multi-Provider Strategie
+## 💡 Warum diese Hybrid-Lösung?
 
-### Provider-Auswahl nach Use Case
+### 1. **Pragmatismus**: Schrittweise Migration ermöglicht Vergleiche
+- Direkter Performance-Vergleich zwischen Aider und Claude Code
+- Reduziertes Risiko durch schrittweise Umstellung
+- Best-of-both-worlds Ansatz
 
-**Production (Qualität)**:
-- Critical Reviews: Claude 3.5 Sonnet via OpenRouter
-- Privacy-sensitive: Apertus via PublicAI (Schweizer Server)
+### 2. **Testing**: Claude-2 testet unseren CCC Commander in der Praxis
+- Real-world Testing des eigenen CCC Tools
+- Dogfooding: Wir nutzen was wir entwickeln
+- Baseline für Performance-Messungen
 
-**Budget (Kosten-optimiert)**:
-- Simple Tasks: GPT-3.5 Turbo
-- General Coding: Mixtral (Open Source)
+### 3. **KAIZEN**: Lernen aus der Praxis, kontinuierliche Verbesserung
+- Datenbasierte Entscheidungen statt ideologische
+- Iterative Optimierung basierend auf Erfahrung
+- Flexibilität für Anpassungen
 
-**Privacy-First**:
-- Alle Tasks: Apertus oder lokale Modelle
+### 4. **Flexibilität**: Beide Tool-Welten verfügbar
+- FOSS-Option für Privacy-kritische Tasks
+- Proprietäre Option als Fallback
+- Multi-Provider für maximale Resilience
 
-### Warum Multi-Provider?
+## 🌐 Unprecedented Flexibility
 
-1. **Keine Vendor Lock-in**: Freiheit zwischen Providern zu wechseln
-2. **Kosten-Optimierung**: Günstige Modelle für einfache Tasks
-3. **Datenschutz**: Europäische Provider für sensitive Daten
-4. **Redundanz**: Fallback bei Provider-Ausfällen
+Mit OpenRouter haben alle Agents Zugang zu **300+ Modellen**:
+- **Cloud**: Claude, GPT-4, Gemini, Mistral, Llama, DeepSeek...
+- **Local**: Eigene Modelle via Ollama, vLLM, LocalAI
+- **Hybrid**: Mix aus Cloud und Self-Hosted je nach Anforderung
+
+## 🔒 Privacy & Compliance Options
+
+- **Standard**: OpenRouter für Performance und Vielfalt
+- **Privacy-First**: PublicAI/Apertus für DSGVO-Compliance
+- **Self-Hosted**: Ollama für vollständige Kontrolle
+- **Hybrid**: Mix je nach Sensitivität der Daten
