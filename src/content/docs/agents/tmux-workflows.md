@@ -1,6 +1,6 @@
 ---
 title: Tmux Workflow Setup
-description: Multi-Terminal Orchestrierung mit tmux
+description: Multi-Terminal Orchestrierung mit Aider Multi-Provider
 ---
 
 # Tmux Workflow Setup
@@ -16,42 +16,48 @@ Ctrl+b %  # Vertikal teilen
 Ctrl+b "  # Horizontal teilen
 ```
 
-## Optimales Layout
+## Terminal Layout (NEU)
 
 ```
 ┌─────────────┬─────────────┐
-│  Claude-1   │  Claude-2   │
-│  Architect  │  Reviewer   │
-├─────────────┼─────────────┤
 │  Aider-1    │  Aider-2    │
+│  Architect  │  Reviewer   │
+│  (Claude)   │  (Apertus)  │
+├─────────────┼─────────────┤
+│  Aider-3    │  Aider-4    │
 │  Main Dev   │  Parallel   │
+│  (DeepSeek) │  (Mixtral)  │
 └─────────────┴─────────────┘
 ```
 
-## Agent Configuration
+Browser: Claude-Max (Meta-Orchestrator)
 
-### Pane 0 - Claude-1 (Architect)
+## Multi-Provider Workspace
+
+### Pane 0 - Aider-1 (System Architect)
 ```bash
-# Start Claude-1 with architectural focus
-claude-1 --role=architect --temperature=0.3
+# Claude 3.5 Sonnet via OpenRouter - höchste Qualität für Architecture
+export OPENROUTER_API_KEY='sk-or-v1-...'
+aider --model openrouter/anthropic/claude-3.5-sonnet --architect
 ```
 
-### Pane 1 - Claude-2 (Reviewer)
+### Pane 1 - Aider-2 (Privacy-First Reviewer)
 ```bash
-# Start Claude-2 with strict review settings
-claude-2 --role=reviewer --temperature=0.1
+# Apertus via PublicAI - Schweizer Datenschutz für Reviews
+export PUBLICAI_API_KEY='pub-...'
+aider --model publicai/apertus-v1 --api-base https://api.publicai.co/v1 --review
 ```
 
-### Pane 2 - Aider-1 (Main Dev)
+### Pane 2 - Aider-3 (Main Implementation)
 ```bash
-# Primary development with auto-commits
-aider --model=gpt-4 --auto-commits --yes
+# DeepSeek Coder via OpenRouter - beste Code-Qualität für Hauptarbeit
+aider --model openrouter/deepseek/deepseek-coder --auto-commits --yes
 ```
 
-### Pane 3 - Aider-2 (Parallel Dev)
+### Pane 3 - Aider-4 (Tests & Docs)
 ```bash
-# Parallel development for tests and docs
-aider --model=gpt-4 --test-cmd=pytest --yes
+# Mixtral via OpenRouter - kosteneffizient für Tests und Dokumentation
+aider --model openrouter/mistralai/mixtral-8x22b --test-cmd=pytest --yes
 ```
 
 ## Navigation Commands
@@ -63,16 +69,64 @@ aider --model=gpt-4 --test-cmd=pytest --yes
 | `Ctrl+b d` | Detach session |
 | `tmux attach -t cc-work` | Reattach |
 
-## Automation Script
+## Multi-Provider Setup Script
 
-Save as `cc-setup.sh`:
+Save as `cc-multi-provider-setup.sh`:
 
 ```bash
 #!/bin/bash
-tmux new-session -d -s cc-work
+
+# Multi-Provider CC Session Setup
+SESSION="cc-multi-provider"
+
+# Überprüfe API Keys
+if [[ -z "$OPENROUTER_API_KEY" ]]; then
+    echo "❌ OPENROUTER_API_KEY not set"
+    exit 1
+fi
+
+if [[ -z "$PUBLICAI_API_KEY" ]]; then
+    echo "❌ PUBLICAI_API_KEY not set"
+    exit 1
+fi
+
+# Neue Session erstellen
+tmux new-session -d -s $SESSION
+
+# Panes einrichten
 tmux split-window -h
 tmux split-window -v
 tmux select-pane -t 0
 tmux split-window -v
-tmux attach-session -t cc-work
+
+# Aider-1: Architecture (Claude 3.5)
+tmux send-keys -t 0 'aider --model openrouter/anthropic/claude-3.5-sonnet' C-m
+
+# Aider-2: Privacy Review (Apertus)
+tmux send-keys -t 1 'aider --model publicai/apertus-v1 --api-base https://api.publicai.co/v1' C-m
+
+# Aider-3: Main Dev (DeepSeek)
+tmux send-keys -t 2 'aider --model openrouter/deepseek/deepseek-coder --auto-commits' C-m
+
+# Aider-4: Tests (Mixtral)
+tmux send-keys -t 3 'aider --model openrouter/mistralai/mixtral-8x22b --test-cmd=pytest' C-m
+
+# Attach zur Session
+tmux attach-session -t $SESSION
+```
+
+## Cost Optimization Tips
+
+1. **Development Phase**: Nutze günstige Modelle (Mixtral, GPT-3.5)
+2. **Critical Reviews**: Upgrade zu Claude 3.5 Sonnet
+3. **Privacy Projects**: Ausschließlich Apertus
+4. **Budget Monitoring**: Setze Provider-Limits
+
+## Provider-Switching Commands
+
+```bash
+# Quick provider switch aliases
+alias cc-premium="export AIDER_MODEL=openrouter/anthropic/claude-3.5-sonnet"
+alias cc-budget="export AIDER_MODEL=openrouter/mistralai/mixtral-8x7b"
+alias cc-privacy="export AIDER_MODEL=publicai/apertus-v1"
 ```

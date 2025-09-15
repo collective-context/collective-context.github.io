@@ -1,45 +1,52 @@
 ---
-title: Multi-Agent System Übersicht
-description: Das Collective Context 4-Agent System im Detail
+title: Agent Roles & Configuration
+description: Die neue Multi-Provider Architektur im CC Workflow
 ---
 
-# Multi-Agent System Übersicht
+# Agent Roles im Collective Context
 
-Das Collective Context System orchestriert spezialisierte KI-Agenten für maximale Produktivität.
+## 🔄 Paradigmenwechsel: Von Proprietary zu Open Source
 
-## Die 4 Kern-Agenten
+Ab September 2025 nutzt das CC Projekt ausschließlich **Open Source Tools** für die Agent-Orchestrierung:
 
-### 🏗️ Claude-1: System Architect
-- **Rolle**: High-Level Design und Architektur-Entscheidungen
-- **Temperature**: 0.3 (präzise, konsistent)
-- **Fokus**: System-Design, ADRs, Technologie-Stack
+- **Früher**: Claude Code (proprietär) + Aider (FOSS)
+- **Neu**: Aider (FOSS) für ALLE Agenten mit Multi-Provider Support
 
-### 🔍 Claude-2: Code Reviewer
-- **Rolle**: Qualitätssicherung und Best Practices
-- **Temperature**: 0.1 (strikt, regelbasiert)
-- **Fokus**: Code Reviews, Security, Performance
+## 📊 Neue Rollenverteilung
 
-### 💻 Aider-1: Main Developer
-- **Rolle**: Haupt-Implementation
-- **Temperature**: 0.5 (kreativ, aber fokussiert)
-- **Fokus**: Feature-Entwicklung, Core-Funktionalität
+| Agent | Tool | Provider | Model | Temperature | Focus |
+|-------|------|----------|-------|-------------|-------|
+| **Aider-1** | Aider | OpenRouter | Claude 3.5 Sonnet | 0.3 | System Architecture, Design Decisions |
+| **Aider-2** | Aider | PublicAI | Apertus v1 | 0.1 | Code Review, Privacy Compliance |
+| **Aider-3** | Aider | OpenRouter | DeepSeek Coder | 0.5 | Implementation, Features |
+| **Aider-4** | Aider | OpenRouter | Mixtral 8x22B | 0.5 | Tests, Refactoring, Docs |
 
-### 🔧 Aider-2: Parallel Developer
-- **Rolle**: Tests, Docs, Refactoring
-- **Temperature**: 0.5 (adaptiv)
-- **Fokus**: Testing, Dokumentation, Code-Optimierung
+## 🌟 Browser-Orchestrator
 
-## Workflow Integration
+**Claude-Max** (Browser Chat) fungiert als Meta-Orchestrator:
+- Erstellt strukturierte Arbeitspakete
+- Koordiniert die 4 Terminal-Agenten
+- Persistiert Wissen über Sessions hinweg
+- Temperature: 0.5
 
-Das System arbeitet nach dem **Orchestra Pattern**: Ein Dirigent (User/Claude-1) koordiniert spezialisierte Musiker (Agenten) für harmonische Ergebnisse.
+## 💡 Multi-Provider Strategie
 
-```
-User Input → Claude-1 (Design) → Aider-1/2 (Implementation) → Claude-2 (Review) → Quality Output
-```
+### Provider-Auswahl nach Use Case
 
-## Success Metrics
+**Production (Qualität)**:
+- Critical Reviews: Claude 3.5 Sonnet via OpenRouter
+- Privacy-sensitive: Apertus via PublicAI (Schweizer Server)
 
-- **10x Development Speed**
-- **89% Test Coverage**
-- **48h Time to MVP**
-- **$112 API Costs per Project**
+**Budget (Kosten-optimiert)**:
+- Simple Tasks: GPT-3.5 Turbo
+- General Coding: Mixtral (Open Source)
+
+**Privacy-First**:
+- Alle Tasks: Apertus oder lokale Modelle
+
+### Warum Multi-Provider?
+
+1. **Keine Vendor Lock-in**: Freiheit zwischen Providern zu wechseln
+2. **Kosten-Optimierung**: Günstige Modelle für einfache Tasks
+3. **Datenschutz**: Europäische Provider für sensitive Daten
+4. **Redundanz**: Fallback bei Provider-Ausfällen

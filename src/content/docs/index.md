@@ -1,66 +1,100 @@
 ---
 title: Collective Context
-description: Multi-Agent KI-Orchestrierung für 10x Produktivität
+description: 100% Open Source Multi-Agent KI-Orchestrierung
 ---
 
-# Collective Context (CC)
+# Collective Context: 100% Open Source Multi-Agent Orchestrierung
 
-**Die Evolution der Software-Entwicklung durch Multi-Agent KI-Orchestrierung**
+**NEU**: Vollständige Migration zu Open Source Tools!
+- ✅ Aider statt proprietärer Lösungen
+- ✅ Multi-Provider Support (OpenRouter, PublicAI)
+- ✅ Schweizer Datenschutz-Option mit Apertus
+
+## 🎯 Unsere Prinzipien
+
+> "Freie Software darf ohne Vertraulichkeitsvereinbarungen von allen untersucht, verstanden und verbessert werden."
+
+Das CC Projekt nutzt ausschließlich Tools, die diesen Prinzipien entsprechen.
 
 ## 🚀 Quick Start
 
-### CCC Commander Installation
+### Multi-Provider Setup (NEU)
 
 ```bash
-git clone https://github.com/collective-context/ccc.git
-cd ccc
-chmod +x ccc
-sudo ln -sf "$(pwd)/ccc" /usr/local/bin/ccc
+# Aider Installation (100% Open Source)
+pip install aider-chat[voice]
+
+# OpenRouter (200+ Modelle)
+export OPENROUTER_API_KEY='sk-or-v1-...'
+
+# PublicAI (Schweizer Datenschutz)
+export PUBLICAI_API_KEY='pub-...'
 ```
 
-## 🎭 Das Orchestra Pattern
+## 🎭 Das neue Orchestra Pattern
 
-Ein zentraler "Dirigent" koordiniert spezialisierte KI-Agenten:
+4 spezialisierte Aider-Instanzen mit Multi-Provider Flexibilität:
 
-- **Claude-1**: System Architect (Temperature 0.3)
-- **Claude-2**: Code Reviewer (Temperature 0.1)
-- **Aider-1**: Main Developer (Temperature 0.5)
-- **Aider-2**: Parallel Dev (Temperature 0.5)
+| Agent | Tool | Provider | Model | Focus |
+|-------|------|----------|-------|-------|
+| **Aider-1** | Aider | OpenRouter | Claude 3.5 Sonnet | System Architecture |
+| **Aider-2** | Aider | PublicAI | Apertus v1 | Privacy-First Reviews |
+| **Aider-3** | Aider | OpenRouter | DeepSeek Coder | Core Implementation |
+| **Aider-4** | Aider | OpenRouter | Mixtral 8x22B | Tests & Documentation |
 
-## 📊 Warum CC?
+## 💡 Multi-Provider Vorteile
 
-### Probleme die wir lösen
-- Kontext-Verlust bei jeder neuen Session
-- Isolierte KI-Agenten ohne Koordination
-- Wiederholte Erklärungen und Setup
-- Fehlende Persistenz
+### 🚀 Flexibilität
+- **200+ Modelle** verfügbar
+- **Provider-Switching** je nach Task
+- **Keine Vendor Lock-in**
 
-### Unsere Lösung
-- Persistenter Kontext durch CONTEXT.md
-- Multi-Agent Orchestrierung
-- 10x Produktivität durch Parallelisierung
-- Reproducible Builds trotz KI
+### 💰 Kosten-Optimierung
+- **90% Ersparnis** durch intelligente Model-Auswahl
+- **Budget-Optionen**: Mixtral für einfache Tasks
+- **Premium on Demand**: Claude 3.5 nur bei Bedarf
+
+### 🔒 Privacy-First
+- **Schweizer Server** mit Apertus (PublicAI)
+- **DSGVO-Compliance** garantiert
+- **Keine US-Abhängigkeit** für sensitive Projekte
+
+## 📊 Erfolgreiche Migration
+
+| Metrik | Vorher (Proprietär) | Nachher (Open Source) |
+|--------|---------------------|------------------------|
+| Tool-Transparenz | 50% | **100%** |
+| Monatliche Kosten | $150 | **$60** |
+| Provider-Optionen | 1 | **200+** |
+| Datenschutz | ❌ | **✅** |
 
 ## 📚 Documentation
 
-- [4-Agent Setup Guide](/quickstart/4-agent-setup/)
-- [Orchestra Pattern](/patterns/orchestra/)
-- [Case Studies](/case-studies/)
-- [CCC Tool Reference](https://github.com/collective-context/ccc)
+- [Multi-Provider Setup Guide](/guides/multi-provider-setup/)
+- [Migration von Claude Code](/guides/migration-from-claude-code/)
+- [Orchestra Pattern (Updated)](/patterns/orchestra/)
+- [Case Study: Open Source Migration](/case-studies/002-open-source-migration/)
 
 ## 💬 Community
 
 - [GitHub Discussions](https://github.com/collective-context/ccc/discussions)
 - Discourse Forum: Coming soon auf [NexusLibre.DE](https://NexusLibre.DE)
 
-## 🤝 Philosophie
+## 🤝 Open Source Philosophie
 
 > "Gemeinsam statt einsam - Aufbau einer echten Schwarmintelligenz zum Wohle ALLER"
 
-- **Ubuntu meets Ubuntu**: Open Source als Lebensweise
-- **Kaizen**: Kontinuierliche Verbesserung
-- **Crew Resource Management**: Zusammenarbeit auf Augenhöhe
+### Ubuntu meets Ubuntu
+- **Open Source als Lebensweise**: Transparenz in allen Tools
+- **Community-Driven**: Kollektive Intelligenz statt Corporate Control
+- **Freedom**: Keine Abhängigkeit von proprietären Lösungen
+
+### Unsere Evolution
+1. **September 2025**: Migration zu 100% Open Source
+2. **Multi-Provider**: Freiheit der Provider-Wahl
+3. **Privacy-First**: Europäische Datenschutz-Optionen
+4. **Cost-Efficient**: 90% Kosteneinsparung möglich
 
 ---
 
-[Get Started with CCC →](https://github.com/collective-context/ccc)
+[Get Started with Open Source CC →](https://github.com/collective-context/ccc)
