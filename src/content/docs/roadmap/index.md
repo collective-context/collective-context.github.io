@@ -35,7 +35,7 @@ Diese Roadmap gibt einen Überblick über die Entwicklung des Collective Context
 ## 🚧 In Entwicklung
 
 ### CCC Distribution (September 2025)
-- 🚧 **PyPI Package** - `pipx install collective-context-ccc`
+- 🚧 **PyPI Package** - `pipx install cccmd`
 - 🚧 **Ubuntu PPA** - Launchpad Repository
 - 🚧 **pyproject.toml** - Moderne Python-Paketierung
 - 🚧 **Installation Guide** - Umfassende Dokumentation
@@ -48,7 +48,7 @@ Diese Roadmap gibt einen Überblick über die Entwicklung des Collective Context
 ## 📅 Kurzfristig (September - Oktober 2025)
 
 ### Woche 1-2: Distribution Setup
-- [ ] **PyPI Upload** - Erstes Release als `collective-context-ccc`
+- [ ] **PyPI Upload** - Erstes Release als `cccmd`
 - [ ] **Ubuntu PPA** - `ppa:collective-context/ccc` erstellen
 - [ ] **Installation Docs** - Anleitungen für alle Plattformen
 - [ ] **Release v0.3.0** - Erster öffentlicher Release

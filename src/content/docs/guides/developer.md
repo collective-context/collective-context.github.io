@@ -125,7 +125,7 @@ pre-commit install
 python -m build
 
 # Test Installation
-pip install dist/collective-context-ccc-*.whl
+pip install dist/cccmd-*.whl
 ```
 
 ### Release Process

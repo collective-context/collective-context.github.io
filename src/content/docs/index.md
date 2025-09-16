@@ -38,7 +38,7 @@ Mit OpenRouter können alle Agents aus über 300 Modellen wählen:
 
 ```bash
 # Mit pipx (empfohlen)
-pipx install collective-context-ccc
+pipx install cccmd
 
 # Oder für Entwickler
 cd ~/prog/ai/git/collective-context/

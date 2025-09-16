@@ -17,7 +17,7 @@ python3 -m pip install --user pipx
 python3 -m pipx ensurepath
 
 # CCC installieren
-pipx install collective-context-ccc
+pipx install cccmd
 ```
 
 **Vorteile:**
@@ -29,7 +29,7 @@ pipx install collective-context-ccc
 ### Option 2: pip --user
 
 ```bash
-pip install --user collective-context-ccc
+pip install --user cccmd
 ```
 
 **Installation landet in:**

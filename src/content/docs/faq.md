@@ -42,10 +42,10 @@ Nach den Security Updates in v0.2.0 wurden die kritischen Sicherheitslücken ges
 
 ```bash
 # Option 1: pipx (EMPFOHLEN)
-pipx install collective-context-ccc
+pipx install cccmd
 
 # Option 2: pip --user
-pip install --user collective-context-ccc
+pip install --user cccmd
 
 # Option 3: Development
 cd ~/prog/ai/git/collective-context/
