@@ -1,12 +1,12 @@
-# Starlight Starter Kit: Basics
+# Collective Context Documentation
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
-```
-npm create astro@latest -- --template starlight
-```
+**Multi-Agent KI-Orchestrierung für 10x Produktivität**
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+🌐 **Live Website**: https://collective-context.org
+📦 **PyPI Package**: https://pypi.org/project/cccmd/
+🐙 **GitHub**: https://github.com/collective-context/ccc
 
 ## 🚀 Project Structure
 
