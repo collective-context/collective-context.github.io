@@ -6,6 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://collective-context.org',
+  base: '/',
   integrations: [
     starlight({
       title: 'Collective Context',
