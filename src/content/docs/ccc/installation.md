@@ -34,13 +34,14 @@ ccc version
 
 **Für Development/Vollständige Features:**
 ```bash
-# Temporär zu Development-Modus wechseln
+# Set preferred mode via config (empfohlen)
+ccc config mode set dev
+# → ✅ Preferred mode changed: auto → dev
+# → 🔄 To activate: export PATH=/usr/local/bin:$PATH
+
+# Aktivieren für diese Session
 export PATH=/usr/local/bin:$PATH
 ccc version  # → v0.3.2-dev, Mode: dev
-
-# Permanent machen (empfohlen für Power User)
-echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bashrc
-source ~/.bashrc
 ```
 
 **Was sind die Modi?**

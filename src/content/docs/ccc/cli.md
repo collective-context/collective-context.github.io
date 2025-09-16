@@ -14,26 +14,34 @@ CCC supports multiple installation modes for different use cases:
 ccc version
 ```
 
-### Switch Between Versions
+### Config-Based Mode Management
+
+**Set Preferred Mode:**
+```bash
+# Configure preferred mode (stored in ~/.config/ccc/config.json)
+ccc config mode set dev      # Development mode
+ccc config mode set pipx     # Production mode
+ccc config mode set apt      # System mode (future)
+
+# Check current configuration
+ccc config mode
+```
+
+**Switch Between Versions:**
 
 **Development Mode** (Full Features + Session Management):
 ```bash
-# Switch to development mode
+# Set and activate development mode
+ccc config mode set dev
 export PATH=/usr/local/bin:$PATH
 ccc version  # → v0.3.2-dev, Mode: dev
-
-# Make permanent
-echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bashrc
-source ~/.bashrc
 ```
 
 **Production Mode** (PyPI Package):
 ```bash
-# Install via pipx
-pipx install cccmd
-
-# Switch to pipx mode
-export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
+# Set and activate pipx mode
+ccc config mode set pipx
+export PATH=$HOME/.local/bin:$PATH
 ccc version  # → v0.3.2, Mode: pipx
 ```
 
@@ -44,11 +52,15 @@ sudo apt install ccc
 ccc version  # → Mode: apt
 ```
 
-### Interactive Version Switching
+### Configuration Management
 ```bash
-ccc version dev    # Switch to development
-ccc version pipx   # Switch to pipx
-ccc version apt    # Switch to system (future)
+ccc config mode                 # Show current configuration
+ccc config mode set <mode>      # Set preferred mode
+ccc config mode reset           # Reset to auto mode
+
+# Alternative: Legacy version switching
+ccc version dev                 # Quick switch to development
+ccc version pipx                # Quick switch to pipx
 ```
 
 ---
