@@ -119,6 +119,17 @@ git clone https://github.com/collective-context/ccc.git
 3. **Privacy-First**: Europäische Datenschutz-Optionen
 4. **Cost-Efficient**: 40-70% Kosteneinsparung je nach Strategy
 
+## 🗺️ Roadmap
+
+Sieh dir unsere [detaillierte Roadmap](/roadmap/) an, um zu erfahren, was wir planen und woran wir arbeiten. Highlights für Q3/Q4 2025:
+
+- ✅ Website & Documentation Launch
+- 🚧 PyPI & APT Distribution
+- 📅 Community Forum
+- 📅 Enterprise Features
+
+[Zur vollständigen Roadmap →](/roadmap/)
+
 ---
 
 [Get Started with Hybrid CC →](https://github.com/collective-context/ccc)
