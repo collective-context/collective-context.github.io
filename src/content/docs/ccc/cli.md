@@ -5,6 +5,54 @@ description: Command Line Interface Referenz
 
 # CCC CLI Reference
 
+## 🚀 Quick Start - Version Management
+
+CCC supports multiple installation modes for different use cases:
+
+### Check Current Version
+```bash
+ccc version
+```
+
+### Switch Between Versions
+
+**Development Mode** (Full Features + Session Management):
+```bash
+# Switch to development mode
+export PATH=/usr/local/bin:$PATH
+ccc version  # → v0.3.2-dev, Mode: dev
+
+# Make permanent
+echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+```
+
+**Production Mode** (PyPI Package):
+```bash
+# Install via pipx
+pipx install cccmd
+
+# Switch to pipx mode
+export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
+ccc version  # → v0.3.2, Mode: pipx
+```
+
+**System Mode** (Coming Soon):
+```bash
+# Future: apt install ccc
+sudo apt install ccc
+ccc version  # → Mode: apt
+```
+
+### Interactive Version Switching
+```bash
+ccc version dev    # Switch to development
+ccc version pipx   # Switch to pipx
+ccc version apt    # Switch to system (future)
+```
+
+---
+
 ## Global Options
 
 ```bash

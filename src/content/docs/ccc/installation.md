@@ -1,225 +1,168 @@
 ---
-title: CCC Installation
-description: Installation des Collective Context Commanders
+title: CCC Commander Installation
+description: Installiere cccmd auf deinem System
+sidebar:
+  order: 1
 ---
 
-# CCC Installation
+# CCC Commander (cccmd) Installation
 
-## Empfohlene Installation: pipx
+## 🚀 Quick Install
 
-Der CCC Commander folgt der **XDG Base Directory Specification** für moderne Linux/Unix-Systeme.
-
-### Option 1: pipx (EMPFOHLEN)
+### Empfohlen: pipx
 
 ```bash
-# pipx installieren falls nicht vorhanden
+# pipx installieren (falls nicht vorhanden)
 python3 -m pip install --user pipx
 python3 -m pipx ensurepath
 
-# CCC installieren
+# cccmd installieren
 pipx install cccmd
+
+# ✅ Verfügbar als: ccc und cccmd
+ccc version
 ```
 
-**Vorteile:**
-- ✅ Automatische Isolation
-- ✅ PATH-Management
-- ✅ Einfache Updates mit `pipx upgrade ccc`
-- ✅ XDG-konforme Installation
+### 🔄 Nach der Installation: Version Management
 
-### Option 2: pip --user
+**Erste Schritte - Überprüfe deine Installation:**
+```bash
+ccc version
+# → CCC Commander (cccmd) v0.3.2
+# → Mode: pipx (PyPI package)
+```
+
+**Für Development/Vollständige Features:**
+```bash
+# Temporär zu Development-Modus wechseln
+export PATH=/usr/local/bin:$PATH
+ccc version  # → v0.3.2-dev, Mode: dev
+
+# Permanent machen (empfohlen für Power User)
+echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+```
+
+**Was sind die Modi?**
+- **pipx Mode**: Stable PyPI package, grundlegende Commands
+- **dev Mode**: Vollständiges Session-Management, alle Features
+- **apt Mode**: System package (kommend)
+
+### Alternative: pip
 
 ```bash
 pip install --user cccmd
 ```
 
-**Installation landet in:**
-- Binary: `~/.local/bin/ccc`
-- Package: `~/.local/lib/python3.X/site-packages/ccc`
+## 📦 Platform-spezifische Installation
 
-### Option 3: Development Installation (from Source)
+### Ubuntu (PPA)
+
+```bash
+# PPA hinzufügen
+sudo add-apt-repository ppa:collective-context/ccc
+sudo apt update
+
+# Installation
+sudo apt install cccmd
+```
+
+### Debian
+
+Für Debian nutze die Python-Installation via pipx oder pip (siehe oben).
+
+Ein natives APT-Repository kommt Q4 2025!
+
+### macOS
+
+```bash
+# Via pipx
+pipx install cccmd
+
+# Oder via Homebrew (coming soon)
+# brew install collective-context/tap/cccmd
+```
+
+### Windows
+
+```powershell
+# Via pipx
+pipx install cccmd
+
+# Oder via pip
+pip install --user cccmd
+```
+
+## 🔧 Development Installation
 
 ```bash
 # Repository klonen
-cd ~/prog/ai/git/collective-context/
 git clone https://github.com/collective-context/ccc
 cd ccc
 
-# Development-Installation
-pip install -e .
+# Development Installation
+pip install -e ".[dev]"
+
+# Tests ausführen
+pytest
 ```
 
-**Quellcode und ausführbare Dateien:**
-- `~/prog/ai/git/collective-context/ccc/`
-
-## Verzeichnisstruktur nach Installation
-
-CCC nutzt die **XDG Base Directory Specification**:
-
-```
-~/.local/share/ccc/     # Daten (Sessions, Cache)
-├── sessions/           # Lokale Session-Dateien
-├── tools/              # Tool-spezifische Daten
-└── cache/              # Temporäre Dateien
-
-~/.config/ccc/          # Konfiguration
-├── config.json         # Hauptkonfiguration
-└── tools.json          # Tool-Konfigurationen
-
-~/.local/bin/ccc        # Ausführbare Datei (via pipx/pip)
-```
-
-## Umgebungsvariablen
-
-CCC unterstützt Override-Möglichkeiten:
+## ✅ Installation verifizieren
 
 ```bash
-# Datenverzeichnis überschreiben
-export CCC_HOME="$HOME/.myccc"
+# Version prüfen
+cccmd --version
 
-# Konfigurationsdatei
-export CCC_CONFIG="$HOME/.myccc/config.json"
+# Hilfe anzeigen
+cccmd --help
 
-# Log-Level
-export CCC_LOG_LEVEL="DEBUG"
+# Konfiguration testen
+cccmd config check
 ```
 
-## Migration von alten Installationen
+## 📁 Installationspfade
 
-Falls du CCC bereits aus Source installiert hast:
+cccmd folgt der XDG Base Directory Specification:
+
+| Component | Pfad |
+|-----------|------|
+| Binary | `~/.local/bin/cccmd` |
+| Config | `~/.config/ccc/` |
+| Data | `~/.local/share/ccc/` |
+| Cache | `~/.cache/ccc/` |
+
+## 🆘 Troubleshooting
+
+### Command not found
 
 ```bash
-# Die lokalen Session-Dateien bleiben wo sie sind
-# Konfiguration wird beim ersten Start automatisch erstellt
-ccc --help
+# PATH prüfen
+echo $PATH | grep -q "$HOME/.local/bin" || echo "PATH needs update"
+
+# PATH updaten
+export PATH="$HOME/.local/bin:$PATH"
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 ```
 
-## Systemanforderungen
-
-- Python 3.8 oder höher
-- pip oder pipx
-- Optional: git (für Development-Installation)
-
-### 3. Tmux installieren (falls nötig)
-```bash
-# Ubuntu/Debian
-sudo apt install tmux
-
-# macOS
-brew install tmux
-
-# Arch Linux
-sudo pacman -S tmux
-```
-
-## Verification
+### Permission denied
 
 ```bash
-# Version check
-ccc --version
+# Mit --user flag installieren
+pip install --user cccmd
 
-# System check
-ccc doctor
-
-# Test agent communication
-ccc test connection
+# Oder pipx verwenden (empfohlen)
+pipx install cccmd
 ```
 
-## Configuration
-
-Edit `~/.ccc/config.yaml`:
-
-```yaml
-agents:
-  claude-1:
-    model: "claude-3.5-sonnet"
-    temperature: 0.3
-    role: "architect"
-  claude-2:
-    model: "claude-3.5-sonnet" 
-    temperature: 0.1
-    role: "reviewer"
-
-tmux:
-  session_name: "cc-work"
-  default_layout: "orchestra"
-
-workflows:
-  default: "orchestra"
-  available: ["orchestra", "swarm", "pipeline"]
-```
-
-## Troubleshooting
-
-### API Key Issues
-```bash
-# Test API connectivity
-ccc test api --provider anthropic
-ccc test api --provider openai
-```
-
-### Tmux Issues
-```bash
-# Check tmux availability
-which tmux
-tmux -V
-
-# Reset tmux sessions
-tmux kill-server
-```
-
-### Permission Issues
-```bash
-# Fix pip permissions (if needed)
-pip install --user collective-context-commander
-```
-
-## 🔒 Sicherheits-Best Practices
-
-### Environment Variables einrichten
-
-**Niemals API Keys im Code speichern!**
+## 📈 Updates
 
 ```bash
-# .env Datei erstellen (NICHT ins Repository committen!)
-cat > .env << EOF
-ANTHROPIC_API_KEY=sk-ant-...
-OPENROUTER_API_KEY=sk-or-...
-EOF
+# Mit pipx
+pipx upgrade cccmd
 
-# .env zu .gitignore hinzufügen
-echo ".env" >> .gitignore
+# Mit pip
+pip install --upgrade cccmd
+
+# Mit apt (Ubuntu)
+sudo apt update && sudo apt upgrade cccmd
 ```
-
-### Sichere Konfiguration
-
-Seit v0.2.0 nutzt CCC JSON-basierte Konfigurationen:
-
-```json
-// config-json/global/config.json
-{
-  "prompts": {
-    "system": "You are a helpful assistant"
-  },
-  "settings": {
-    "temperature": 0.7
-  }
-}
-```
-
-**Wichtig**: Keine `.ts` Konfigurationsdateien mehr verwenden!
-
-### Berechtigungen einschränken
-
-```bash
-# Nur notwendige Berechtigungen
-chmod 600 .env
-chmod 644 config-json/**/*.json
-```
-
-## Next Steps
-
-Nach erfolgreicher Installation:
-1. [CLI Reference](/ccc/cli/) - Alle verfügbaren Commands
-2. [Quick Start](/quickstart/4-agent-setup/) - Erstes Multi-Agent Setup
-3. [Workflows](/agents/tmux-workflows/) - Tmux Integration nutzen
-4. [Security Notice](/security/notice/) - Wichtige Sicherheitsinformationen
