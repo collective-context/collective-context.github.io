@@ -18,7 +18,7 @@
 **User führt aus:**
 ```bash
 # Verify wir sind im richtigen Verzeichnis
-cd ~/prog/claude/collective-context.github.io
+cd ~/prog/ai/collective-context.github.io
 pwd
 
 # Check current branch und status

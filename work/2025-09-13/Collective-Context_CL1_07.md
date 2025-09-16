@@ -16,7 +16,7 @@ Die temporäre HTML funktioniert gut, aber jetzt wollen wir die volle Astro-Powe
 ### Schritt 1.1: Check Astro Installation
 **User führt aus:**
 ```bash
-cd ~/prog/claude/collective-context.github.io
+cd ~/prog/ai/collective-context.github.io
 
 # Verify Astro ist installiert
 npm list @astrojs/starlight

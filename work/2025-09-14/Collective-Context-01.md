@@ -1,7 +1,7 @@
 # 🔧 Arbeitsauftrag für Claude-1: Navigation Fix collective-context.org
 
 ## 📍 Context
-**Arbeitsverzeichnis**: `~/prog/claude/collective-context.github.io`  
+**Arbeitsverzeichnis**: `~/prog/ai/collective-context.github.io`  
 **Problem**: Navigation zeigt auf nicht-existierende Seiten → 404 Fehler  
 **Ziel**: Alle Links funktionsfähig machen durch Erstellen der fehlenden Seiten
 
@@ -9,7 +9,7 @@
 
 ### 1. Status Check
 ```bash
-cd ~/prog/claude/collective-context.github.io
+cd ~/prog/ai/collective-context.github.io
 pwd
 ls -la src/content/docs/
 ```

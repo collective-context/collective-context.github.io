@@ -1,55 +1,103 @@
 ---
 title: CCC Installation
-description: CCC Commander installieren und einrichten
+description: Installation des Collective Context Commanders
 ---
 
-# CCC Commander Installation
+# CCC Installation
 
-## Requirements
+## Empfohlene Installation: pipx
 
-- **Python**: 3.10 oder höher
-- **tmux**: Für Multi-Panel Management
-- **Git**: Für Aider Integration
-- **API Keys**: Claude (Anthropic) oder OpenAI
+Der CCC Commander folgt der **XDG Base Directory Specification** für moderne Linux/Unix-Systeme.
 
-## Installation
+### Option 1: pipx (EMPFOHLEN)
 
-### Option 1: pip (Empfohlen)
 ```bash
-pip install ccc
+# pipx installieren falls nicht vorhanden
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+
+# CCC installieren
+pipx install collective-context-ccc
 ```
 
-### Option 2: From Source
+**Vorteile:**
+- ✅ Automatische Isolation
+- ✅ PATH-Management
+- ✅ Einfache Updates mit `pipx upgrade ccc`
+- ✅ XDG-konforme Installation
+
+### Option 2: pip --user
+
 ```bash
+pip install --user collective-context-ccc
+```
+
+**Installation landet in:**
+- Binary: `~/.local/bin/ccc`
+- Package: `~/.local/lib/python3.X/site-packages/ccc`
+
+### Option 3: Development Installation (from Source)
+
+```bash
+# Repository klonen
+cd ~/prog/ai/git/collective-context/
 git clone https://github.com/collective-context/ccc
 cd ccc
+
+# Development-Installation
 pip install -e .
 ```
 
-## Setup
+**Quellcode und ausführbare Dateien:**
+- `~/prog/ai/git/collective-context/ccc/`
 
-### 1. API Keys konfigurieren
-```bash
-# Anthropic Claude
-export ANTHROPIC_API_KEY="sk-ant-..."
+## Verzeichnisstruktur nach Installation
 
-# OpenAI (für Aider)
-export OPENAI_API_KEY="sk-..."
+CCC nutzt die **XDG Base Directory Specification**:
 
-# Persistent speichern
-echo 'export ANTHROPIC_API_KEY="sk-ant-..."' >> ~/.bashrc
-echo 'export OPENAI_API_KEY="sk-..."' >> ~/.bashrc
+```
+~/.local/share/ccc/     # Daten (Sessions, Cache)
+├── sessions/           # Lokale Session-Dateien
+├── tools/              # Tool-spezifische Daten
+└── cache/              # Temporäre Dateien
+
+~/.config/ccc/          # Konfiguration
+├── config.json         # Hauptkonfiguration
+└── tools.json          # Tool-Konfigurationen
+
+~/.local/bin/ccc        # Ausführbare Datei (via pipx/pip)
 ```
 
-### 2. CCC initialisieren
+## Umgebungsvariablen
+
+CCC unterstützt Override-Möglichkeiten:
+
 ```bash
-ccc init
+# Datenverzeichnis überschreiben
+export CCC_HOME="$HOME/.myccc"
+
+# Konfigurationsdatei
+export CCC_CONFIG="$HOME/.myccc/config.json"
+
+# Log-Level
+export CCC_LOG_LEVEL="DEBUG"
 ```
 
-Dies erstellt:
-- `~/.ccc/config.yaml` - Hauptkonfiguration
-- `~/.ccc/agents/` - Agent-Profile
-- `~/.ccc/workflows/` - Workflow-Templates
+## Migration von alten Installationen
+
+Falls du CCC bereits aus Source installiert hast:
+
+```bash
+# Die lokalen Session-Dateien bleiben wo sie sind
+# Konfiguration wird beim ersten Start automatisch erstellt
+ccc --help
+```
+
+## Systemanforderungen
+
+- Python 3.8 oder höher
+- pip oder pipx
+- Optional: git (für Development-Installation)
 
 ### 3. Tmux installieren (falls nötig)
 ```bash

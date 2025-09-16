@@ -36,23 +36,51 @@ Nach den Security Updates in v0.2.0 wurden die kritischen Sicherheitslücken ges
 - Monitoring der Logs
 - Prinzip der minimalen Berechtigungen
 
-## Installation & Setup
+## Installation & Pfade
 
 ### Wie installiere ich CCC?
 
 ```bash
-# Option 1: pip (Empfohlen)
-pip install ccc
+# Option 1: pipx (EMPFOHLEN)
+pipx install collective-context-ccc
 
-# Option 2: From Source
+# Option 2: pip --user
+pip install --user collective-context-ccc
+
+# Option 3: Development
+cd ~/prog/ai/git/collective-context/
 git clone https://github.com/collective-context/ccc
-cd ccc
-pip install -e .
+cd ccc && pip install -e .
 ```
+
+### Wo werden CCC-Dateien gespeichert?
+
+CCC folgt der XDG Base Directory Specification:
+- **Daten**: `~/.local/share/ccc/` (Sessions, Cache)
+- **Konfiguration**: `~/.config/ccc/` (Settings)
+- **Binary**: `~/.local/bin/ccc` (via pipx)
+
+### Warum wurde von ~/prog/claude zu ~/prog/ai gewechselt?
+
+Der neue Pfad `~/prog/ai/git/` ist vendor-neutral und zukunftssicher. Er reflektiert, dass CC mit verschiedenen AI-Modellen arbeitet, nicht nur Claude.
+
+### Kann ich die Installationspfade anpassen?
+
+Ja! Nutze Umgebungsvariablen:
+```bash
+export CCC_HOME="/my/custom/path"
+export CCC_CONFIG="/my/config.json"
+```
+
+### Was ist der Unterschied zwischen pip und pipx Installation?
+
+- **pipx**: Isolierte Umgebung, automatisches PATH-Management (empfohlen)
+- **pip --user**: Direkte Installation in ~/.local
+- **pip install -e**: Development-Installation aus Source
 
 ### Welche Python Version wird benötigt?
 
-Python 3.10 oder höher ist erforderlich.
+Python 3.8 oder höher ist erforderlich.
 
 ### Warum benötige ich tmux?
 
