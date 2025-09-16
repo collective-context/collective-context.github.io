@@ -34,6 +34,23 @@ Mit OpenRouter können alle Agents aus über 300 Modellen wählen:
 
 ## 🚀 Quick Start
 
+### Installation (30 Sekunden)
+
+```bash
+# Mit pipx (empfohlen)
+pipx install collective-context-ccc
+
+# Oder für Entwickler
+cd ~/prog/ai/git/collective-context/
+git clone https://github.com/collective-context/ccc
+cd ccc && pip install -e .
+```
+
+CCC folgt modernen Standards:
+- ✅ XDG Base Directory Specification
+- ✅ pipx/pip kompatibel
+- ✅ Umgebungsvariablen für Flexibilität
+
 ### Hybrid Multi-Provider Setup
 
 ```bash
@@ -46,8 +63,8 @@ export OPENROUTER_API_KEY='sk-or-v1-...'
 # PublicAI (Schweizer Datenschutz)
 export PUBLICAI_API_KEY='pub-...'
 
-# CCC Commander (für Claude-2)
-git clone https://github.com/collective-context/ccc.git
+# CCC Commander bereits installiert via pipx
+ccc --help
 ```
 
 ## 🎭 Das Hybrid Orchestra Pattern

@@ -25,9 +25,9 @@ Du bist **Claude-1 (System Architect)** und wirst mit dem User die Custom Domain
 # Wo sind wir?
 pwd
 
-# Sollte sein: ~/prog/claude/collective-context.github.io
+# Sollte sein: ~/prog/ai/collective-context.github.io
 # Falls nicht, wechseln zum Projekt:
-cd ~/prog/claude/collective-context.github.io
+cd ~/prog/ai/collective-context.github.io
 
 # Repository Status
 git status

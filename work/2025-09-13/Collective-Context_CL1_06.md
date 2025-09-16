@@ -15,7 +15,7 @@ Die Website ist live aber die CSS wird nicht geladen. Das Layout ist kaputt und 
 ### Schritt 1.1: CSS Status Check
 **User führt aus:**
 ```bash
-cd ~/prog/claude/collective-context.github.io
+cd ~/prog/ai/collective-context.github.io
 
 # Check ob CSS Files existieren
 ls -la dist/_astro/ 2>/dev/null || echo "No _astro folder"

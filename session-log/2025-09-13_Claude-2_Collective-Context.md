@@ -3,7 +3,7 @@
 
 **Datum**: 13. September 2025
 **Session-Dauer**: ~3-4 Stunden
-**Arbeitsverzeichnis**: `~/prog/claude/collective-context.github.io`
+**Arbeitsverzeichnis**: `~/prog/ai/collective-context.github.io`
 
 ---
 
@@ -24,7 +24,7 @@ Nur mit dieser Tiefe kann eine neue Session wirklich dort fortsetzen, wo die alt
 
 ### Arbeitsumgebung
 - **OS**: Linux-basiert (nutzt apt, tmux, bash)
-- **Arbeitsverzeichnis**: `~/prog/claude/collective-context.github.io`
+- **Arbeitsverzeichnis**: `~/prog/ai/collective-context.github.io`
 - **Editor-Präferenz**: nano, vim, code (VS Code)
 - **Browser**: Firefox (erkennbar an Tab-Leiste)
 
@@ -339,7 +339,7 @@ git push
 
 ### Sofort startbar
 ```bash
-cd ~/prog/claude/collective-context.github.io
+cd ~/prog/ai/collective-context.github.io
 git pull
 npm run dev
 # Läuft auf http://localhost:4321

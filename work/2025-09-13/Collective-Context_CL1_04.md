@@ -154,7 +154,7 @@ Dies ist eine **Ergänzung** zu deiner Domain Setup Anweisung. Du hast bereits d
 ## 🏗️ Aktueller Projekt-Status
 
 ### Repository Details
-- **Location**: `~/prog/claude/collective-context.github.io`
+- **Location**: `~/prog/ai/collective-context.github.io`
 - **GitHub URL**: https://github.com/collective-context/collective-context.github.io
 - **Current Site**: https://collective-context.github.io (funktioniert bereits!)
 - **Target Domain**: https://collective-context.org (das konfigurieren wir jetzt)
