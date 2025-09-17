@@ -96,8 +96,8 @@ ccc update --all
 | Installation | Use-Case | Support |
 |-------------|----------|---------|
 | `pipx install cccmd` | Entwicklung | Community |
-| `apt install ccc` | Production Debian | **CC-Team** |
-| PPA | Ubuntu | Community |
+| ~~`apt install ccc`~~ | ~~Production Debian~~ | **COMING SOON** |
+| **`apt install ccc`** | **Ubuntu (PPA)** | **LIVE NOW** |
 
 ### Layer 2: KI-Tools
 
@@ -142,7 +142,7 @@ Das `cccmd` Meta-Paket installiert:
 ### Phase 1: Jetzt (September 2025)
 - ✅ pipx Installation funktioniert
 - ✅ Basic Mode-System
-- 🚧 Ubuntu PPA in Arbeit
+- ✅ **Ubuntu PPA LIVE** (`ppa:collective-context/ccc`)
 
 ### Phase 2: Q4 2025
 - 📅 apt.collective-context.org Launch

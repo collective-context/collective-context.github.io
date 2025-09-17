@@ -7,6 +7,9 @@ description: Pragmatische Multi-Agent KI-Orchestrierung
 
 > Die Stärke der Innovation ist wie ein Kunstwerk; sie wird lebendig, wenn visionäre Ideen und neuartige Werkzeuge zusammenfließen. An alle Entwickler dieser Welt: Lasst uns gemeinsam zu neuen Ufern aufbrechen. 🚀
 
+## **🎉 Ubuntu PPA LIVE!**
+CCC ist jetzt offiziell auf Ubuntu verfügbar! `sudo apt install ccc` [Details →](/ccc/installation-apt/)
+
 ## **🔒 Security Update**
 V0.2.0 mit wichtigen Sicherheits-Verbesserungen verfügbar. [Details →](/security/notice)
 
@@ -37,11 +40,14 @@ Mit OpenRouter können alle Agents aus über 300 Modellen wählen:
 ### Installation (30 Sekunden)
 
 ```bash
-# Mit pipx (empfohlen)
+# Ubuntu (APT) - LIVE NOW!
+sudo add-apt-repository ppa:collective-context/ccc
+sudo apt update && sudo apt install ccc
+
+# Cross-Platform (pipx)
 pipx install cccmd
 
-# Oder für Entwickler
-cd ~/prog/ai/git/collective-context/
+# Entwickler
 git clone https://github.com/collective-context/ccc
 cd ccc && pip install -e .
 ```
@@ -141,7 +147,8 @@ ccc --help
 Sieh dir unsere [detaillierte Roadmap](/roadmap/) an, um zu erfahren, was wir planen und woran wir arbeiten. Highlights für Q3/Q4 2025:
 
 - ✅ Website & Documentation Launch
-- 🚧 PyPI & APT Distribution
+- ✅ PyPI Distribution (Live)
+- ✅ **Ubuntu PPA (Live)**
 - 📅 Community Forum
 - 📅 Enterprise Features
 

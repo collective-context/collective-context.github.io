@@ -7,6 +7,8 @@ sidebar:
 
 # Installation via APT (Ubuntu)
 
+> 🎉 **LIVE NOW!** CCC is officially available on Ubuntu via PPA!
+
 ## 🚀 Quick Install
 
 ### Basis-Installation (nur CCC)
@@ -31,18 +33,31 @@ Nur der CCC Commander:
 - `/usr/bin/cccmd` - Alias
 - Python Dependencies
 
-### Meta-Package: `cccmd`
+### Meta-Package: `cccmd` *(Coming Soon)*
 Komplette Entwicklungsumgebung:
 - `ccc` - Core Commander
 - `tmux` - Session Management
 - `git` - Version Control
-- `curl`, `wget` - Download Tools
-- `jq` - JSON Processing
 - `pipx` - Python App Management
+- `npm`, `nodejs` - JavaScript Tools
+- `python3`, `python3-pip`, `python3-venv` - Python Development
+- `jq` - JSON Processing
+- `sqlite3` - Database
+- `inotify-tools` - File Monitoring
+- `build-essential`, `devscripts` - Build Tools
+
+## 🌐 Ubuntu Versions
+
+**Currently Available:**
+- ✅ **Ubuntu 22.04 LTS (Jammy)** - Fully supported
+- 🚧 **Ubuntu 24.04 LTS (Noble)** - Coming soon
+
+**PPA Information:**
+- Repository: `ppa:collective-context/ccc`
+- Launchpad: https://launchpad.net/~collective-context/+archive/ubuntu/ccc
 
 Empfohlene Zusatz-Pakete:
 - `gh` - GitHub CLI
-- `nodejs`, `npm` - JavaScript Tools
 - `docker.io` oder `podman` - Container
 
 ## 🔄 Updates
