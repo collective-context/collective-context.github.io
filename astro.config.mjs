@@ -91,7 +91,13 @@ export default defineConfig({
           label: '🛠️ CCC Commander',
           items: [
             { label: 'Overview', link: '/ccc/overview' },
-            { label: 'Installation', link: '/ccc/installation' },
+            {
+              label: 'Installation',
+              items: [
+                { label: 'pipx (empfohlen)', link: '/ccc/installation' },
+                { label: 'APT (Ubuntu)', link: '/ccc/installation-apt' },
+              ]
+            },
             { label: 'CLI Reference', link: '/ccc/cli' },
           ],
         },
