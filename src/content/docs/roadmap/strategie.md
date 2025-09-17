@@ -1,9 +1,9 @@
 ---
-title: CC Strategie - Ordnung im Tool-Chaos: Installation & Update
-description: Warum Debian + LXC, pipx und eigenes APT Repository die Zukunft sind
+title: "CC Strategie - Ordnung im Tool-Chaos"
+description: "Warum Debian + LXC, pipx und eigenes APT Repository die Zukunft sind"
 sidebar:
   order: 4
-  label: Strategie
+  label: "Strategie"
 ---
 
 > **Vision**: Collective Context als Debian-First Ecosystem mit professionellem Support für Production-Umgebungen
