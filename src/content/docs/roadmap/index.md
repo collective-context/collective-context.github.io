@@ -20,25 +20,25 @@ Diese Roadmap gibt einen Überblick über die Entwicklung des Collective Context
 ## ✅ Bereits umgesetzt
 
 ### September 2025
-- ✅ **Website Launch** - collective-context.org ist live
-- ✅ **Multi-Agent Orchestrierung** - 4-Agent Orchestra Pattern implementiert
-- ✅ **Claude Code CLI Integration** - Claude-1 Agent voll funktionsfähig
-- ✅ **Case Study #001** - Erste erfolgreiche Session dokumentiert
-- ✅ **XDG Standards** - Moderne Pfadstruktur implementiert
-- ✅ **CONTEXT.md** - Persistenz-System etabliert
+- ~~✅ **Website Launch**~~ - collective-context.org ist live
+- ~~✅ **Multi-Agent Orchestrierung**~~ - 4-Agent Orchestra Pattern implementiert
+- ~~✅ **Claude Code CLI Integration**~~ - Claude-1 Agent voll funktionsfähig
+- ~~✅ **Case Study #001**~~ - Erste erfolgreiche Session dokumentiert
+- ~~✅ **XDG Standards**~~ - Moderne Pfadstruktur implementiert
+- ~~✅ **CONTEXT.md**~~ - Persistenz-System etabliert
 
 ### August 2025
-- ✅ **CCC Commander v0.2** - TypeScript Implementation
-- ✅ **Virtuelles Dateisystem** - Session Management
-- ✅ **Template System** - Arbeitspaket-Vorlagen
+- ~~✅ **CCC Commander v0.2**~~ - TypeScript Implementation
+- ~~✅ **Virtuelles Dateisystem**~~ - Session Management
+- ~~✅ **Template System**~~ - Arbeitspaket-Vorlagen
 
 ## 🚧 In Entwicklung
 
 ### CCC Distribution (September 2025)
-- 🚧 **PyPI Package** - `pipx install cccmd`
+- ~~🚧 **PyPI Package**~~ - `pipx install cccmd` **ERLEDIGT**
 - 🚧 **Ubuntu PPA** - Launchpad Repository
-- 🚧 **pyproject.toml** - Moderne Python-Paketierung
-- 🚧 **Installation Guide** - Umfassende Dokumentation
+- ~~🚧 **pyproject.toml**~~ - Moderne Python-Paketierung **ERLEDIGT**
+- ~~🚧 **Installation Guide**~~ - Umfassende Dokumentation **ERLEDIGT**
 
 ### Testing & Qualität
 - 🚧 **Test Suite** - Pytest & Vitest Integration
@@ -48,10 +48,10 @@ Diese Roadmap gibt einen Überblick über die Entwicklung des Collective Context
 ## 📅 Kurzfristig (September - Oktober 2025)
 
 ### Woche 1-2: Distribution Setup
-- [ ] **PyPI Upload** - Erstes Release als `cccmd`
+- ~~[ ] **PyPI Upload**~~ - Erstes Release als `cccmd` **ERLEDIGT**
 - [ ] **Ubuntu PPA** - `ppa:collective-context/ccc` erstellen
-- [ ] **Installation Docs** - Anleitungen für alle Plattformen
-- [ ] **Release v0.3.0** - Erster öffentlicher Release
+- ~~[ ] **Installation Docs**~~ - Anleitungen für alle Plattformen **ERLEDIGT**
+- ~~[ ] **Release v0.3.0**~~ - Erster öffentlicher Release **ERLEDIGT**
 
 ### Woche 3-4: Community Building
 - [ ] **Discourse Forum** - forum.collective-context.org
