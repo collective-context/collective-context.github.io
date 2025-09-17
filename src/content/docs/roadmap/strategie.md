@@ -1,3 +1,10 @@
+---
+title: CC Installation & Update Strategie
+description: Ordnung im Tool-Chaos - Comprehensive strategy for CC installation and update management
+sidebar:
+  order: 1
+---
+
 # CC Installation & Update Strategie - Ordnung im Tool-Chaos
 
 ## 🏛️ Support-Modell: Fokus auf Debian + LXC
