@@ -65,6 +65,7 @@ export default defineConfig({
         {
           label: '🗺️ Roadmap',
           items: [
+            { label: 'Strategie', link: '/roadmap/strategie/' },
             { label: 'Overview', link: '/roadmap/' },
             { label: 'Q3 2025', link: '/roadmap/2025-q3/' },
             { label: 'Q4 2025', link: '/roadmap/2025-q4/' },

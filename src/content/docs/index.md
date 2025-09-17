@@ -1,5 +1,5 @@
 ---
-title: Collective Context (CC)
+title: Collective-Context
 description: Pragmatische Multi-Agent KI-Orchestrierung
 ---
 
