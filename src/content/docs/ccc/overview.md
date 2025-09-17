@@ -1,11 +1,15 @@
 ---
 title: CCC Commander Overview
-description: Python Tool für Agent-Orchestrierung
+description: Production-Ready Multi-Agent AI Orchestration Platform (v0.3.2)
 ---
 
 # CCC Commander Overview
 
 Das **Collective Context Commander** (CCC) Tool automatisiert die Multi-Agent Orchestrierung.
+
+:::tip[Latest Release v0.3.2]
+🎉 **Production-Ready Release** mit 96 Tests, CI/CD Pipeline und PPA Distribution!
+:::
 
 ## Was ist CCC?
 

@@ -1,11 +1,15 @@
 ---
 title: CCC Commander Installation
-description: Installiere cccmd auf deinem System
+description: Install cccmd v0.3.2 - Production Ready Multi-Agent Orchestration
 sidebar:
   order: 1
 ---
 
 # CCC Commander (cccmd) Installation
+
+:::tip[Latest Version: v0.3.2]
+🎉 **Production-ready release** with 96 tests, CI/CD pipeline, and enterprise features!
+:::
 
 ## 🚀 Quick Install
 
