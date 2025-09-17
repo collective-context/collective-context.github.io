@@ -5,8 +5,6 @@ sidebar:
   order: 1
 ---
 
-# Collective Context Roadmap
-
 > **Letzte Aktualisierung**: 16. September 2025
 
 Diese Roadmap gibt einen Überblick über die Entwicklung des Collective Context Projekts. Wir folgen einem iterativen Ansatz mit klaren Meilensteinen in drei Phasen: Kurzfristig (1-4 Wochen), Mittelfristig (1-3 Monate) und Langfristig (3-18 Monate).
