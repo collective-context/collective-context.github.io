@@ -1,9 +1,7 @@
 ---
-title: Developer Guide
 description: Entwicklungsumgebung für Collective Context
+title: Developer Guide
 ---
-
-# Developer Guide
 
 ## Verzeichnisstruktur
 

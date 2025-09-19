@@ -1,9 +1,7 @@
 ---
-title: Aider-2 Parallel Developer
 description: Tests, Docs und Refactoring Spezialist
+title: Aider-2 Parallel Developer
 ---
-
-# Aider-2: Parallel Developer
 
 ## Rolle & Verantwortung
 

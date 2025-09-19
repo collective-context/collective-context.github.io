@@ -1,9 +1,7 @@
 ---
-title: Installation
+title: Installation & Einrichtung
 description: Collective Context System installieren und einrichten
 ---
-
-# Installation
 
 ## System Requirements
 

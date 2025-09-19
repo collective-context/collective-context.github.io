@@ -1,9 +1,7 @@
 ---
-title: Aider-1 Main Developer
 description: Haupt-Entwickler für Feature-Implementation
+title: Aider-1 Main Developer
 ---
-
-# Aider-1: Main Developer
 
 ## Rolle & Verantwortung
 

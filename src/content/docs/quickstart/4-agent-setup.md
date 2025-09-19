@@ -1,9 +1,7 @@
 ---
-title: 4-Agent Setup in 5 Minuten
+title: 4-Agent Setup Guide in 5 Minuten
 description: Der CC Standard Workflow - sofort einsatzbereit
 ---
-
-# 4-Agent Setup Guide
 
 ## Der Collective Context Standard
 

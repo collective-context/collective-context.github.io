@@ -1,9 +1,7 @@
 ---
-title: Swarm Pattern
 description: Dezentrale Agent-Koordination
+title: Swarm Pattern
 ---
-
-# Swarm Pattern
 
 ## Konzept
 

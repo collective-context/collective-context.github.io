@@ -1,9 +1,7 @@
 ---
-title: Tmux Workflow Setup
 description: Hybrid Multi-Provider Terminal Orchestrierung
+title: Tmux Workflow Setup
 ---
-
-# Tmux Workflow Setup
 
 ## Quick Start
 

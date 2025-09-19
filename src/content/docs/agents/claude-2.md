@@ -1,9 +1,7 @@
 ---
-title: Claude-2 Code Reviewer
 description: Quality Gate und Best Practices Guardian
+title: Claude-2 Code Reviewer
 ---
-
-# Claude-2: Code Reviewer
 
 ## Rolle & Verantwortung
 

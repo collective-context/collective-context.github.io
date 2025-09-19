@@ -1,9 +1,7 @@
 ---
-title: Orchestra Pattern
 description: Hybrid Multi-Provider Orchestrierung mit pragmatischem Ansatz
+title: Orchestra Pattern
 ---
-
-# Orchestra Pattern
 
 ## Konzept
 

@@ -1,9 +1,7 @@
 ---
-title: CCC CLI Reference
 description: Command Line Interface Referenz
+title: CCC CLI Reference
 ---
-
-# CCC CLI Reference
 
 ## 🚀 Quick Start - Version Management
 

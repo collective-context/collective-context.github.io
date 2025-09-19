@@ -1,9 +1,8 @@
 ---
+description: Production-Ready Multi-Agent AI Orchestration Platform with Professional
+  Build System (v0.3.4)
 title: CCC Commander Overview
-description: Production-Ready Multi-Agent AI Orchestration Platform with Professional Build System (v0.3.4)
 ---
-
-# CCC Commander Overview
 
 Das **Collective Context Commander** (CCC) Tool automatisiert die Multi-Agent Orchestrierung mit revolutionärem Professional Build System.
 

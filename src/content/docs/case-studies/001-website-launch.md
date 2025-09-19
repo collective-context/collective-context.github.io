@@ -1,11 +1,9 @@
 ---
-title: "Case Study #001: CC Website Launch"
+title: "Case Study #001: Website Launch mit CC Multi-Agent Orchestrierung"
 description: "Wie wir mit CC Multi-Agent Orchestrierung die collective-context.org Website in einer Session launchen"
 date: 2025-09-15
 agents: ["Claude-1", "Claude-2", "User"]
 ---
-
-# Case Study #001: Website Launch mit CC
 
 ## 🎯 Mission
 Launch der collective-context.org Website mit vollständiger Navigation und Documentation.

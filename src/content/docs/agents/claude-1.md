@@ -1,9 +1,7 @@
 ---
-title: Claude-1 System Architect
 description: Der Architekt im 4-Agent System
+title: Claude-1 System Architect
 ---
-
-# Claude-1: System Architect
 
 ## Rolle & Verantwortung
 

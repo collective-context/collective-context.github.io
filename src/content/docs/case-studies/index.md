@@ -1,9 +1,7 @@
 ---
-title: CC Case Studies
+title: CC Case Studies - Real-world Beispiele
 description: Real-world Beispiele von Collective Context in Aktion
 ---
-
-# CC Case Studies
 
 Dokumentierte Erfolgsgeschichten aus der Praxis.
 

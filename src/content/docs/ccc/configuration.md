@@ -1,9 +1,7 @@
 ---
-title: CCC Konfiguration
 description: Konfiguration des Collective Context Commanders
+title: CCC Konfiguration
 ---
-
-# CCC Konfiguration
 
 ## XDG Base Directory Standard
 

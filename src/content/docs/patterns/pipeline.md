@@ -1,9 +1,7 @@
 ---
-title: Pipeline Pattern
 description: Sequentielle Verarbeitung durch Agent-Kette
+title: Pipeline Pattern
 ---
-
-# Pipeline Pattern
 
 ## Konzept
 

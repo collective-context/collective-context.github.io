@@ -1,9 +1,7 @@
 ---
-title: Security Update - September 2025
 description: Wichtige Sicherheits-Updates für CCC Commander
+title: Security Update - September 2025
 ---
-
-# 🔒 Security Update - September 2025
 
 ## Wichtige Sicherheitsinformation
 

@@ -1,11 +1,9 @@
 ---
-title: CCC v0.3.2 Quick Start Guide
 description: Get started with the production-ready CCC Commander in 5 minutes
 sidebar:
   order: 2
+title: CCC v0.3.2 Quick Start Guide
 ---
-
-# 🚀 CCC v0.3.2 Quick Start Guide
 
 Get up and running with the **production-ready** CCC Commander in just 5 minutes!
 

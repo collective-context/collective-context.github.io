@@ -1,9 +1,7 @@
 ---
-title: Security Policy
 description: Wie wir mit Sicherheit umgehen
+title: Security Policy
 ---
-
-# Security Policy
 
 ## Unterstützte Versionen
 

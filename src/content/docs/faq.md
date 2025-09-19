@@ -1,9 +1,7 @@
 ---
-title: Frequently Asked Questions
+title: FAQ - Häufig gestellte Fragen
 description: Häufig gestellte Fragen zu Collective Context
 ---
-
-# FAQ - Häufig gestellte Fragen
 
 ## Allgemein
 
