@@ -14,6 +14,13 @@ hero:
       icon: external
 ---
 
+<figure style="margin: 2.5rem 0; text-align: center;">
+  <img src="/og-image.jpg" alt="Collective Context — Mehrere AI-Agenten im Einklang" style="width: 100%; max-width: 960px; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.18);" />
+  <figcaption style="margin-top: 1rem; font-size: 1.15rem; font-style: italic; opacity: 0.85;">
+    Wie ein Orchester — viele Stimmen, ein gemeinsamer Kontext.
+  </figcaption>
+</figure>
+
 ## CC 2.0 — Der Paradigmenwechsel
 
 > Die Stärke der Innovation ist wie ein Kunstwerk; sie wird lebendig, wenn visionäre Ideen und neuartige Werkzeuge zusammenfließen. An alle Entwickler dieser Welt: Lasst uns gemeinsam zu neuen Ufern aufbrechen.
