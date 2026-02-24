@@ -1,3 +1,7 @@
+---
+title: Archive — Collective Context v1 (2025)
+---
+
 # Archive: Collective Context v1 (2025)
 
 Diese Dateien sind das Original-Setup von collective-context.org aus 2025.
