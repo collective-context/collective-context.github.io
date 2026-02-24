@@ -1,0 +1,24 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+---
+
+<StarlightPage frontmatter={{ title: '404 — Seite nicht gefunden' }}>
+  <p>Diese Seite existiert nicht oder wurde verschoben.</p>
+
+  <p>Mögliche Ursachen:</p>
+  <ul>
+    <li>Die URL enthält einen Tippfehler</li>
+    <li>Die Seite wurde umbenannt oder archiviert</li>
+    <li>Ein Link ist veraltet</li>
+  </ul>
+
+  <p>
+    <a href="/">→ Zur Startseite</a><br />
+    <a href="/roadmap/">→ Roadmap</a><br />
+    <a href="/quickstart/setup/">→ Quick Start</a>
+  </p>
+
+  <p>
+    Falls ein interner Link defekt ist: <a href="https://github.com/collective-context/collective-context.github.io/issues">GitHub Issue öffnen</a>.
+  </p>
+</StarlightPage>
