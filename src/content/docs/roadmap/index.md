@@ -49,7 +49,7 @@ Status: Dokumentation abgeschlossen, Community-Feedback sammeln
 |---|---|---|
 | Kein Context-Window-Indicator im ZED ACP Panel | Offen | Manuell schätzen |
 | `/compact` nicht als ZED-Slash-Command | Offen | Handover-Dokument schreiben |
-| Keine gemeinsame Session-History Web ↔ Tab | Offen | Keiner |
+| Keine gemeinsame Session-History Web ↔ Tab | Workaround | GitHub Repo als [Postbox](/zed/gemini-cli/) — beide Clients lesen/schreiben `postbox/todo.md` |
 | Agent Teams noch nicht im ZED Tab | Offen | Mehrere ZED-Fenster |
 
 Quellen: GitHub Discussion #49472 (18. Feb 2026), Anthropic CHANGELOG.
