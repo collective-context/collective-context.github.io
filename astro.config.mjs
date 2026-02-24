@@ -10,7 +10,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Collective Context',
-      description: 'Multi-Agent KI-Orchestrierung für 10x Produktivität',
+      description: 'Mehrere AI-Agenten. Ein gemeinsamer Kontext. Powered by ZED + ACP.',
       social: [
         {
           label: 'GitHub',
@@ -29,83 +29,50 @@ export default defineConfig({
           label: '🚀 Start',
           items: [
             { label: 'Home', link: '/' },
-            { label: '4-Agent Setup', link: '/quickstart/4-agent-setup' },
-            { label: 'Installation', link: '/quickstart/installation' },
+            { label: 'Quick Start (5 Minuten)', link: '/quickstart/setup' },
+            { label: 'Was ist ACP?', link: '/quickstart/what-is-acp' },
           ],
         },
         {
-          label: '🤖 Multi-Agent System',
+          label: '🏗️ ZED + ACP Fundament',
           items: [
-            { label: 'Übersicht', link: '/agents/overview' },
-            { label: 'Tmux Workflows', link: '/agents/tmux-workflows' },
-            { 
-              label: 'Claude Instanzen',
-              items: [
-                { label: 'Claude-1 Architect', link: '/agents/claude-1' },
-                { label: 'Claude-2 Reviewer', link: '/agents/claude-2' },
-              ]
-            },
-            { 
-              label: 'Aider Instanzen',
-              items: [
-                { label: 'Aider-1 Main Dev', link: '/agents/aider-1' },
-                { label: 'Aider-2 Parallel', link: '/agents/aider-2' },
-              ]
-            },
+            { label: 'ZED Editor Overview', link: '/zed/overview' },
+            { label: 'Agent Client Protocol (ACP)', link: '/zed/acp' },
+            { label: 'Claude Code Tab Setup', link: '/zed/claude-code-tab' },
+            { label: 'Gemini CLI Setup', link: '/zed/gemini-cli' },
+            { label: 'Ollama (lokal)', link: '/zed/ollama' },
           ],
         },
         {
-          label: '🎭 Orchestration Patterns',
+          label: '🧠 Collective Context',
           items: [
+            { label: 'Konzept & Architektur', link: '/cc/concept' },
+            { label: 'CLAUDE.md Guide', link: '/cc/claude-md' },
+            { label: 'AGENTS.md Guide', link: '/cc/agents-md' },
+            { label: 'Postbox Pattern', link: '/cc/postbox-pattern' },
+            { label: 'LLM Routing Strategie', link: '/cc/llm-routing' },
+          ],
+        },
+        {
+          label: '🎭 Patterns',
+          items: [
+            { label: 'Dual-Agent (Gemini + Claude)', link: '/patterns/dual-agent' },
             { label: 'Orchestra Pattern', link: '/patterns/orchestra' },
-            { label: 'Swarm Pattern', link: '/patterns/swarm' },
             { label: 'Pipeline Pattern', link: '/patterns/pipeline' },
           ],
-        },
-        {
-          label: '🗺️ Roadmap',
-          items: [
-            { label: 'Strategie', link: '/roadmap/strategie/' },
-            { label: 'Overview', link: '/roadmap/' },
-            { label: 'Q3 2025', link: '/roadmap/2025-q3/' },
-            { label: 'Q4 2025', link: '/roadmap/2025-q4/' },
-          ],
-        },
-        {
-          label: '📚 Guides',
-          autogenerate: { directory: 'guides' },
         },
         {
           label: '📚 Case Studies',
           items: [
             { label: 'Übersicht', link: '/case-studies/' },
-            { label: '#001: Website Launch', link: '/case-studies/001-website-launch' },
-            { label: '#002: Open Source Migration', link: '/case-studies/002-open-source-migration' },
+            { label: '#001: Claude Code Tab + Grok', link: '/case-studies/001-claude-grok' },
+            { label: '#002: Dual-Agent Workflow', link: '/case-studies/002-dual-agent' },
           ],
         },
         {
-          label: '✈️ Checklists',
-          autogenerate: { directory: 'checklists' },
-        },
-        {
-          label: '🛠️ CCC Commander',
+          label: '🗺️ Roadmap',
           items: [
-            { label: 'Overview', link: '/ccc/overview' },
-            {
-              label: 'Installation',
-              items: [
-                { label: 'pipx (empfohlen)', link: '/ccc/installation' },
-                { label: 'APT (Ubuntu)', link: '/ccc/installation-apt' },
-              ]
-            },
-            { label: 'CLI Reference', link: '/ccc/cli' },
-          ],
-        },
-        {
-          label: '🔒 Security',
-          items: [
-            { label: 'Security Notice', link: '/security/notice' },
-            { label: 'Security Policy', link: '/security/policy' },
+            { label: 'Overview', link: '/roadmap/' },
           ],
         },
         {
