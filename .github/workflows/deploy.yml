@@ -29,12 +29,6 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
-      - name: Add .nojekyll file
-        run: touch dist/.nojekyll
-
-      - name: Add CNAME for custom domain
-        run: echo 'collective-context.org' > dist/CNAME
-        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

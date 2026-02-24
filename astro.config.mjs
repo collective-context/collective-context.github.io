@@ -11,6 +11,10 @@ export default defineConfig({
     starlight({
       title: 'Collective Context',
       description: 'Mehrere AI-Agenten. Ein gemeinsamer Kontext. Powered by ZED + ACP.',
+      defaultLocale: 'de',
+      locales: {
+        root: { label: 'Deutsch', lang: 'de' },
+      },
       social: [
         {
           label: 'GitHub',
