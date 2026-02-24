@@ -4,9 +4,8 @@
 
 Du arbeitest auf der lokalen Workstation im Verzeichnis:
 ```
-/mnt/8100-data/prog/ai/git/collective-context/githib.io
+github.io
 ```
-(Hinweis: Das Verzeichnis heißt tatsächlich `githib.io`, nicht `github.io` — historischer Tippfehler, nicht korrigieren)
 
 Die Website läuft auf **Astro + Starlight**, deployed via GitHub Actions auf:
 - **Live:** https://collective-context.org
@@ -507,7 +506,7 @@ Danke für die Ehrlichkeit, die es brauchte, daraus ein Buch zu machen.*
 Nach dem Erstellen aller Dateien:
 
 ```bash
-cd /mnt/8100-data/prog/ai/git/collective-context/githib.io
+cd /mnt/8100-data/prog/ai/git/collective-context/github.io
 
 # Lokaler Test
 npm run dev
@@ -528,7 +527,7 @@ GitHub Actions deployed automatisch. Live nach ~3 Minuten auf https://collective
 
 ## Wichtige Hinweise
 
-1. **Verzeichnisname:** Das lokale Verzeichnis heißt `githib.io` (Tippfehler beibehalten)
+1. **Verzeichnisname:** Das lokale Verzeichnis heißt `github.io`
 2. **Navigation:** Zur bestehenden `sidebar` in `astro.config.mjs` hinzufügen, nicht ersetzen
 3. **Starlight Links:** In Starlight werden Routen automatisch aus Dateinamen generiert — keine manuelle Routing-Konfiguration nötig
 4. **Frontmatter:** Jede `.md` Datei braucht mindestens `title` und `description` im Frontmatter
