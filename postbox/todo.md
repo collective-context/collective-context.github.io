@@ -13,7 +13,6 @@ Claude Code soll den Auftrag von ZED laut dem Anhang
 
 | ID | Task | Priorität | Quelle | Datei:Zeile |
 |----|------|-----------|--------|-------------|
-| #001 | Auftrag bibliothek-zed-buch abarbeiten | hoch | ZED Editor | postbox/attachments/2026-02-24_AUFTRAG_bibliothek-zed-buch.md |
 
 ## In Bearbeitung
 
