@@ -1,190 +1,134 @@
 ---
-title: FAQ - Häufig gestellte Fragen
-description: Häufig gestellte Fragen zu Collective Context
+title: FAQ
+description: Häufig gestellte Fragen zu Collective Context 2.0
 ---
 
 ## Allgemein
 
 ### Was ist Collective Context?
 
-Collective Context ist ein Framework für die Orchestrierung mehrerer KI-Agenten, die zusammenarbeiten können, um komplexe Aufgaben zu lösen.
+Collective Context ist ein Framework und eine Dokumentationssammlung für **Multi-Agent-Koordination im ZED Editor via ACP** (Agent Client Protocol). Das Ziel: Mehrere AI-Agenten teilen einen gemeinsamen Kontext über das Dateisystem — ohne proprietären Lock-in.
 
-### Welche KI-Modelle werden unterstützt?
+### Was hat sich gegenüber v1 (2025) geändert?
 
-- **Claude 3.5 Sonnet** (Anthropic) - Hauptfokus
-- **GPT-4** (OpenAI) - Über Aider Integration
-- **OpenRouter** - Zugang zu verschiedenen Modellen
+**v1 (2025)**: tmux + Aider + OpenRouter + CCC Commander — Shell-Skripte als Kleber, manuelle Session-Verwaltung.
 
-## Sicherheit
+**v2 (2026)**: ZED Editor + ACP — offener Standard, Editor-Integration, kein tmux mehr nötig.
 
-### Warum wurde von TypeScript zu JSON Configs gewechselt?
+Vision und KAIZEN-Philosophie sind unverändert geblieben.
 
-TypeScript-Konfigurationsdateien können beliebigen Code ausführen, was ein Sicherheitsrisiko darstellt. JSON ist sicher und wird mit Zod-Schemas validiert.
+---
 
-### Wie werden API Keys sicher gespeichert?
+## ACP & ZED
 
-API Keys sollten **ausschließlich** als Environment Variables gespeichert werden:
-- Nutze `.env` Dateien lokal (niemals committen!)
-- Nutze Secret Management in Production (z.B. Docker Secrets, Kubernetes Secrets)
+### Was ist der Unterschied zwischen ACP und MCP?
 
-### Ist CCC sicher für Production?
+| Protokoll | Zweck | Ebene |
+|---|---|---|
+| **ACP** | Verbindet Agenten mit Editoren | Agent ↔ Editor |
+| **MCP** | Verbindet Agenten mit Tools | Agent ↔ Tools |
 
-Nach den Security Updates in v0.2.0 wurden die kritischen Sicherheitslücken geschlossen. Dennoch empfehlen wir:
-- Regelmäßige Updates
-- Monitoring der Logs
-- Prinzip der minimalen Berechtigungen
+ACP regelt, wie der Agent mit dem Editor kommuniziert (Dateizugriff, Diffs, UI).
+MCP regelt, welche Tools der Agent nutzen kann (Datenbanken, APIs, Browser).
 
-## Installation & Pfade
+Beide ergänzen sich: Ein ACP-Agent kann MCP-Server nutzen.
 
-### Wie installiere ich CCC?
+### Brauche ich Claude Max für den ZED Claude Code Tab?
 
-```bash
-# Option 1: pipx (EMPFOHLEN)
-pipx install cccmd
+Ja — der ZED Claude Code Tab authentifiziert via claude.ai OAuth. Claude Max (~€90+/M) ist das günstigste Abo mit Flat Rate.
 
-# Option 2: pip --user
-pip install --user cccmd
+Alternativen:
+- **Claude Pro** (ohne Code Tab, nur claude.ai Web) — kein Filesystem-Zugriff
+- **API-Key** (Zed First-Party Agent, Claude Sonnet) — Token-basiertes Pricing ($3.30/$16.50 per M Token)
+- **Gemini CLI** (ACP External, kein Claude Max nötig) — Google-Account
 
-# Option 3: Development
-cd ~/prog/ai/git/collective-context/
-git clone https://github.com/collective-context/ccc
-cd ccc && pip install -e .
-```
+### Was ist der Unterschied zwischen Claude Code Web und dem ZED Claude Code Tab?
 
-### Wo werden CCC-Dateien gespeichert?
+| Feature | Claude Code Web | ZED Claude Code Tab |
+|---|---|---|
+| Filesystem-Zugriff | Nein | Ja |
+| Inline Diffs im Editor | Nein | Ja |
+| @file Kontext | Nein | Ja |
+| Session History | Ja | Nein (pro Session) |
+| Playwright lokal | Nein | Ja |
+| Ollama (indirekt) | Nein | Ja |
 
-CCC folgt der XDG Base Directory Specification:
-- **Daten**: `~/.local/share/ccc/` (Sessions, Cache)
-- **Konfiguration**: `~/.config/ccc/` (Settings)
-- **Binary**: `~/.local/bin/ccc` (via pipx)
+Beide nutzen Claude Max Flat Rate und laden CLAUDE.md automatisch.
 
-### Warum wurde von ~/prog/claude zu ~/prog/ai gewechselt?
+### Kann ich Ollama statt Claude Max verwenden?
 
-Der neue Pfad `~/prog/ai/git/` ist vendor-neutral und zukunftssicher. Er reflektiert, dass CC mit verschiedenen AI-Modellen arbeitet, nicht nur Claude.
+Ja, aber mit Einschränkungen:
+- **Community ACP Adapter**: Beta-Status (Stand Feb 2026), nicht für Produktions-Einsatz
+- **Indirekt via Script**: Claude Code Tab führt Scripts aus, die intern Ollama nutzen — das funktioniert stabil
+- **Qualität**: Ollama-Modelle sind gut für Tier-C-Tasks, für komplexe Implementierungen empfehlen wir Cloud-Modelle
 
-### Kann ich die Installationspfade anpassen?
+Details: [Ollama Setup](/zed/ollama)
 
-Ja! Nutze Umgebungsvariablen:
-```bash
-export CCC_HOME="/my/custom/path"
-export CCC_CONFIG="/my/config.json"
-```
+---
 
-### Was ist der Unterschied zwischen pip und pipx Installation?
+## CLAUDE.md & Shared Context
 
-- **pipx**: Isolierte Umgebung, automatisches PATH-Management (empfohlen)
-- **pip --user**: Direkte Installation in ~/.local
-- **pip install -e**: Development-Installation aus Source
+### Wie teile ich CLAUDE.md zwischen mehreren Repos?
 
-### Welche Python Version wird benötigt?
+Drei Ansätze:
+1. **Kopieren**: Manuelle Synchronisation — einfach, aber aufwendig bei vielen Repos
+2. **Symlink**: `ln -s ../shared/CLAUDE.md CLAUDE.md` — automatisch synchron, aber an Repo-Grenzen komplex
+3. **Include-Convention**: CLAUDE.md verweist auf `@include: ../shared/base.md` — noch kein nativer Support, aber als Pre-Hook machbar
 
-Python 3.8 oder höher ist erforderlich.
+### Was gehört NICHT in CLAUDE.md?
 
-### Warum benötige ich tmux?
+- Code-Style-Guidelines (dafür gibt es Linter wie ESLint, Ruff, Black)
+- How-To-Anleitungen (LLMs lesen Docs selbst)
+- Alles was ein Agent per `grep` selbst findet
+- Generelle Programmierprinzipien (SOLID, DRY — das weiß das Modell)
 
-Tmux ermöglicht es, mehrere Agenten gleichzeitig in separaten Panels zu verwalten und zwischen ihnen zu wechseln.
+Nur das Nicht-Offensichtliche, Projektspezifische dokumentieren.
 
-## Nutzung
+### Wie viele Regeln kann CLAUDE.md enthalten?
 
-### Wie starte ich eine Multi-Agent Session?
+Frontier-Modelle (Sonnet, Gemini Pro) folgen ca. **150–200 Instruktionen** mit guter Konsistenz. Darüber nimmt die Einhaltung ab.
 
-```bash
-# 4-Agent Orchestrierung starten
-ccc orchestra start
+Empfehlung: Unter 100 Regeln bleiben, prägnant formulieren.
 
-# Spezifische Agenten-Kombination
-ccc agents start claude-1 claude-2 --layout pipeline
-```
+---
 
-### Wie kann ich Agenten zwischen Sessions wechseln?
+## Dual-Agent & Patterns
 
-```bash
-# Zu Agent wechseln
-ccc switch claude-1
+### Wie koordinieren sich Agenten ohne API?
 
-# Kontext teilen
-ccc context share --from claude-1 --to claude-2
-```
+Via Dateisystem: `postbox/todo.md` und `postbox/done.md` sind das geteilte Task-Board. Kein Message-Passing, keine Koordinations-API — nur Dateien lesen und schreiben.
 
-### Was sind Workflows?
+Details: [Postbox Pattern](/cc/postbox-pattern)
 
-Workflows definieren, wie Agenten zusammenarbeiten:
-- **Orchestra**: Koordinierte Zusammenarbeit mit einem Dirigenten
-- **Swarm**: Parallele Bearbeitung von Teilaufgaben
-- **Pipeline**: Sequenzielle Bearbeitung durch verschiedene Spezialisten
+### Können Scanner und Fixer gleichzeitig in dieselbe Datei schreiben?
 
-## Troubleshooting
+In der Praxis sehr selten. Wenn es passiert: Die Datei wird kurz inkonsistent, aber beim nächsten Lesen ist der State klar. Bei sensiblen Projekten: Ein kurzer Human-in-the-loop-Check nach jeder Stunde löst das Problem.
 
-### API Verbindung schlägt fehl
+### Welches Modell für welchen Task?
 
-```bash
-# API Keys prüfen
-ccc test api --provider anthropic
-ccc test api --provider openai
+Kurzfassung:
+- **Architektur, komplexe Implementierung** → Claude Code Tab (Max Flat Rate)
+- **Code-Review, kleine Fixes** → Grok 4.1 Fast ($0.22/$0.55)
+- **Tests schreiben** → Gemini Flash ($0.55/$3.30)
+- **Codebase-Scans** → Gemini CLI (großes Context Window)
+- **Privacy-Tasks, Credentials** → Ollama lokal
 
-# Konfiguration überprüfen
-ccc doctor
-```
+Details: [LLM Routing Strategie](/cc/llm-routing)
 
-### Tmux Session funktioniert nicht
+---
 
-```bash
-# Tmux Version prüfen
-tmux -V
-
-# Sessions zurücksetzen
-tmux kill-server
-ccc orchestra start
-```
-
-### Agent antwortet nicht
-
-```bash
-# Agent-Status prüfen
-ccc status
-
-# Session neu starten
-ccc session restart claude-1
-```
-
-## Entwicklung
-
-### Kann ich eigene Agenten erstellen?
-
-Ja! Erstelle Agent-Profile in `~/.ccc/agents/`:
-
-```yaml
-# ~/.ccc/agents/custom-agent.yaml
-name: "custom-agent"
-model: "claude-3.5-sonnet"
-role: "specialist"
-prompts:
-  system: "You are a specialist for..."
-```
-
-### Wie erweitere ich Workflows?
-
-Workflow-Templates befinden sich in `~/.ccc/workflows/`. Du kannst eigene erstellen oder bestehende anpassen.
-
-### Gibt es eine API?
-
-CCC bietet sowohl eine CLI als auch eine Python API:
-
-```python
-from ccc import Orchestra
-
-orchestra = Orchestra()
-result = orchestra.run_task("Analyze this code...")
-```
-
-## Community
+## Support
 
 ### Wo finde ich Hilfe?
 
 - **GitHub Issues**: Bug Reports und Feature Requests
-- **Discussions**: Community-Support und Ideen
-- **Documentation**: Umfassende Anleitungen und Tutorials
+- **GitHub Discussions**: Community-Support und Ideen
+- **Docs**: Diese Dokumentation
+
+[GitHub — collective-context](https://github.com/collective-context)
 
 ### Wie kann ich beitragen?
 
-Wir freuen uns über Beiträge! Siehe unsere [Contributing Guidelines](https://github.com/collective-context/ccc/blob/main/CONTRIBUTING.md).
+- Verbesserungen dieser Docs als Pull Request
+- Eigene Case Studies dokumentieren
+- Bug Reports für Limitierungen (insbesondere ACP-Bugs)

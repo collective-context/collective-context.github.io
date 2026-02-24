@@ -1,22 +1,34 @@
 ---
-title: CC Case Studies - Real-world Beispiele
-description: Real-world Beispiele von Collective Context in Aktion
+title: Case Studies
+description: Dokumentierte Real-World-Anwendungen des Collective Context Stacks
 ---
 
-Dokumentierte Erfolgsgeschichten aus der Praxis.
+## Übersicht
 
-## 📚 Verfügbare Case Studies
+Die Case Studies dokumentieren konkrete Anwendungen des Collective Context Stacks in der Praxis. Jede Case Study zeigt einen spezifischen Workflow, die genutzten Agenten und die Ergebnisse.
 
-### [#001: Website Launch](./001-website-launch)
-**Datum**: 15. September 2025
-**Agents**: Claude-1, Claude-2, User
-**Ergebnis**: collective-context.org in 45 Minuten live
+## Verfügbare Case Studies
 
-### [#002: Open Source Migration](./002-open-source-migration)
-**Datum**: 15. September 2025
-**Agents**: Aider-1, Aider-2, Aider-3, Aider-4, Claude-Max
-**Ergebnis**: 100% Open Source Tools, 60% Kosteneinsparung, Privacy-First
+### #001: Claude Code Tab + Grok — Arbeitsteilung im ZED Editor
+
+**Szenario**: Komplexes Feature-Development mit Architektur-Review
+**Agenten**: Claude Code Tab (Implementierung) + Grok 4.1 Fast (Code-Review)
+**Stack**: ZED + ACP, CLAUDE.md als Shared Context
+[Case Study lesen →](/case-studies/001-claude-grok)
 
 ---
 
-*Evolution in Aktion - Von proprietär zu frei!*
+### #002: Dual-Agent Workflow — Gemini CLI + Claude Code Tab
+
+**Szenario**: Kontinuierliche Code-Qualitätsverbesserung via Scanner + Fixer
+**Agenten**: Gemini CLI (Scanner) + Claude Code Tab (Fixer)
+**Koordination**: postbox/todo.md + postbox/done.md
+[Case Study lesen →](/case-studies/002-dual-agent)
+
+---
+
+## Eigene Case Study beitragen
+
+Hast du einen Collective Context Workflow dokumentiert? Beitrag via GitHub:
+
+[GitHub — collective-context](https://github.com/collective-context)

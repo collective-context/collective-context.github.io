@@ -1,160 +1,161 @@
 ---
-title: Collective-Context
-description: Pragmatische Multi-Agent KI-Orchestrierung
+title: Collective Context
+description: Mehrere AI-Agenten. Ein gemeinsamer Kontext. Powered by ZED + ACP.
+template: splash
+hero:
+  tagline: Mehrere AI-Agenten. Ein gemeinsamer Kontext. Powered by ZED + ACP.
+  actions:
+    - text: Quick Start (5 Minuten)
+      link: /quickstart/setup
+      icon: right-arrow
+      variant: primary
+    - text: Was ist ACP?
+      link: /zed/acp
+      icon: external
 ---
 
-# CC Multi-Agent Orchestrierung
+## CC 2.0 — Der Paradigmenwechsel
 
-> Die Stärke der Innovation ist wie ein Kunstwerk; sie wird lebendig, wenn visionäre Ideen und neuartige Werkzeuge zusammenfließen. An alle Entwickler dieser Welt: Lasst uns gemeinsam zu neuen Ufern aufbrechen. 🚀
+> Die Stärke der Innovation ist wie ein Kunstwerk; sie wird lebendig, wenn visionäre Ideen und neuartige Werkzeuge zusammenfließen. An alle Entwickler dieser Welt: Lasst uns gemeinsam zu neuen Ufern aufbrechen.
 
-## **🎉 Ubuntu PPA LIVE!**
-CCC ist jetzt offiziell auf Ubuntu verfügbar! `sudo apt install ccc` [Details →](/ccc/installation-apt/)
+Das **Collective Context**-Projekt dokumentiert, wie mehrere AI-Agenten einen **gemeinsamen Kontext teilen** — ohne proprietären Lock-in, ohne tmux-Magie, ohne manuelle Session-Verwaltung.
 
-## **🔒 Security Update**
-V0.2.0 mit wichtigen Sicherheits-Verbesserungen verfügbar. [Details →](/security/notice)
+**Das Fundament ab 2026: ZED Editor + Agent Client Protocol (ACP)**
 
-## ⛵ **Evolution statt Revolution**
-Hybrid-Ansatz mit FOSS + Selected Proprietary Tools:
-- ✅ Zugang zu **300+ KI-Modellen** über OpenRouter (Cloud & Self-Hosted)
-- ✅ Hauptsächlich Open Source (3 von 4 Agents nutzen Aider)
-- ✅ Claude-2 testet unseren CCC Commander
-- ✅ Multi-Provider Support (OpenRouter, PublicAI, Anthropic)
-- ✅ Self-Hosting Option für 100% Privacy
-- ✅ KAIZEN: Lernen aus der Praxis
+---
 
-### Status
-- ✅ Security Audit durchgeführt (September 2025)
-- ✅ Kritische Fixes implementiert
-- ✅ JSON-basierte sichere Konfiguration
-- ✅ Aktive Entwicklung und Support
+## Evolution statt Revolution
 
-## 🌐 Unprecedented Flexibility
+Wir haben den Stack gewechselt. Die Vision ist dieselbe geblieben.
 
-Mit OpenRouter können alle Agents aus über 300 Modellen wählen:
-- **Cloud**: Claude, GPT-4, Gemini, Mistral, Llama, DeepSeek...
-- **Local**: Eigene Modelle via Ollama, vLLM, LocalAI
-- **Hybrid**: Mix aus Cloud und Self-Hosted je nach Anforderung
+**Vorher (2025):** tmux + Aider + OpenRouter + CCC Commander
+**Jetzt (2026):** ZED Editor + ACP + Claude Code Tab + Gemini CLI + Ollama
 
-## 🚀 Quick Start
+Was sich nicht geändert hat:
+- KAIZEN-Prinzip: Schrittweise Verbesserung, nicht Neuerfindung
+- Pragmatismus über Purismus
+- Hybrid: Cloud-LLMs + lokale Modelle
+- Open Source: Apache 2.0 (ACP), MIT (unsere Docs)
+- Privacy-First: Ollama für credential-sichere lokale Tasks
 
-### Installation (30 Sekunden)
+---
 
-```bash
-# Ubuntu (APT) - LIVE NOW!
-sudo add-apt-repository ppa:collective-context/ccc
-sudo apt update && sudo apt install ccc
+## Was ist ACP?
 
-# Cross-Platform (pipx)
-pipx install cccmd
+**Agent Client Protocol (ACP)** ist ein offener Standard von Zed Industries — das LSP für AI-Agenten.
 
-# Entwickler
-git clone https://github.com/collective-context/ccc
-cd ccc && pip install -e .
+```
+ZED Editor (ACP Client)
+├── Claude Code Tab   ← Claude Max, Flat Rate, Filesystem-Zugriff
+├── Gemini CLI        ← Parallele Scan-Tasks
+├── Codex             ← OpenAI's Coding Agent
+└── Ollama Adapter    ← Lokal, Privacy-First
+    ↕
+    CLAUDE.md / AGENTS.md (Shared Context für alle)
 ```
 
-CCC folgt modernen Standards:
-- ✅ XDG Base Directory Specification
-- ✅ pipx/pip kompatibel
-- ✅ Umgebungsvariablen für Flexibilität
+Jeder Agent, der ACP spricht, kann in jedem ACP-kompatiblen Editor laufen. Einmal integriert — überall verfügbar.
 
-### Hybrid Multi-Provider Setup
+---
+
+## Der ZED Claude Code Tab
+
+Der **ZED Claude Code Tab** ist die Referenz-Implementierung:
+
+| Feature | Wert |
+|---|---|
+| **Kosten** | Claude Max Abo (Flat Rate — kein Token-Pricing) |
+| **Modell** | Claude Sonnet 4.6 |
+| **Filesystem** | Direkt auf lokale Workstation |
+| **Diffs** | Inline im Editor (accept/reject per Hunk) |
+| **CLAUDE.md** | Automatisch in jede Session geladen |
+| **Playwright** | Lokal ausführbar |
+| **Ollama** | Indirekt via Script-Ausführung |
 
 ```bash
-# Aider Installation (für Claude-1, Aider-1, Aider-2)
-pip install aider-chat[voice]
-
-# OpenRouter (300+ Modelle)
-export OPENROUTER_API_KEY='sk-or-v1-...'
-
-# PublicAI (Schweizer Datenschutz)
-export PUBLICAI_API_KEY='pub-...'
-
-# CCC Commander bereits installiert via pipx
-ccc --help
+# Setup in 30 Sekunden
+# 1. ZED installieren: https://zed.dev/download
+# 2. Agent Panel öffnen: Ctrl+?
+# 3. + → Claude Agent (aus ACP Registry)
+# 4. /login → OAuth mit claude.ai (Claude Max)
 ```
 
-## 🎭 Das Hybrid Orchestra Pattern
+---
 
-4 spezialisierte Agents mit pragmatischer Tool-Auswahl:
+## CLAUDE.md als Collective Context
 
-| Agent | Tool | Provider | Model | Focus |
-|-------|------|----------|-------|-------|
-| **Claude-1** | Aider | OpenRouter | Claude 3.5 Sonnet | System Architecture |
-| **Claude-2** | CCC/Claude Code | Anthropic | Claude 3.5 Sonnet | Development + CCC Testing |
-| **Aider-1** | Aider | OpenRouter | DeepSeek Coder | Core Implementation |
-| **Aider-2** | Aider | PublicAI | Apertus v1 | Privacy-First Testing |
+**CLAUDE.md ist das geteilte Gedächtnis aller Agenten im Projekt.**
 
-## 💡 Warum Hybrid statt 100% FOSS?
+```
+projekt/
+├── CLAUDE.md        ← Automatisch in JEDE Session aller Claude-Instanzen
+├── AGENTS.md        ← Kompatibel: Gemini CLI, Codex, OpenCode
+└── postbox/
+    ├── todo.md      ← Offene Tasks (Shared State)
+    └── done.md      ← Erledigte Tasks
+```
 
-### 🎯 Pragmatismus über Purismus
-- **Tool Comparison**: Direkter Vergleich Aider vs CCC
-- **Risk Mitigation**: Bewährte Workflows als Fallback
-- **Real-World Testing**: Claude-2 testet unseren eigenen CCC Commander
-- **KAIZEN Evolution**: Datenbasierte Entscheidungen statt ideologische
+> "Anytime we see Claude do something incorrectly we add it to the CLAUDE.md, so Claude knows not to do it next time. Every mistake becomes a rule." — Boris Cherny, Creator of Claude Code
 
-### 🔄 Evolution Path
-1. **Phase 1**: Hybrid Setup (aktuell)
-2. **Phase 2**: Performance-Daten sammeln (3 Monate)
-3. **Phase 3**: Optimierung basierend auf Erfahrung (6 Monate)
+---
 
-### 💰 Cost & Flexibility Benefits
+## Dual-Agent Pattern
 
-| Metrik | Rein Proprietär | CC Hybrid | Potential FOSS |
-|--------|-----------------|-----------|----------------|
-| Monatliche Kosten | $150 | $80 | $40 |
-| Provider-Optionen | 1 | 300+ | 300+ |
-| Privacy Control | ❌ | ✅ | ✅ |
-| Tool Transparency | 25% | 75% | 100% |
+```
+Gemini CLI (Scanner)          Claude Code Tab (Fixer)
+─────────────────────         ─────────────────────────
+Scannt Codebase               Monitort postbox/todo.md
+↓                             ↓
+Schreibt in todo.md           Fixiert Code + committed
+↓                             ↓
+Weiter scannen                Verschiebt Task → done.md
+```
 
-## 🔒 Privacy-First Options
+Zwei Agenten, ein gemeinsames Dateisystem, kein API-Overhead.
 
-- **Standard**: OpenRouter für Performance und Modell-Vielfalt
-- **Privacy**: PublicAI/Apertus für DSGVO-Compliance (Schweizer Server)
-- **Self-Hosted**: Ollama für vollständige Kontrolle
-- **Hybrid**: Mix je nach Sensitivität der Daten
+---
 
-## 📚 Documentation
+## Kosten-Vergleich
 
-- [Hybrid Multi-Provider Setup Guide](/guides/multi-provider-setup/)
-- [Migration von Claude Code](/guides/migration-from-claude-code/)
-- [Tmux Hybrid Workflows](/agents/tmux-workflows/)
-- [Orchestra Pattern (Hybrid)](/patterns/orchestra/)
+| Setup | Monatlich | Modell-Optionen | Privacy |
+|---|---|---|---|
+| Nur Cloud (proprietär) | ~$150 | 1 Provider | Nein |
+| CC 2.0 Hybrid | ~$80 | Unbegrenzt | Ja |
+| CC 2.0 Full Local | ~$30 | 300+ via Ollama | Ja |
+
+Claude Max Abo (~€90+/M) deckt Claude Code Tab + Claude Code Web + Claude Pro ab — Flat Rate.
+
+---
+
+## Roadmap
+
+- ZED ACP-Fundament (Claude Code Tab) — abgeschlossen
+- CLAUDE.md Collective Context Spec — abgeschlossen
+- Dual-Agent Pattern dokumentiert — abgeschlossen
+- MCP Server Integration Guide — geplant
+- Ollama ACP Adapter — geplant
+- Community Forum — geplant
+
+[Zur vollständigen Roadmap](/roadmap/)
+
+---
+
+## Dokumentation
+
+- [ZED ACP Setup Guide](/zed/acp)
+- [Claude Code Tab im Detail](/zed/claude-code-tab)
+- [CLAUDE.md schreiben — Best Practices](/cc/claude-md)
+- [Dual-Agent Pattern](/patterns/dual-agent)
 - [Case Studies](/case-studies/)
 
-## 💬 Community
-
-- [GitHub Discussions](https://github.com/collective-context/ccc/discussions)
-- Discourse Forum: Coming soon auf [NexusLibre.DE](https://NexusLibre.DE)
-
-## 🤝 Pragmatische Philosophie
-
-> "Perfect is the enemy of good" - Wir wählen Tools die funktionieren, nicht die ideologisch reinen.
-
-### KAIZEN-Prinzip in Action
-- **Evolution > Revolution**: Schrittweise Verbesserung
-- **Data > Ideology**: Entscheidungen basierend auf Messungen
-- **Pragmatism > Purism**: Was funktioniert gewinnt
-- **Learning > Dogma**: Kontinuierliche Anpassung
-
-### Unsere Hybrid-Evolution
-1. **September 2025**: Pragmatischer Hybrid-Ansatz
-2. **Multi-Provider**: 300+ Modelle verfügbar
-3. **Privacy-First**: Europäische Datenschutz-Optionen
-4. **Cost-Efficient**: 40-70% Kosteneinsparung je nach Strategy
-
-## 🗺️ Roadmap
-
-Sieh dir unsere [detaillierte Roadmap](/roadmap/) an, um zu erfahren, was wir planen und woran wir arbeiten. Highlights für Q3/Q4 2025:
-
-- ✅ Website & Documentation Launch
-- ✅ PyPI Distribution (Live)
-- ✅ **Ubuntu PPA (Live)**
-- 📅 Community Forum
-- 📅 Enterprise Features
-
-[Zur vollständigen Roadmap →](/roadmap/)
-
 ---
 
-[Get Started with Hybrid CC →](https://github.com/collective-context/ccc)
+## Pragmatische Philosophie
 
+**KAIZEN-Prinzip in Action:**
+- **Evolution > Revolution**: Schrittweise Verbesserung
+- **Data > Ideology**: Was in der Praxis funktioniert, gewinnt
+- **Pragmatism > Purism**: Hybrid aus Cloud + Local ist optimal
+- **Open Standard > Proprietary**: ACP ist Apache 2.0
+
+[GitHub](https://github.com/collective-context) · Community Forum: Coming soon

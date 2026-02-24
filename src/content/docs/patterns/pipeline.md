@@ -1,64 +1,70 @@
 ---
-description: Sequentielle Verarbeitung durch Agent-Kette
 title: Pipeline Pattern
+description: Sequenzielle Agenten-Kette — Output eines Agenten ist Input des nächsten
 ---
 
 ## Konzept
 
-Aufgaben durchlaufen sequentiell verschiedene Agent-Stufen, wie in einer Produktionslinie.
-
-## Pipeline Stages
+Das Pipeline Pattern ist ein sequenzielles Multi-Agent-Setup: Der Output von Agent A wird direkter Input für Agent B — wie eine Unix-Pipe, aber für AI-Agenten.
 
 ```
-Input → Stage 1 → Stage 2 → Stage 3 → Stage 4 → Output
-      (Analyze)  (Design)  (Implement) (Test)  (Deploy)
+Anforderung
+    ↓
+Agent A (Planer)
+→ schreibt Implementierungsplan in postbox/plan.md
+    ↓
+Agent B (Implementierer)
+→ liest plan.md, schreibt Code
+→ schreibt Ergebnisse in postbox/review-queue.md
+    ↓
+Agent C (Reviewer)
+→ liest review-queue.md, prüft Code
+→ schreibt Feedback oder gibt Freigabe
+    ↓
+Commit
 ```
 
-## CC Implementation
+## Implementierung via Postbox-Erweiterung
 
-### Standard Pipeline:
-1. **Requirements Analysis** (Claude-1)
-2. **Architecture Design** (Claude-1)
-3. **Implementation** (Aider-1)
-4. **Testing** (Aider-2)
-5. **Code Review** (Claude-2)
-6. **Deployment** (Automated)
+```
+postbox/
+├── todo.md          ← Eingehende Tasks
+├── plan.md          ← Pläne (Agent A → Agent B)
+├── review-queue.md  ← Zur Review (Agent B → Agent C)
+└── done.md          ← Freigegeben
+```
 
-## Pipeline Varianten
+## Typischer Anwendungsfall: Feature-Entwicklung
 
-### Fast Track Pipeline:
-- Für kleine Changes
-- Überspringt Architecture Phase
-- Direkt zu Implementation
+```
+Schritt 1: Claude Code Tab (Planer)
+"Lies todo.md. Für Task #001 erstelle einen detaillierten
+Implementierungsplan in postbox/plan.md. Kein Code schreiben."
 
-### Research Pipeline:
-- Für unbekannte Domains
-- Erweiterte Analysis Phase
-- Multiple Research Agents
+Schritt 2: Gemini Flash (Implementierer)
+"Lies postbox/plan.md. Implementiere den Plan.
+Schreibe die geänderten Dateien in postbox/review-queue.md (Liste)."
 
-### Emergency Pipeline:
-- Für Critical Bugs
-- Parallele Stages wo möglich
-- Reduzierte Review-Phase
+Schritt 3: Claude Code Tab (Reviewer)
+"Lies postbox/review-queue.md. Prüfe alle gelisteten Dateien
+auf Korrektheit, Tests, Security. Gib Freigabe oder schreibe
+Feedback in postbox/review-queue.md."
+```
 
-## Quality Gates
+## Unterschied zu Dual-Agent und Orchestra
 
-Zwischen jeder Stage gibt es Quality Checks:
-- **Input Validation**: Sind Requirements klar?
-- **Design Review**: Ist Architektur sound?
-- **Code Review**: Meets Standards?
-- **Test Results**: Alle Tests pass?
+| Pattern | Koordination | Reihenfolge | Beste Nutzung |
+|---|---|---|---|
+| **Dual-Agent** | Asynchron | Beliebig | Kontinuierliche Scan+Fix-Zyklen |
+| **Orchestra** | Asynchron | Beliebig | Mehrere parallele Spezialisierungen |
+| **Pipeline** | Synchron | Streng sequenziell | Qualitätskontrolle, Review-Gates |
 
-## Monitoring & Metrics
+## Wann Pipeline verwenden?
 
-- **Stage Duration**: Wie lange dauert jede Phase?
-- **Bottleneck Analysis**: Wo sind Verzögerungen?
-- **Quality Metrics**: Fehlerrate pro Stage
-- **Throughput**: Tasks pro Zeiteinheit
+- **Review-Gates**: Wenn Code-Review vor jedem Commit Pflicht ist
+- **Qualitätspipelines**: Wenn jeder Step die Qualität des vorherigen prüft
+- **Komplexe Features**: Wenn Planung vor Implementierung wichtig ist
 
-## Optimierungen
+**Nachteil**: Langsamer als Dual-Agent, da sequential. Für schnelle Iteration ist Dual-Agent besser.
 
-- **Parallelisierung**: Wo möglich, Stages parallel
-- **Caching**: Wiederverwendung von Zwischenergebnissen
-- **Skip Logic**: Intelligentes Überspringen unnötiger Stages
-- **Rollback**: Bei Fehlern zurück zur vorherigen Stage
+[Zurück zur Pattern-Übersicht](/patterns/dual-agent)
