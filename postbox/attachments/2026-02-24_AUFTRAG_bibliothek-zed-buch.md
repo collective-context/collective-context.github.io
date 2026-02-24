@@ -4,14 +4,14 @@
 
 Du arbeitest auf der lokalen Workstation im Verzeichnis:
 ```
-github.io
+github.io/
 ```
 
 Die Website läuft auf **Astro + Starlight**, deployed via GitHub Actions auf:
 - **Live:** https://collective-context.org
 - **Repo:** https://github.com/collective-context/collective-context.github.io
 
-Content liegt in: `src/content/docs/` als `.md` oder `.mdx` Dateien.
+Content liegt in: `src/content/` als `.md` oder `.mdx` Dateien.
 Navigation wird konfiguriert in: `astro.config.mjs` → `sidebar` Array.
 
 ---
@@ -23,7 +23,7 @@ Navigation wird konfiguriert in: `astro.config.mjs` → `sidebar` Array.
 Erstelle die Verzeichnisstruktur für eine Bibliothek:
 
 ```
-src/content/docs/books/
+src/content/books/
 ├── index.md                        ← Bibliotheks-Übersicht
 └── zed-editor/
     ├── index.md                    ← Buchübersicht / Inhaltsverzeichnis
@@ -67,7 +67,7 @@ Füge zur bestehenden `sidebar` folgende neue Gruppe hinzu (nicht ersetzen, hinz
 
 ---
 
-#### `src/content/docs/books/index.md`
+#### `src/content/books/index.md`
 
 ```markdown
 ---
@@ -83,24 +83,24 @@ Kein Marketing. Keine Theorie. Nur das, was wir selbst gelernt haben — oft auf
 ## Verfügbare Bücher
 
 ### [Der ZED Editor — Verstehen statt Raten](/books/zed-editor/)
-**Für:** Einsteiger und Fortgeschrittene, die ZED als KI-Arbeitsumgebung nutzen  
-**Entstanden aus:** Zwei Stunden Debugging, die mit einem Blick ins Handbuch überflüssig gewesen wären  
+**Für:** Einsteiger und Fortgeschrittene, die ZED als KI-Arbeitsumgebung nutzen.
+**Entstanden aus:** Einer Arbeit, die mit einem Blick ins Handbuch überflüssig gewesen wäre.
 **Kernbotschaft:** ZED hat drei grundlegend verschiedene KI-Systeme. Wer das nicht weiß, rätselt stundenlang.
 ```
 
 ---
 
-#### `src/content/docs/books/zed-editor/index.md`
+#### `src/content/books/zed-editor/index.md`
 
 ```markdown
 ---
-title: "Der ZED Editor — Verstehen statt Raten"
-description: Ein praktischer Leitfaden zur KI-Architektur des ZED Editors. Entstanden aus echter Erfahrung.
+title: "ZED Editor — Verstehen"
+description: Ein praktischer Leitfaden zur KI-Architektur des ZED Editors. Entstanden aus praktischer Anwendung.
 ---
 
-# Der ZED Editor — Verstehen statt Raten
+# ZED Editor — Verstehen
 
-> *"Wir haben zwei Stunden in SQLite-Datenbanken herumgebastelt, bevor wir ins Handbuch geschaut haben.  
+> *"Wir haben unnötigerweise in SQLite-Datenbanken herumgebastelt, bevor wir ins Handbuch geschaut haben.  
 > Dieses Buch soll dafür sorgen, dass dir das nicht passiert."*
 
 ## Warum dieses Buch?
@@ -110,10 +110,10 @@ wenn man nicht versteht, dass ZED **drei völlig verschiedene KI-Systeme** hat, 
 funktionieren, unterschiedlich speichern und unterschiedliche Fähigkeiten haben.
 
 Wer das nicht weiß, erlebt Folgendes:
-- Die KI kann plötzlich keine Dateien mehr lesen, obwohl sie es gestern noch konnte
+- Die KI kann plötzlich keine Threads mehr lesen, obwohl sie es gestern noch konnte
 - Die Schrift im Eingabefeld ist plötzlich Monospace
 - Die Thread-History ist "verschwunden"
-- git-Befehle funktionieren nicht mehr über die KI
+- git-Befehle können von der KI nicht mehr angestoßen werden
 
 All das hat eine simple Erklärung — aber nur wenn man die Architektur kennt.
 
@@ -136,7 +136,7 @@ All das hat eine simple Erklärung — aber nur wenn man die Architektur kennt.
 
 ---
 
-#### `src/content/docs/books/zed-editor/01-was-ist-zed.md`
+#### `src/content/books/zed-editor/01-was-ist-zed.md`
 
 ```markdown
 ---
@@ -147,13 +147,13 @@ description: ZED ist mehr als ein Editor — aber man muss verstehen, was genau.
 # Was ist ZED?
 
 ZED ist ein Code-Editor, der von Grund auf für Geschwindigkeit und KI-Integration entwickelt wurde.
-Er ist in Rust geschrieben, open source, und seit 2024 auch für Linux verfügbar.
+Er ist in Rust geschrieben, Open Source, und für Linux, Mac und Windows verfügbar.
 
 ## Das Wichtigste zuerst
 
 ZED ist **kein** KI-Chatbot. ZED ist ein **Editor mit eingebetteter KI** — und das ist ein
 entscheidender Unterschied. Die KI in ZED hat direkten Zugriff auf deine Dateien, dein Terminal
-und deinen Code. Aber: **nicht immer, nicht in jedem Modus.**
+und deinen Code. Aber: **nur wenn du es erlaubst und nicht in jedem Modus.**
 
 ## Was ZED kann
 
@@ -169,19 +169,19 @@ Bevor du ZED benutzt, musst du dir eine Frage stellen:
 > **"Will ich mit der KI reden — oder soll die KI für mich arbeiten?"**
 
 Das ist kein philosophischer Unterschied. Das ist ein technischer. Und er bestimmt,
-welches der drei KI-Systeme du öffnen musst.
+welches der drei KI-Systeme du öffnen musst und wie du sich ochestrieren kannst.
 
 → Weiter: [Die drei Panels](/books/zed-editor/02-drei-panels/)
 ```
 
 ---
 
-#### `src/content/docs/books/zed-editor/02-drei-panels.md`
+#### `src/content/books/zed-editor/02-drei-panels.md`
 
 ```markdown
 ---
 title: "2. Die drei Panels"
-description: ZED hat drei völlig verschiedene KI-Systeme. Hier ist der Unterschied.
+description: Warum gibt es in ZED drei verschiedene KI-Systeme mit unzählogen LLMs und was ist der Unterschied?
 ---
 
 # Die drei Panels
@@ -198,8 +198,8 @@ Das Herzstück dieses Buches. Wer das versteht, versteht ZED.
 
 ## Text Threads — Nur Gespräche
 
-Text Threads sind das **originale** KI-Interface von ZED (vor Mai 2025).
-Sie funktionieren wie ein Editor-Buffer: du tippst, die KI antwortet.
+***Text Threads sind das erste** KI-Interface von ZED (vor Mai 2025).
+Sie funktionieren wie ein Chat Fenster im Editor: du tippst, die KI antwortet.
 
 **Was sie können:** Fragen beantworten, Code vorschlagen, Texte schreiben  
 **Was sie NICHT können:** Dateien lesen, Befehle ausführen, aktiv im Projekt arbeiten  
@@ -207,13 +207,13 @@ Sie funktionieren wie ein Editor-Buffer: du tippst, die KI antwortet.
 
 :::caution[Häufige Verwechslung]
 Wenn du im Text Thread bist und fragst "Kannst du meine Datei lesen?" — antwortet die KI
-trotzdem hilfreich. Aber sie lügt dabei nicht absichtlich: sie *glaubt*, dass sie helfen kann.
+trotzdem hilfreich. Aber es kann gut sein dass sie lügt: sie *glaubt*, dass sie helfen kann.
 Tatsächlich hat sie keinen Zugriff auf dein Dateisystem.
 :::
 
-## Agent Panel — Die KI arbeitet für dich
+## Agent Panel — Die KI arbeitet für dich im Haupt-Interface
 
-Das Agent Panel wurde im **Mai 2025** eingeführt und ist das aktuelle Haupt-Interface für
+**Das Agent Panel wurde im Mai 2025** eingeführt und ist das aktuelle Haupt-Interface für
 agentic workflows. Hier kann die KI:
 
 - Dateien lesen und schreiben
@@ -227,18 +227,18 @@ agentic workflows. Hier kann die KI:
 
 ## Claude Code Tab — Externer Agent
 
-Claude Code ist Anthropics eigenes CLI-Tool, das über das **Agent Client Protocol (ACP)**
-in ZED integriert werden kann. Es läuft als eigener Prozess und kommuniziert mit ZED.
+**Das CLI Tool Claude Code von Anthropics**, kann über das **Agent Client Protocol (ACP)**
+in ZED integriert werden. Es läuft als eigener Prozess und kommuniziert mit ZED.
 
-**Vorteil:** Claude Code nutzt dein Claude-Konto direkt (keine separate API-Key-Konfiguration)  
-**Einschränkung:** Thread-History wird von ZED aktuell nicht wiederhergestellt (bekanntes Limitation)
+**Vorteil:** Claude Code nutzt dein Claude-Konto direkt im Claude Abo (flat - ohne Gebühr für API-Key)  
+**Besonderheit:** Die Thread-History wird unabhängig vom Agent Panel mitgeführt.
 
 → Weiter: [Das Agent Panel im Detail](/books/zed-editor/03-agent-panel/)
 ```
 
 ---
 
-#### `src/content/docs/books/zed-editor/03-agent-panel.md`
+#### `src/content/books/zed-editor/03-agent-panel.md`
 
 ```markdown
 ---
@@ -295,7 +295,7 @@ den Zustand deines Projekts auf den Zeitpunkt vor dieser Aktion zurücksetzen.
 
 ---
 
-#### `src/content/docs/books/zed-editor/04-text-threads.md`
+#### `src/content/books/zed-editor/04-text-threads.md`
 
 ```markdown
 ---
@@ -346,7 +346,7 @@ Das Format ist `zed: context, version: 0.4.0` — komplett anders als Agent Thre
 
 ---
 
-#### `src/content/docs/books/zed-editor/05-externe-agenten.md`
+#### `src/content/books/zed-editor/05-externe-agenten.md`
 
 ```markdown
 ---
@@ -374,9 +374,9 @@ Typische Konfiguration:
 ## Claude Code Tab
 
 Claude Code (Version 2.x) läuft als eigener Terminal-Prozess in einem ZED-Tab.
-Es nutzt dein Anthropic-Konto via OAuth — keine separate API-Key-Konfiguration nötig.
+Es nutzt dein **Anthropic-Konto via OAuth — keine separaten API-Key Kosten entstehen.**
 
-**Starten:** Im Agent Panel `+` → "Claude Agent"
+**Starten:** Im Agent Panel `+` → "Claude Agent" → "/login" → "rechts auf Login Claude" klicken.
 
 :::note[Native Installer]
 Ab Claude Code 2.x wurde von npm auf einen nativen Installer umgestellt.
@@ -390,7 +390,7 @@ Laut offizieller ZED-Dokumentation sind folgende Features für externe Agenten
 
 - Thread History wiederherstellen
 - Checkpoints
-- Token Usage Anzeige
+- Token Usage Anzeige (unnötig im Abo Betrieb)
 - Model Selection innerhalb von ZED
 
 Das ist kein Bug — das steht explizit in der Doku mit dem Hinweis "should be supported in the future".
@@ -398,9 +398,11 @@ Das ist kein Bug — das steht explizit in der Doku mit dem Hinweis "should be s
 → Weiter: [Storage-Architektur](/books/zed-editor/06-storage-architektur/)
 ```
 
+
+
 ---
 
-#### `src/content/docs/books/zed-editor/06-storage-architektur.md`
+#### `src/content/books/zed-editor/06-storage-architektur.md`
 
 ```markdown
 ---
@@ -452,23 +454,23 @@ rsync -av ~/.local/share/zed/conversations/ ~/backup/zed-conversations/
 
 ---
 
-#### `src/content/docs/books/zed-editor/07-die-wichtigste-lektion.md`
+#### `src/content/books/zed-editor/07-die-wichtigste-lektion.md`
 
 ```markdown
 ---
 title: "7. Die wichtigste Lektion"
-description: Zwei Stunden Debugging in drei Sätzen zusammengefasst.
+description: Umfangreiches Debugging in drei Sätzen zusammengefasst.
 ---
 
 # Die wichtigste Lektion
 
 ## Was passiert ist
 
-An einem Abend im Februar 2026 verschwand die Thread-History in ZED.
+An einem Abend verschwand die Thread-History in ZED.
 Die Reaktion: SQLite-Datenbanken öffnen, kv_store-Einträge manuell editieren,
 WAL-Dateien committen, Binary-Strings durchsuchen, Hypothesen testen.
 
-Zwei Stunden Arbeit. Kein Ergebnis.
+Stunden später. Kein Ergebnis.
 
 **Die Lösung:** Die offizielle ZED-Dokumentation aufrufen.  
 **Zeitaufwand:** 5 Minuten.  
