@@ -19,3 +19,4 @@ Claude Code soll den Auftrag von ZED laut dem Anhang
 
 | ID | Task | Agent | Seit |
 |----|------|-------|------|
+| #001 | Auftrag bibliothek-zed-buch abarbeiten | Claude Code (claude-sonnet-4-6) | 2026-02-24 |

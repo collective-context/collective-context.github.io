@@ -88,6 +88,26 @@ export default defineConfig({
           ],
         },
         {
+          label: '📖 Bibliothek',
+          items: [
+            { label: 'Alle Bücher', link: '/books/' },
+            {
+              label: 'Der ZED Editor',
+              collapsed: true,
+              items: [
+                { label: 'Inhaltsverzeichnis', link: '/books/zed-editor/' },
+                { label: '1. Was ist ZED?', link: '/books/zed-editor/01-was-ist-zed/' },
+                { label: '2. Die drei Panels', link: '/books/zed-editor/02-drei-panels/' },
+                { label: '3. Agent Panel', link: '/books/zed-editor/03-agent-panel/' },
+                { label: '4. Text Threads', link: '/books/zed-editor/04-text-threads/' },
+                { label: '5. Externe Agenten', link: '/books/zed-editor/05-externe-agenten/' },
+                { label: '6. Storage-Architektur', link: '/books/zed-editor/06-storage-architektur/' },
+                { label: '7. Die wichtigste Lektion', link: '/books/zed-editor/07-die-wichtigste-lektion/' },
+              ],
+            },
+          ],
+        },
+        {
           label: '❓ Support',
           items: [
             { label: 'FAQ', link: '/faq' },
