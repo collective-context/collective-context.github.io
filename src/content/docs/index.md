@@ -12,12 +12,15 @@ hero:
     - text: Was ist ACP?
       link: /zed/acp
       icon: external
+    - text: Bücher
+      link: /books/
+      icon: open-book
 ---
 
-<figure style="margin: 2.5rem 0; text-align: center;">
-  <img src="/og-image.jpg" alt="Collective Context — Mehrere AI-Agenten im Einklang" style="width: 100%; max-width: 960px; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.18);" />
-  <figcaption style="margin-top: 1rem; font-size: 1.15rem; font-style: italic; opacity: 0.85;">
-    Wie ein Orchester — viele Stimmen, ein gemeinsamer Kontext.
+<figure style="margin: 0.5rem 0 2rem; text-align: center;">
+  <img src="/og-image.jpg" alt="Collective Context (CC) — Mehrere AI-Agenten im Einklang" style="width: 100%; max-width: 960px; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.18);" />
+  <figcaption style="margin-top: 0.75rem; font-size: 1.15rem; font-style: italic; opacity: 0.85;">
+    Collective Context (CC) — Wie ein Orchester mit vielen Stimmen und einem gemeinsamen Kontext.
   </figcaption>
 </figure>
 
