@@ -13,7 +13,8 @@ Das Postbox Pattern ist der einfachste Mechanismus für **asynchrone Koordinatio
 postbox/
 ├── todo.md          ← Offene Tasks (jeder Agent kann lesen und schreiben)
 ├── done.md          ← Erledigte Tasks (mit Commit-Referenz)
-└── attachments/     ← Ausführliche Briefings zu einzelnen Tasks
+├── attachments/     ← Ausführliche Briefings zu einzelnen Tasks
+└── README.md        ← Orientierung für Agenten (Rollen, Formate, Regeln)
 ```
 
 ## Warum Dateisystem statt API?
@@ -83,7 +84,42 @@ Systemprompt:
 ## Initialisierung
 
 ```bash
-mkdir -p postbox
+mkdir -p postbox/attachments
+
+cat > postbox/README.md << 'EOF'
+# Postbox Pattern
+
+> Asynchrone Koordination zwischen AI-Agenten via Dateisystem.
+> Vollständige Dokumentation: https://collective-context.org/cc/postbox-pattern/
+
+## Konzept
+
+postbox/
+├── todo.md          ← Offene Tasks (alle Agenten lesen/schreiben)
+├── done.md          ← Erledigte Tasks (mit Commit-Referenz)
+├── attachments/     ← Ausführliche Briefings zu einzelnen Tasks
+└── README.md        ← Diese Datei
+
+Kein API-Overhead, kein Message-Passing — nur normale Dateioperationen.
+
+## Rollen
+
+**Scanner-Agent** (z.B. Gemini CLI)
+- Scannt das Projekt nach Problemen
+- Schreibt Funde in todo.md
+- Löst keine Tasks selbst
+
+**Fixer-Agent** (z.B. Claude Code Tab)
+- Liest todo.md, wählt Task mit höchster Priorität
+- Markiert Task als "In Bearbeitung"
+- Fixt, committet, trägt Commit-Hash in done.md ein
+
+## Regeln
+
+- IDs nicht wiederverwenden (done.md ist Audit-Log)
+- Commit-Hash immer eintragen (git show <hash> für Details)
+- Bei gleichzeitigem Schreiben: kurzer Human-in-the-loop-Check reicht
+EOF
 
 cat > postbox/todo.md << 'EOF'
 # Todo — Offene Tasks
@@ -103,6 +139,79 @@ EOF
 
 git add postbox/
 git commit -m "feat: postbox pattern initialisiert"
+```
+
+## Format: postbox/README.md
+
+Die README.md ist die erste Datei, die ein Agent im `postbox/`-Verzeichnis liest. Sie erklärt Rollen, Formate und Regeln — ohne dass der Agent die Haupt-Dokumentation kennen muss.
+
+**Empfehlung:** Lege sie beim Initialisieren an und passe die Agentennamen an dein Projekt an.
+
+```markdown
+# Postbox Pattern
+
+> Asynchrone Koordination zwischen AI-Agenten via Dateisystem.
+> Vollständige Dokumentation: https://collective-context.org/cc/postbox-pattern/#das-postbox-konzept
+
+## Konzept
+
+Zwei Dateien fungieren als geteiltes Task-Board für mehrere Agenten:
+
+\`\`\`
+postbox/
+├── todo.md          ← Offene Tasks (alle Agenten lesen/schreiben)
+├── done.md          ← Erledigte Tasks (mit Commit-Referenz)
+├── attachments/     ← Ausführliche Briefings zu einzelnen Tasks
+└── README.md        ← Diese Datei
+\`\`\`
+
+Das `attachments/`-Verzeichnis enthält detaillierte Auftrags-Dokumente für Tasks,
+deren Anforderungen nicht in eine Tabellenzeile passen.
+Dateinamenskonvention: `DATUM_TYP_beschreibung.md`
+(z.B. `2026-02-24_AUFTRAG_bibliothek-zed-buch.md`).
+In `todo.md` wird per Dateiname darauf referenziert.
+
+Kein API-Overhead, kein Message-Passing — nur normale Dateioperationen.
+
+## Rollen
+
+**Scanner-Agent** (z.B. Gemini CLI)
+- Scannt das Projekt nach Problemen
+- Schreibt Funde in `todo.md`
+- Löst keine Tasks selbst
+
+**Fixer-Agent** (z.B. Claude Code Tab)
+- Liest `todo.md`, wählt Task mit höchster Priorität
+- Markiert Task als "In Bearbeitung"
+- Fixt, committet, trägt Commit-Hash in `done.md` ein
+
+## Format todo.md
+
+\`\`\`markdown
+## Offene Tasks
+| ID | Task | Priorität | Quelle | Datei:Zeile |
+|----|------|-----------|--------|-------------|
+| #001 | Beschreibung | hoch | Agent | src/file.py:42 |
+
+## In Bearbeitung
+| ID | Task | Agent | Seit |
+|----|------|-------|------|
+| #001 | Beschreibung | Claude Code Tab | 2026-02-24 14:30 |
+\`\`\`
+
+## Format done.md
+
+\`\`\`markdown
+| ID | Task | Agent | Commit | Datum |
+|----|------|-------|--------|-------|
+| #001 | Beschreibung | Claude Code Tab | abc1234 | 2026-02-24 14:45 |
+\`\`\`
+
+## Regeln
+
+- IDs nicht wiederverwenden (done.md ist Audit-Log)
+- Commit-Hash immer eintragen (`git show <hash>` für Details)
+- Bei gleichzeitigem Schreiben: kurzer Human-in-the-loop-Check reicht
 ```
 
 ## Attachments: Ausführliche Task-Briefings
