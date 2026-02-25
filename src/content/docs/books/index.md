@@ -14,3 +14,5 @@ Kein Marketing. Keine Theorie. Nur das, was wir selbst gelernt haben — oft auf
 **Für:** Einsteiger und Fortgeschrittene, die ZED als KI-Arbeitsumgebung nutzen.
 **Entstanden aus:** Einer Arbeit, die mit einem Blick ins Handbuch überflüssig gewesen wäre.
 **Kernbotschaft:** ZED hat drei grundlegend verschiedene KI-Systeme. Wer das nicht weiß, rätselt stundenlang.
+
+[Ganzes Buch →](/books/zed-editor/ganzes-buch/)

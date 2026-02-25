@@ -95,6 +95,7 @@ export default defineConfig({
               label: 'Der ZED Editor',
               collapsed: true,
               items: [
+                { label: 'Ganzes Buch', link: '/books/zed-editor/ganzes-buch/' },
                 { label: 'Inhaltsverzeichnis', link: '/books/zed-editor/' },
                 { label: '1. Was ist ZED?', link: '/books/zed-editor/01-was-ist-zed/' },
                 { label: '2. Die drei Panels', link: '/books/zed-editor/02-drei-panels/' },
