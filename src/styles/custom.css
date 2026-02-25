@@ -35,6 +35,12 @@
   }
 }
 
+/* Hero full-width: Remove the 50ch max-width constraint so the hero
+   uses the same full width as the content blocks below the image */
+.hero .copy > * {
+  max-width: none;
+}
+
 /* Hero gradient */
 .hero-gradient {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
