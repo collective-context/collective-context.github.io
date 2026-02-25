@@ -28,6 +28,13 @@
   background: var(--sl-color-accent-low);
 }
 
+/* Prevent hero title "(CC)" from wrapping to next line on laptop */
+@media (min-width: 40rem) {
+  .hero h1 {
+    white-space: nowrap;
+  }
+}
+
 /* Hero gradient */
 .hero-gradient {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);

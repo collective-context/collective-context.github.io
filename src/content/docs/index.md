@@ -17,6 +17,8 @@ hero:
       icon: open-book
 ---
 
+---
+
 <figure style="margin: -2rem 0 2rem; text-align: center;">
   <img src="/og-image.jpg" alt="Collective Context (CC) — Mehrere AI-Agenten im Einklang" style="width: 100%; max-width: 960px; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.18);" />
   <figcaption style="margin-top: 0.75rem; font-size: 1.15rem; font-style: italic; opacity: 0.85;">
