@@ -9,10 +9,13 @@ Zwei Dateien fungieren als geteiltes Task-Board für mehrere Agenten:
 
 ```
 postbox/
-├── todo.md    ← Offene Tasks (alle Agenten lesen/schreiben)
-├── done.md    ← Erledigte Tasks (mit Commit-Referenz)
-└── README.md  ← Diese Datei
+├── todo.md          ← Offene Tasks (alle Agenten lesen/schreiben)
+├── done.md          ← Erledigte Tasks (mit Commit-Referenz)
+├── attachments/     ← Ausführliche Briefings zu einzelnen Tasks
+└── README.md        ← Diese Datei
 ```
+
+Das `attachments/`-Verzeichnis enthält detaillierte Auftrags-Dokumente für Tasks, deren Anforderungen nicht in eine Tabellenzeile passen. Dateinamenskonvention: `DATUM_TYP_beschreibung.md` (z.B. `2026-02-24_AUFTRAG_bibliothek-zed-buch.md`). In `todo.md` wird per Dateiname darauf referenziert.
 
 Kein API-Overhead, kein Message-Passing — nur normale Dateioperationen.
 

@@ -11,8 +11,9 @@ Das Postbox Pattern ist der einfachste Mechanismus für **asynchrone Koordinatio
 
 ```
 postbox/
-├── todo.md    ← Offene Tasks (jeder Agent kann lesen und schreiben)
-└── done.md    ← Erledigte Tasks (mit Commit-Referenz)
+├── todo.md          ← Offene Tasks (jeder Agent kann lesen und schreiben)
+├── done.md          ← Erledigte Tasks (mit Commit-Referenz)
+└── attachments/     ← Ausführliche Briefings zu einzelnen Tasks
 ```
 
 ## Warum Dateisystem statt API?
@@ -103,6 +104,22 @@ EOF
 git add postbox/
 git commit -m "feat: postbox pattern initialisiert"
 ```
+
+## Attachments: Ausführliche Task-Briefings
+
+Für Tasks, deren Anforderungen nicht in eine Tabellenzeile passen, liegt im Verzeichnis `postbox/attachments/` ein dediziertes Briefing-Dokument. Der Eintrag in `todo.md` referenziert es per Dateiname:
+
+```markdown
+| #004 | Neue Doku-Sektion | hoch | Human | — | attachments/2026-02-24_AUFTRAG_zed-buch.md |
+```
+
+Dateinamenskonvention: `DATUM_TYP_beschreibung.md`
+
+- **DATUM**: ISO-Datum des Auftrags (`2026-02-24`)
+- **TYP**: Art des Dokuments, z.B. `AUFTRAG`, `SPEC`, `RESEARCH`
+- **beschreibung**: Kurzer Slug des Inhalts
+
+So bleibt `todo.md` kompakt und maschinenlesbar, während komplexe Kontexte vollständig erhalten bleiben.
 
 ## Praktische Hinweise
 
