@@ -8,11 +8,14 @@ Dateibasiertes Task- und Scheduler-Board für alle Agenten im github.io-Projekt:
 
 ```
 postbox/
-├── todo.md          ← Offene Tasks (alle Agenten lesen/schreiben)
-├── done.md          ← Erledigte Tasks (Audit-Log mit Commit-Hashes)
-├── crontab.md       ← Termingebundene & wiederkehrende Erinnerungen (Datum oder Cron-Ausdruck)
-├── attachments/     ← Ausführliche Briefings zu Tasks und Reminders
-└── README.md        ← Diese Datei (Rollen, Formate, Regeln)
+├── todo.md              ← Offene Tasks (alle Agenten lesen/schreiben)
+├── done.md              ← Erledigte Tasks (Audit-Log mit Commit-Hashes)
+├── cron.md              ← Termingebundene & wiederkehrende Erinnerungen
+├── attachments/
+│   ├── todo/            ← Aktive Briefings (_TODO_ Dateien)
+│   ├── cron/            ← Aktive Cron-Briefings (_CRON_ Dateien)
+│   └── done/            ← Archivierte Briefings (erledigte Tasks)
+└── README.md            ← Diese Datei (Rollen, Formate, Regeln)
 ```
 
 - **Kein API/Code nötig**: Normale File-Read/Write.
@@ -38,7 +41,7 @@ postbox/
 **ZED-Agent** (Grok):
 - Allrounder: Scannt bei Bedarf, fixt kleine Tasks, koordiniert.
 - Wartet auf SysOps-Freigaben (AGENTS.md Regel 3).
-- Prüft `crontab.md` auf fällige Einträge → überträgt in `todo.md` (Status: `übertragen`).
+- Prüft `cron.md` auf fällige Einträge → überträgt in `todo.md` (Status: `übertragen`).
 
 **Human/SysOps**:
 - Überwacht `todo.md`/`done.md`.
@@ -57,7 +60,7 @@ postbox/
 | ID | Task | Priorität | Fällig | Quelle | Datei:Zeile |
 |----|------|-----------|--------|--------|-------------|
 | #001 | Beschreibung | Hoch | sofort | Scanner | src/file.md:L42 |
-| #002 | Beschreibung | Mittel | 2026-05-20 | crontab.md #R001 | src/file.md:L56 |
+| #002 | Beschreibung | Mittel | 2026-05-20 | cron.md #R001 | src/file.md:L56 |
 
 ## In Bearbeitung
 | ID | Task | Agent | Seit |
@@ -67,7 +70,7 @@ postbox/
 
 **Fällig-Werte:**
 - `sofort` — sofort aktionierbar, Fixer wählt nach Priorität
-- `YYYY-MM-DD` — nicht vor diesem Datum bearbeiten (aus `crontab.md` übertragen)
+- `YYYY-MM-DD` — nicht vor diesem Datum bearbeiten (aus `cron.md` übertragen)
 
 ---
 
@@ -84,7 +87,7 @@ postbox/
 
 ---
 
-## Format: postbox/crontab.md
+## Format: postbox/cron.md
 
 ```
 | ID | Schedule | Aktion | Priorität | Datei:Zeile | Attachment | Status |
@@ -104,11 +107,22 @@ postbox/
 
 ## Attachments
 
-Für komplexe Tasks und Reminders: `postbox/attachments/DATUM_TYP_beschreibung.md`
+Für komplexe Tasks und Cron-Einträge: `postbox/attachments/DATUM_TYP_beschreibung.md`
 
-Namenskonventionen:
-- `2026-02-27_TODO_001_kapitel-neubau.md` — Briefing zu einem Task
-- `2026-02-27_REMINDER_jahres-review.md` — Hintergrund zu einem crontab.md-Eintrag
+```
+postbox/attachments/
+├── todo/
+│   └── 2026-02-27_TODO_001_kapitel-neubau.md        ← Aktiv: Briefing zu offenem Task
+├── cron/
+│   └── 2026-02-27_CRON_jahres-review.md             ← Aktiv: Arbeitsanweisung zu cron-Eintrag
+└── done/
+    └── 2026-02-24_AUFTRAG_bibliothek-zed-buch.md    ← Erledigt: nicht löschen, archivieren
+```
+
+**Lifecycle:**
+- `_TODO_`: Attachment erstellen → in `attachments/todo/` ablegen, in `todo.md` verlinken → Task erledigt → `git mv` nach `attachments/done/`
+- `_CRON_`: Attachment erstellen → in `attachments/cron/` ablegen, in `cron.md` verlinken → liegt dort so lange wie der Cron-Job `aktiv` ist bzw. bis ein Termin-Job nach `todo.md` übertragen wurde → dann `git mv` nach `attachments/done/`
+- Nie löschen — `done/` ist Archiv
 
 ---
 
@@ -127,8 +141,8 @@ Namenskonventionen:
 1. **Scanner löst Tasks selbst** — Scanner schreibt nur in `todo.md`. Dateien anfassen ist Fixer-Aufgabe.
 2. **Commit-Hash fehlt in done.md** — Kein Hash = kein Done.
 3. **Task-Rückstau** — Human setzt Prioritäten, filtert False Positives, bevor Claude weiterarbeitet.
-4. **crontab.md ignorieren** — ZED/Scanner prüft bei jedem Lauf: fällige `#R`-Einträge → in `todo.md` übertragen.
-5. **Fällig-Datum vergessen** — Aus `crontab.md` übertragene Tasks tragen das Original-Datum als `Fällig`-Wert.
+4. **cron.md ignorieren** — ZED/Scanner prüft bei jedem Lauf: fällige `#R`-Einträge → in `todo.md` übertragen.
+5. **Fällig-Datum vergessen** — Aus `cron.md` übertragene Tasks tragen das Original-Datum als `Fällig`-Wert.
 
 ---
 

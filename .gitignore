@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # local-only files (not for GitHub)
 local-only/
+
+# Claude Code — Symlink auf AGENTS.md, lokal generiert
+CLAUDE.md
