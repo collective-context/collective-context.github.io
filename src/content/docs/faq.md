@@ -49,28 +49,26 @@ Alternativen:
 | Filesystem-Zugriff | Nein | Ja |
 | Inline Diffs im Editor | Nein | Ja |
 | @file Kontext | Nein | Ja |
-| Session History (ZED UI) | Ja (Sidebar) | Nein — nicht in ZED integriert |
-| Session History (Filesystem) | Nein | Ja — vollständig in `~/.claude/projects/` |
+| Session History | Ja (Web-Sidebar) | Ja (ZED History-Panel + Filesystem) |
 | Playwright lokal | Nein | Ja |
 | Ollama (indirekt) | Nein | Ja |
 
 Beide nutzen Claude Max Flat Rate und laden CLAUDE.md automatisch.
 
-:::note[Session History: ZED UI vs. Filesystem]
-Der ZED Claude Code Tab zeigt keine Session History in der Sidebar —
-das ist eine bekannte Einschränkung des ACP-Protokolls für externe Agenten.
+:::note[Session History: ZED ist mehr als ein Editor]
+ZED liest die Claude Code Sessions direkt aus `~/.claude/projects/` und zeigt
+sie im **History-Panel** (rechte Sidebar) an — vollständig, mit Titeln und Timestamps.
 
-**Claude Code CLI speichert jedoch jede Session vollständig** als `.jsonl`-Datei
-unter `~/.claude/projects/<projekt-slug>/`. Diese Dateien enthalten den kompletten
-Gesprächsverlauf inklusive Tool-Calls, Sub-Agenten-Transcripts und Timestamps.
-Das eröffnet Möglichkeiten die Claude Code Web nicht bietet:
+Zusätzlich sind die Sessions als `.jsonl`-Dateien im Filesystem zugänglich.
+Das ermöglicht Workflows die über jede Web-UI hinausgehen:
 
-- Alle Sessions durchsuchen, lesen, annotieren
-- Backup, Archivierung, Versionierung per Script
-- Eigene Tools wie Terminal-Browser (`claude_tui.py`) oder CLI (`claude_memory.py`)
-- Persistent Memory über Sessions hinweg via `~/.claude/projects/.../memory/`
+- Terminal-Browser (`claude_tui.py`): Sessions lesen, annotieren, umbenennen, löschen
+- CLI (`claude_memory.py`): Scripting, Backup, Suche über alle Projekte
+- Persistent Memory: `~/.claude/projects/.../memory/MEMORY.md` — auto-geladen beim nächsten Start
+- Sub-Agenten-Transcripts: vollständige Audit-Trails für komplexe Workflows
 
-Die Sessions sind *mehr* als Web-History — sie sind vollständige Collective Context Transcripts.
+**ZED 2026 ist kein Editor mit KI-Addon — es ist das professionelle Interface
+mit dem Human SysOps ihre LLMs orchestrieren.**
 :::
 
 ### Kann ich Ollama statt Claude Max verwenden?

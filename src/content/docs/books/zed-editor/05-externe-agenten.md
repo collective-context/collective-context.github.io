@@ -32,25 +32,18 @@ Ab Claude Code 2.x wurde von npm auf einen nativen Installer umgestellt.
 Falls du eine Warnung siehst: `claude install` ausführen.
 :::
 
-## Bekannte Einschränkungen (Stand ZED 0.224.11)
+## Stand der Integration (ZED 0.224.11)
 
-Laut offizieller ZED-Dokumentation sind folgende Features für externe Agenten
-**noch nicht in ZED's UI implementiert:**
+ZED zeigt die Claude Code **Session History im History-Panel** — es liest
+`~/.claude/projects/` direkt und stellt alle Threads dar.
 
-- Thread History in der ZED Sidebar wiederherstellen
-- Checkpoints
-- Token Usage Anzeige (unnötig im Abo-Betrieb)
+Noch nicht in ZED's UI implementiert:
+- Checkpoints für externe Agenten
+- Token Usage Anzeige (im Flat-Rate-Betrieb ohnehin irrelevant)
 - Model Selection innerhalb von ZED
 
-Das ist kein Bug — das steht explizit in der Doku mit dem Hinweis "should be supported in the future".
-
-:::note[Session History via Filesystem]
-"Thread History nicht wiederherstellbar" bezieht sich auf ZED's UI.
-Claude Code CLI speichert jede Session vollständig als `.jsonl` unter
-`~/.claude/projects/<projekt-slug>/` — unabhängig von ZED.
-
-Diese Transcripts sind mit eigenen Tools lesbar, durchsuchbar und archivierbar.
-Mehr dazu: [Storage-Architektur](/books/zed-editor/06-storage-architektur/)
-:::
+Vollständig außerhalb von ZED zugänglich: alle Sessions als `.jsonl` im Filesystem —
+mit eigenen Tools wie `claude_tui.py` und `claude_memory.py` verwaltbar.
+→ [Storage-Architektur](/books/zed-editor/06-storage-architektur/)
 
 → Weiter: [Storage-Architektur](/books/zed-editor/06-storage-architektur/)

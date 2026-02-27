@@ -36,14 +36,12 @@ Zusätzlich können **MCP-Server** weitere Tools hinzufügen.
 Die letzten 6 Threads erscheinen im Dropdown-Menü oben rechts.
 Alle Threads: `Ctrl+Shift+H` (im Panel fokussiert)
 
-:::caution[Wichtig für externe Agenten]
-Für Claude Code Tab und Gemini CLI (External Agents via ACP) wird die Thread-History
-aktuell **nicht von ZED's UI** wiederhergestellt. Das ist eine bekannte Einschränkung, die
-laut Zed-Docs in Zukunft behoben werden soll.
+:::note[Session History für externe Agenten]
+ZED zeigt Claude Code Sessions im **History-Panel** (rechte Sidebar) — es liest
+`~/.claude/projects/` direkt und stellt alle Threads mit Titeln und Timestamps dar.
 
-**Claude Code speichert jedoch alle Sessions vollständig** im Filesystem unter
-`~/.claude/projects/<slug>/*.jsonl` — unabhängig von ZED. Diese sind mit eigenen
-Tools lesbar und verwaltbar. → [Storage-Architektur](/books/zed-editor/06-storage-architektur/)
+Zusätzlich sind alle Sessions als `.jsonl`-Dateien vollständig zugänglich.
+→ [Storage-Architektur](/books/zed-editor/06-storage-architektur/)
 :::
 
 ## Checkpoints

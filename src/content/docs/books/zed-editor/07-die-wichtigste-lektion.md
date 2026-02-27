@@ -15,7 +15,7 @@ Stunden später. Kein Ergebnis.
 
 **Die Lösung:** Die offizielle ZED-Dokumentation aufrufen.
 **Zeitaufwand:** 5 Minuten.
-**Erkenntnis (damals):** External Agents wie Claude Code Tab unterstützen Thread History Restore in ZED's UI schlicht noch nicht.
+**Erkenntnis (damals):** External Agents wie Claude Code Tab unterstützen Thread History Restore in ZED's UI — so stand es in der Doku.
 
 ## Was wir gelernt haben
 
@@ -42,10 +42,14 @@ Das ist keine Selbstverständlichkeit — es muss bewusst praktiziert werden.
 
 ## Nachtrag (Feb 2026)
 
-Die Lektion bleibt gültig — aber die Geschichte hat eine Fortsetzung.
+Die Lektion bleibt gültig — aber die Geschichte hat eine Fortsetzung, die größer ist.
 
-Die Session History, die ZED's UI nicht zeigt, existiert. Vollständig.
-Jede Session liegt als `.jsonl` unter `~/.claude/projects/<slug>/`.
+Erstens: ZED zeigt die Claude Code Sessions längst im **History-Panel**.
+Es liest `~/.claude/projects/` direkt — clever, still, ohne Aufsehen.
+Was wir stundenlang gesucht haben, war die ganze Zeit da.
+
+Zweitens: Die Sessions als Dateien eröffnen eine neue Dimension.
+Jede `.jsonl` unter `~/.claude/projects/<slug>/` ist ein vollständiger Transcript.
 Jede Zeile: ein JSON-Objekt. Menschenlesbar, maschinenverarbeitbar, archivierbar.
 
 Daraus entstand `claude_tui.py` — ein mutt-artiger Terminal-Browser:
@@ -65,11 +69,14 @@ Daraus entstand `claude_tui.py` — ein mutt-artiger Terminal-Browser:
 
 Sessions umbenennen, löschen, annotieren, im Editor öffnen — alles lokal, kein Cloud-Service.
 
-**Die Lektion erweitert sich:**
-> Docs first. Debug second. **Und: Das Dateisystem lügt nicht.**
+**Drittens — und das ist die eigentliche Lektion:**
 
-Was du in ZED's UI nicht siehst, kann trotzdem existieren.
-Claude Code ist ein CLI-Tool das in ZED läuft — nicht umgekehrt.
+ZED 2026 ist kein Editor mit KI-Addon.
+Es ist das professionelle Interface, mit dem Human SysOps ihre LLMs dirigieren.
+Filesystem-Zugriff. ACP-Integration. History. Memory. Open Source.
+
+> Docs first. Debug second.
+> **Und: Unterschätze nie, was Open Source mit dem richtigen Werkzeug erreicht.**
 
 ---
 
