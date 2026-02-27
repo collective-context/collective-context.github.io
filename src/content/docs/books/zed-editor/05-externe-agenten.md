@@ -35,13 +35,22 @@ Falls du eine Warnung siehst: `claude install` ausführen.
 ## Bekannte Einschränkungen (Stand ZED 0.224.11)
 
 Laut offizieller ZED-Dokumentation sind folgende Features für externe Agenten
-**noch nicht implementiert:**
+**noch nicht in ZED's UI implementiert:**
 
-- Thread History wiederherstellen
+- Thread History in der ZED Sidebar wiederherstellen
 - Checkpoints
 - Token Usage Anzeige (unnötig im Abo-Betrieb)
 - Model Selection innerhalb von ZED
 
 Das ist kein Bug — das steht explizit in der Doku mit dem Hinweis "should be supported in the future".
+
+:::note[Session History via Filesystem]
+"Thread History nicht wiederherstellbar" bezieht sich auf ZED's UI.
+Claude Code CLI speichert jede Session vollständig als `.jsonl` unter
+`~/.claude/projects/<projekt-slug>/` — unabhängig von ZED.
+
+Diese Transcripts sind mit eigenen Tools lesbar, durchsuchbar und archivierbar.
+Mehr dazu: [Storage-Architektur](/books/zed-editor/06-storage-architektur/)
+:::
 
 → Weiter: [Storage-Architektur](/books/zed-editor/06-storage-architektur/)

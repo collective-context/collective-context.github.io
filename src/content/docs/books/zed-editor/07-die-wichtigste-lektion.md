@@ -15,7 +15,7 @@ Stunden später. Kein Ergebnis.
 
 **Die Lösung:** Die offizielle ZED-Dokumentation aufrufen.
 **Zeitaufwand:** 5 Minuten.
-**Erkenntnis:** External Agents wie Claude Code Tab unterstützen Thread History Restore schlicht noch nicht.
+**Erkenntnis (damals):** External Agents wie Claude Code Tab unterstützen Thread History Restore in ZED's UI schlicht noch nicht.
 
 ## Was wir gelernt haben
 
@@ -35,6 +35,41 @@ Stunden später. Kein Ergebnis.
 
 Das gilt für ZED. Das gilt für jedes Tool.
 Das ist keine Selbstverständlichkeit — es muss bewusst praktiziert werden.
+
+---
+
+---
+
+## Nachtrag (Feb 2026)
+
+Die Lektion bleibt gültig — aber die Geschichte hat eine Fortsetzung.
+
+Die Session History, die ZED's UI nicht zeigt, existiert. Vollständig.
+Jede Session liegt als `.jsonl` unter `~/.claude/projects/<slug>/`.
+Jede Zeile: ein JSON-Objekt. Menschenlesbar, maschinenverarbeitbar, archivierbar.
+
+Daraus entstand `claude_tui.py` — ein mutt-artiger Terminal-Browser:
+
+```
+┌─ Projekte ──┬─ Sessions ─────────────────────────────────────────┐
+│ ● fb-data   │ #1  22:50  Try "fix lint errors"         1307.9K   │
+│   github-io │ #2  21:31  Wieso habe ich jetzt in...   3166.8K   │
+└─────────────┴────────────────────────────────────────────────────┘
+┌─ Reader ───────────────────────────────────────────────────────────┐
+│ ▶ YOU                                                               │
+│   Try "fix lint errors"                                             │
+│ ◀ CLAUDE                                                           │
+│   Gemäß CLAUDE.md Regel 3 …                                       │
+└────────────────────────────────────────────────────────────────────┘
+```
+
+Sessions umbenennen, löschen, annotieren, im Editor öffnen — alles lokal, kein Cloud-Service.
+
+**Die Lektion erweitert sich:**
+> Docs first. Debug second. **Und: Das Dateisystem lügt nicht.**
+
+Was du in ZED's UI nicht siehst, kann trotzdem existieren.
+Claude Code ist ein CLI-Tool das in ZED läuft — nicht umgekehrt.
 
 ---
 

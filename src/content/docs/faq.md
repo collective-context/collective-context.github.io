@@ -49,11 +49,29 @@ Alternativen:
 | Filesystem-Zugriff | Nein | Ja |
 | Inline Diffs im Editor | Nein | Ja |
 | @file Kontext | Nein | Ja |
-| Session History | Ja | Nein (pro Session) |
+| Session History (ZED UI) | Ja (Sidebar) | Nein — nicht in ZED integriert |
+| Session History (Filesystem) | Nein | Ja — vollständig in `~/.claude/projects/` |
 | Playwright lokal | Nein | Ja |
 | Ollama (indirekt) | Nein | Ja |
 
 Beide nutzen Claude Max Flat Rate und laden CLAUDE.md automatisch.
+
+:::note[Session History: ZED UI vs. Filesystem]
+Der ZED Claude Code Tab zeigt keine Session History in der Sidebar —
+das ist eine bekannte Einschränkung des ACP-Protokolls für externe Agenten.
+
+**Claude Code CLI speichert jedoch jede Session vollständig** als `.jsonl`-Datei
+unter `~/.claude/projects/<projekt-slug>/`. Diese Dateien enthalten den kompletten
+Gesprächsverlauf inklusive Tool-Calls, Sub-Agenten-Transcripts und Timestamps.
+Das eröffnet Möglichkeiten die Claude Code Web nicht bietet:
+
+- Alle Sessions durchsuchen, lesen, annotieren
+- Backup, Archivierung, Versionierung per Script
+- Eigene Tools wie Terminal-Browser (`claude_tui.py`) oder CLI (`claude_memory.py`)
+- Persistent Memory über Sessions hinweg via `~/.claude/projects/.../memory/`
+
+Die Sessions sind *mehr* als Web-History — sie sind vollständige Collective Context Transcripts.
+:::
 
 ### Kann ich Ollama statt Claude Max verwenden?
 

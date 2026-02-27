@@ -39,7 +39,8 @@ Ctrl+?
 | @file Kontext | Nein | Ja (@Dateiname) |
 | Playwright lokal | Nein | Ja |
 | Ollama (indirekt) | Nein | Ja via Script |
-| Session History | Ja (Sidebar) | Nein (pro Session) |
+| Session History (ZED UI) | Ja (Sidebar) | Nein — nicht in ZED integriert |
+| Session History (Filesystem) | Nein | Ja — `~/.claude/projects/` |
 | CLAUDE.md auto-load | Ja | Ja |
 
 ## Permission-Konfiguration
@@ -105,12 +106,38 @@ Claude Code Tab führt das Script aus, Ollama läuft lokal, Claude interpretiert
 
 CLAUDE.md wird automatisch beim Start jeder neuen Session geladen — kein Upload, kein Copy-Paste erforderlich. Das ist das Kernmechanismus für [Collective Context](/cc/concept).
 
+## Session History: Filesystem statt UI
+
+Während ZED keine Session History für externe Agenten in der Sidebar anzeigt,
+speichert **Claude Code CLI jede Session vollständig** unter:
+
+```
+~/.claude/projects/<projekt-slug>/
+├── <uuid>.jsonl          ← kompletter Session-Transcript
+├── <uuid>/
+│   └── subagents/        ← Sub-Agenten-Transcripts
+└── memory/
+    ├── MEMORY.md         ← persistentes Agenten-Gedächtnis (auto-geladen)
+    ├── titles.json       ← Custom-Titel für Sessions
+    └── <uuid>.md         ← Session-spezifische Notizen
+```
+
+Jede `.jsonl`-Datei enthält den vollständigen Verlauf: Human-Turns, Assistant-Antworten,
+alle Tool-Calls mit Ein- und Ausgabe, Timestamps, Sub-Agenten.
+
+Das `memory/`-Verzeichnis ermöglicht **persistenten Kontext über Sessions hinweg** —
+`MEMORY.md` wird beim nächsten Start automatisch in den Kontext geladen.
+
+Tools für die Session-Verwaltung:
+- **`claude_tui.py`** — mutt-artiger Terminal-Browser: Threads lesen, umbenennen, annotieren
+- **`claude_memory.py`** — CLI: list, threads, read, backup, delete
+
 ## Bekannte Limitierungen
 
 - Kein Context-Window-Indicator im Panel (GitHub Discussion #49472, Feb 2026)
 - `/compact` noch nicht als Slash-Command verfügbar
   - Workaround: "Schreibe ein Handover-Dokument für die nächste Session"
-- Keine gemeinsame Session-History mit Claude Code Web
+- Session History nicht in ZED's UI integriert (aber vollständig via Filesystem zugänglich, s.o.)
 - Agent Teams (mehrere Claude-Instanzen pro Session) noch nicht unterstützt
 
 ## Nächste Schritte

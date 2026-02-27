@@ -34,6 +34,51 @@ ZED nutzt SQLite im WAL-Modus (Write-Ahead Logging). Solange ZED läuft,
 können Änderungen in der `-wal` Datei stehen, nicht in der Hauptdatei.
 Nach dem Beenden von ZED wird der WAL automatisch committed.
 
+## Claude Code CLI Storage (extern zu ZED)
+
+Claude Code CLI speichert seine Daten **unabhängig von ZED** — im Home-Verzeichnis:
+
+```
+~/.claude/projects/<projekt-slug>/
+├── <uuid>.jsonl              ← Session-Transcript (eine Zeile = ein JSON-Objekt)
+├── <uuid>/
+│   └── subagents/
+│       └── agent-<id>.jsonl  ← Sub-Agenten-Transcripts
+└── memory/
+    ├── MEMORY.md             ← auto-geladen beim nächsten Start (max. 200 Zeilen)
+    ├── titles.json           ← Custom-Titel für Sessions
+    └── <uuid>.md             ← Session-spezifische Notizen
+```
+
+Der `<projekt-slug>` ist der absolute Pfad zum Working Directory,
+mit `/` → `-` kodiert:
+```
+/mnt/8100-data/prog/ai/git/edikte/fb-data
+→  -mnt-8100-data-prog-ai-git-edikte-fb-data
+```
+
+### JSONL-Format
+
+Jede Zeile ist ein JSON-Objekt mit `type: "user" | "assistant"`, dem `message`-Content
+(Text oder strukturierte Tool-Calls), Timestamps und Session-Metadaten.
+Die Transkripte sind vollständig und maschinenlesbar — kein proprietäres Binärformat.
+
+### Session-Verwaltung mit eigenen Tools
+
+Aus diesem Format lässt sich ein vollständiger Session-Browser bauen:
+
+```bash
+# Terminal-Browser (mutt-artig)
+python scripts/bin/claude_tui.py
+
+# CLI
+python scripts/claude_memory.py threads   # Liste aller Sessions
+python scripts/claude_memory.py read #7   # Session lesen
+python scripts/claude_memory.py backup fb-data  # Backup
+```
+
+→ Referenz: [claude_tui.py im fb-data Repo](https://github.com/collective-context)
+
 ## Backup-Empfehlung
 
 ```bash
