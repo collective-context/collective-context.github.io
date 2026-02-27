@@ -17,8 +17,6 @@ Verbesserungen aus fb-data/ werden systematisch nach github.io/ zurückgespielt.
 
 | ID | Task | Priorität | Fällig | Quelle | Datei:Zeile |
 |----|------|-----------|--------|--------|-------------|
-| #002 | Postbox vollständig upgraden: crontab.md anlegen + attachments/ prüfen + README.md auf fb-data-Stand bringen (Rollen, Formate, Common Pitfalls, crontab-Format) | Hoch | sofort | SysOps | postbox/ |
-| #003 | CONTEXT.md löschen — Legacy, ersatzlos entfernen | Mittel | sofort | SysOps | CONTEXT.md |
 | #004 | Duplikat bereinigen: src/content/books/ vs src/content/docs/books/ — Migration abschließen, Quelle: individuelle .md-Kapitel in docs/books/zed-editor/ | Hoch | sofort | Claude Code | src/content/books/ |
 | #005 | AGENTS.md anlegen für github.io-Repo — eigener Kontext: Astro/Starlight-Site, neutrale Plattform für tausende Projekte; Template: fb-data/AGENTS.md anpassen | Hoch | sofort | SysOps | / |
 | #006 | PDF-Export einrichten: Pandoc-Step in .github/workflows/deploy.yml, generiert zed-editor.pdf aus chapters; Download-Link in ganzes-buch.md + index.md | Mittel | 2026-03-15 | SysOps | .github/workflows/deploy.yml |
