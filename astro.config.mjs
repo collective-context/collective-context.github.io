@@ -65,6 +65,14 @@ export default defineConfig({
           ],
         },
         {
+          label: '🤖 OpenCode AI-Agent',
+          items: [
+            { label: 'Overview & Warum OpenCode?', link: '/opencode/overview' },
+            { label: 'ZED Integration via ACP', link: '/opencode/zed-integration' },
+            { label: 'Dual-Agent: OpenCode + Claude Code', link: '/opencode/dual-agent' },
+          ],
+        },
+        {
           label: '🧠 Collective Context',
           items: [
             { label: 'Konzept & Architektur', link: '/cc/concept' },
