@@ -1,6 +1,6 @@
 # Done — Erledigte Tasks
 
-> Zuletzt aktualisiert: 2026-02-28 von Claude Sonnet 4.6
+> Zuletzt aktualisiert: 2026-03-01 von Claude Sonnet 4.6
 
 | ID | Task | Agent | Commit | Datum |
 |----|------|-------|--------|-------|
@@ -17,3 +17,4 @@
 | #015 | Fact-Check (recherchiert + verifiziert): MCP-Pfad, --sub-agents Flag, Gemini 3.1 Pro, Aider install, claude --teleport — 3 Dateien korrigiert | Claude Sonnet 4.6 | f644241 | 2026-02-28 |
 | #016 | Neue Sektion 'OpenCode AI-Agent': 3 Seiten (overview, zed-integration, dual-agent) + Sidebar zwischen Agentic Coding Tools und Collective Context | Claude Sonnet 4.6 | 259b73b | 2026-02-28 |
 | #010 | LLM-Workflow-Guide: zed/pricing.md + reference/benchmarks.md (neu) + llm-routing.md stark erweitert | Claude Sonnet 4.6 | 87fa2f9 | 2026-02-28 |
+| #017 | Neue Referenzseite reference/languages.md: Agentic Coding Sprachen Python/TS/Rust/Go/Zig im Vergleich 2026 (~1000 Wörter, Verteilungs- + Entscheidungstabelle) + Sidebar-Eintrag zwischen Benchmarks und Sitemap | Claude Sonnet 4.6 | 80464d2 | 2026-03-01 |
