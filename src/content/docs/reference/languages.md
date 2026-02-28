@@ -65,7 +65,7 @@ TypeScript hat sich als bevorzugte Sprache für die neue Welle agentic Terminal-
 
 ---
 
-## Rust — Performance ohne Kompromisse
+## Rust — Performance. Kompromisslos.
 
 Rust ist die Sprache der Wahl, wenn ein Tool tatsächlich distribuierbar, schnell und ressourceneffizient sein soll. Kein Runtime, keine GC-Pausen, kein Interpreter. Das hat seinen Preis: die Einstiegshürde ist real, und ein Feature-Reach-Prototyp in Rust dauert länger als in Python oder TypeScript.
 
