@@ -3,7 +3,7 @@ title: "Agentic Coding Sprachen"
 description: "Welche Programmiersprache für agentic Coding-Tools 2026? Ein pragmatischer Vergleich von Python, TypeScript, Rust, Go und Zig mit realen Tool-Beispielen und Entscheidungstabelle."
 ---
 
-## TypeScript, Rust, Python & Co. im Vergleich
+## TypeScript, Rust, Python & Co.
 
 > Stand: März 2026. Die Wahl der Sprache hängt stark vom konkreten Projekt, Team-Know-how und Deployment-Ziel ab.
 
@@ -40,7 +40,7 @@ Python ist 2026 nach wie vor die dominante Sprache für alles, was mit Modellen,
 
 ---
 
-## TypeScript / Bun — die neue CLI-Generation
+## TypeScript / Bun — Neue CLI-Generation
 
 TypeScript hat sich als bevorzugte Sprache für die neue Welle agentic Terminal-Tools etabliert. Der Grund: Entwickler kennen es, npm liefert ein riesiges Ökosystem, und Bun macht den entscheidenden Unterschied gegenüber klassischem Node.js.
 
@@ -90,7 +90,7 @@ Rust ist die Sprache der Wahl, wenn ein Tool tatsächlich distribuierbar, schnel
 
 ---
 
-## Go — schnell verteilt, unterschätzt
+## Go — schnell verteilt, oft unterschätzt
 
 Go ist 2026 keine Trendy-Sprache mehr, aber solide und unterschätzt im Tooling-Bereich. Compilation dauert Sekunden, Binaries sind klein und statisch, Concurrency ist im Sprachdesign eingebaut.
 
@@ -98,7 +98,7 @@ Besonders relevant: die [charmbracelet](https://charm.sh/)-Bibliotheken (Bubble 
 
 ---
 
-## Zig — emergent in Low-Level TUI und PTY
+## Zig — emergent in Low-Level TUI/PTY
 
 Zig ist 2026 noch kein Mainstream-Tool, aber in spezifischen Nischen sichtbar: Low-Level PTY-Handling, sehr kompakte Binaries und Projekte, die C-Interop ohne GC brauchen. Die Sprache ist konsequenter als Rust in der Ablehnung von Hidden Control Flow — was sie schwerer erlernbar, aber vorhersehbarer macht. Beobachtenswert, noch nicht produktionsreif für die meisten Agentic-Coding-Projekte.
 
