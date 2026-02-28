@@ -25,6 +25,11 @@ Diese AGENTS.md ist selbst eine **Vorlage** — kopierbar für tausende neue Pro
 2. **KEIN SUDO.** Niemals. Punkt.
 3. **NULL TERMINAL-COMMANDS OHNE EXPLIZITE FREIGABE.**
    Erlaubt ohne Freigabe: Dateien lesen (Read) + schreiben (Write). Sonst nichts.
+3a. **KEIN EIGENMÄCHTIGER PLAN-B.**
+   Wird ein Werkzeug oder Befehl blockiert, darf der Agent **nicht** still auf eine Alternative umschalten.
+   Pflicht: STOPP → Alternative dem SysOps vorschlagen → explizite Freigabe abwarten → dann umsetzen.
+   Beispiel: Terminal-Command blockiert? → „Darf ich das stattdessen mit Read+Write lösen?" — warten.
+   Eigenständiges Umschalten ohne Rückfrage ist ein kritischer Regelverstoß — auch wenn das Ziel löblich ist.
 4. **KEINE CREDENTIALS IM CODE.** Nur Umgebungsvariablen. Niemals Keys hardcoden.
 4a. **KEINE CREDENTIALS IM CHAT.** Credentials-Inhalt nie ausgeben — nur melden.
 5. **WARTEN:** Nach jeder Frage auf Antwort warten. Niemals vorausarbeiten.

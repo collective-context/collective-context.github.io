@@ -44,6 +44,7 @@ Zusätzlich staged (alles in einem Commit mit #008):
 | #009 | CC-Feedback einarbeiten: Symlink-Korrektur in /cc/agents-md, Sitemap-Seite anlegen, Quickstart-Template als neue Seite /cc/quickstart-template veröffentlichen | Hoch | sofort | fb-data-Claude | [Briefing+Template](attachments/todo/2026-02-27_TODO_CC-feedback-korrekturen.md), [Template-Datei](attachments/todo/2026-02-27_TODO_CC-agents-template.md) |
 | #010 | LLM-Workflow-Guide veröffentlichen: /zed/pricing (Kosten, BYOK), /reference/benchmarks (SWE-bench, LiveCodeBench), llm-routing.md erweitern | Mittel | sofort | fb-data-Claude | [Briefing](attachments/todo/2026-02-27_TODO_CC-llm-workflow-guide.md) |
 | #011 | Neue Docs committen + pushen: patterns/multi-repo.md (neu), cc/postbox-pattern.md (überarbeitet), cc/agents-md.md (überarbeitet) | Hoch | sofort | fb-data-Claude | — |
+| #012 | AGENTS.md committen + pushen: Regel 3a „Kein eigenmächtiger Plan-B" ergänzt (aus fb-data #014 übernommen) | Hoch | sofort | fb-data-Claude | AGENTS.md |
 
 ## In Bearbeitung
 
