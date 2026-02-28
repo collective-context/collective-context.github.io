@@ -8,7 +8,6 @@
 | #004 | Duplikat bereinigen: src/content/books/ vs src/content/docs/books/ — Migration abschließen, Quelle: individuelle .md-Kapitel in docs/books/zed-editor/ | Hoch | sofort | Claude Code | src/content/books/ |
 | #006 | PDF-Export einrichten: Pandoc-Step in .github/workflows/deploy.yml, generiert zed-editor.pdf aus chapters; Download-Link in ganzes-buch.md + index.md | Mittel | 2026-03-15 | SysOps | .github/workflows/deploy.yml |
 | #007 | Zed-Buch inhaltlich erweitern: Erkenntnisse aus fb-data/ einfließen lassen — "Wie orchestriere ich AI Agents professionell im Zed Editor mit ACP-Techniken" (AGENTS.md, Postbox-Pattern, Jail-Regel, Multi-Repo-Koordination) | Hoch | 2026-03-15 | SysOps | src/content/docs/books/zed-editor/ |
-| #009 | CC-Feedback einarbeiten: Symlink-Korrektur in /cc/agents-md, Sitemap-Seite anlegen, Quickstart-Template als neue Seite /cc/quickstart-template veröffentlichen | Hoch | sofort | fb-data-Claude | [Briefing+Template](attachments/todo/2026-02-27_TODO_CC-feedback-korrekturen.md), [Template-Datei](attachments/todo/2026-02-27_TODO_CC-agents-template.md) |
 | #010 | LLM-Workflow-Guide veröffentlichen: /zed/pricing (Kosten, BYOK), /reference/benchmarks (SWE-bench, LiveCodeBench), llm-routing.md erweitern | Mittel | sofort | fb-data-Claude | [Briefing](attachments/todo/2026-02-27_TODO_CC-llm-workflow-guide.md) |
 
 ## In Bearbeitung
