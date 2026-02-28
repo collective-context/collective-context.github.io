@@ -52,22 +52,23 @@ Zweitens: Die Sessions als Dateien eröffnen eine neue Dimension.
 Jede `.jsonl` unter `~/.claude/projects/<slug>/` ist ein vollständiger Transcript.
 Jede Zeile: ein JSON-Objekt. Menschenlesbar, maschinenverarbeitbar, archivierbar.
 
-Daraus entstand `claude_tui.py` — ein mutt-artiger Terminal-Browser:
+Daraus entstand `claude_tui.py` — eine mutt-artige "Claude TUI-IDE":
 
-```
-┌─ Projekte ──┬─ Sessions ─────────────────────────────────────────┐
-│ ● fb-data   │ #1  22:50  Try "fix lint errors"         1307.9K   │
-│   github-io │ #2  21:31  Wieso habe ich jetzt in...   3166.8K   │
-└─────────────┴────────────────────────────────────────────────────┘
-┌─ Reader ───────────────────────────────────────────────────────────┐
-│ ▶ YOU                                                               │
-│   Try "fix lint errors"                                             │
-│ ◀ CLAUDE                                                           │
-│   Gemäß CLAUDE.md Regel 3 …                                       │
-└────────────────────────────────────────────────────────────────────┘
-```
+![Claude TUI Screenshot](../../../../assets/claude-tui.png)
 
-Sessions umbenennen, löschen, annotieren, im Editor öffnen — alles lokal, kein Cloud-Service.
+**Was das Tool heute kann:**
+
+- **4-Panel-Layout** — Projekte · Sessions · Reader · Notizen, Side-by-Side mit Auto-Swap
+- **Session-Browser** — alle `~/.claude/projects/` sortiert nach Zeit und Aktivität
+- **Reader** — vollständiger Transcript, gescrollt wie ein Pager (`jk`, `PgUp/PgDn`, `gG`)
+- **Notizen** (`e`) — pro Session eine `memory/<uuid>.md`, vorausgefüllt mit dem Transcript, im `$EDITOR` bearbeitbar
+- **Zwischenablage** (`c`) — Notiz direkt in Clipboard via `wl-copy`/`xclip`/`xsel`
+- **Custom-Titel** (`t`) — Sessions umbenennen, persistiert in `memory/titles.json`
+- **Löschen** (`d`) — mit Bestätigung ("delete" tippen)
+- **Vollbild-Modi** (`o`/`n`/`m`) — Reader-only, Notiz-only, oder Panels tauschen
+- **`[a]` Agent** — Claude Code mit `--resume <uuid>` direkt aus dem Browser starten, CWD wird automatisch aus den Session-Metadaten gelesen
+
+Sessions umbenennen, löschen, annotieren, im Editor öffnen, direkt wieder aufnehmen — alles lokal, kein Cloud-Service.
 
 **Drittens — und das ist die eigentliche Lektion:**
 
