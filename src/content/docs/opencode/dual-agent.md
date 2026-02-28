@@ -1,6 +1,6 @@
 ---
-title: Dual-Agent: OpenCode + Claude Code
-description: OpenCode und Claude Code kombinieren — drei bewährte Patterns für hybride Multi-Agent-Workflows mit dem Postbox Pattern.
+title: "Dual-Agent: OpenCode + Claude Code"
+description: "OpenCode und Claude Code kombinieren — drei bewährte Patterns für hybride Multi-Agent-Workflows mit dem Postbox Pattern."
 ---
 
 > Das Postbox Pattern ist tool-agnostisch. OpenCode und Claude Code sprechen dieselbe Sprache: das Dateisystem.
