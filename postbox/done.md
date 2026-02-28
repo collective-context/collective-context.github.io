@@ -1,6 +1,6 @@
 # Done — Erledigte Tasks
 
-> Zuletzt aktualisiert: 2026-03-01 von Claude Sonnet 4.6 (Session 2)
+> Zuletzt aktualisiert: 2026-03-01 von Claude Sonnet 4.6 (Session 3)
 
 | ID | Task | Agent | Commit | Datum |
 |----|------|-------|--------|-------|
@@ -19,3 +19,4 @@
 | #010 | LLM-Workflow-Guide: zed/pricing.md + reference/benchmarks.md (neu) + llm-routing.md stark erweitert | Claude Sonnet 4.6 | 87fa2f9 | 2026-02-28 |
 | #017 | Neue Referenzseite reference/languages.md: Agentic Coding Sprachen Python/TS/Rust/Go/Zig im Vergleich 2026 (~1000 Wörter, Verteilungs- + Entscheidungstabelle) + Sidebar-Eintrag zwischen Benchmarks und Sitemap | Claude Sonnet 4.6 | 80464d2 | 2026-03-01 |
 | #018 | _archive aus docs/ heraus (src/_archive/) — kein Search-Index mehr für Legacy-Dateien. sitemap.md vollständig aktualisiert: alle fehlenden Sektionen ergänzt (Terminal, OpenCode, ZED Pricing, Referenz-Seiten) | Claude Sonnet 4.6 | 706e4f4 | 2026-03-01 |
+| #019 | claude_tui.md Whitepaper (fb-data/scripts/bin/): Entstehung, Features, Architektur, Roadmap. Kapitel 07 (zed-editor): Screenshot + Feature-Übersicht + Abschnitt "Wenige Stunden später" überarbeitet. Bild in public/ für Astro-Build-Kompatibilität. | Claude Sonnet 4.6 | 9cf314b | 2026-03-01 |
