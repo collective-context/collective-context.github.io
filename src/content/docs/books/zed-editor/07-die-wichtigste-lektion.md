@@ -40,23 +40,23 @@ Das ist keine Selbstverständlichkeit — es muss bewusst praktiziert werden.
 
 ---
 
-## Nachtrag (Feb 2026)
+## Wenige Stunden später ...
 
-Die Lektion bleibt gültig — aber die Geschichte hat eine Fortsetzung, die größer ist.
+Die Lektion bleibt gültig — aber die Geschichte hat eine Fortsetzung, die größer ist. Von der Idee bis zum produktionsfähigen **Claude TUI IDE** Agentic Coding Tool vergingen nur wenige Stunden. Wie war das möglich? 
 
-Erstens: ZED zeigt die Claude Code Sessions längst im **History-Panel**.
+**Erstens:** ZED zeigt die Claude Code Sessions längst im **History-Panel**.
 Es liest `~/.claude/projects/` direkt — clever, still, ohne Aufsehen.
 Was wir stundenlang gesucht haben, war die ganze Zeit da.
 
-Zweitens: Die Sessions als Dateien eröffnen eine neue Dimension.
+**Zweitens:** Die Sessions als Dateien eröffnen eine neue Dimension.
 Jede `.jsonl` unter `~/.claude/projects/<slug>/` ist ein vollständiger Transcript.
 Jede Zeile: ein JSON-Objekt. Menschenlesbar, maschinenverarbeitbar, archivierbar.
 
-Daraus entstand `claude_tui.py` — eine mutt-artige "Claude TUI-IDE":
+**Daraus entstand** `claude_tui.py` — eine mutt-artige "Claude TUI-IDE":
 
 ![Claude TUI Screenshot](/claude-tui.png)
 
-**Was das Tool heute kann:**
+**Was das Tool schon kann:**
 
 - **4-Panel-Layout** — Projekte · Sessions · Reader · Notizen, Side-by-Side mit Auto-Swap
 - **Session-Browser** — alle `~/.claude/projects/` sortiert nach Zeit und Aktivität
@@ -66,7 +66,7 @@ Daraus entstand `claude_tui.py` — eine mutt-artige "Claude TUI-IDE":
 - **Custom-Titel** (`t`) — Sessions umbenennen, persistiert in `memory/titles.json`
 - **Löschen** (`d`) — mit Bestätigung ("delete" tippen)
 - **Vollbild-Modi** (`o`/`n`/`m`) — Reader-only, Notiz-only, oder Panels tauschen
-- **`[a]` Agent** — Claude Code mit `--resume <uuid>` direkt aus dem Browser starten, CWD wird automatisch aus den Session-Metadaten gelesen
+> **`[a]` Agent** — **Claude Code Agent** mit `--resume <uuid>` direkt aus der Claude TUI-IDE starten, CWD wird automatisch aus den Session-Metadaten gelesen, die Session wird laufend automatisch gespeichert und die **Claude TUI-IDE** übernimmt wieder die Steuerung an der aufrufenden Stelle sobald **Claude Code** mit /exit verlassen wird.
 
 Sessions umbenennen, löschen, annotieren, im Editor öffnen, direkt wieder aufnehmen — alles lokal, kein Cloud-Service.
 
