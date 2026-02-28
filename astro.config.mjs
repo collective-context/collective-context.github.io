@@ -56,6 +56,15 @@ export default defineConfig({
           ],
         },
         {
+          label: '💻 Agentic Coding im Terminal',
+          items: [
+            { label: 'Warum das Terminal?', link: '/terminal/why-terminal' },
+            { label: 'Tool-Vergleich 2026', link: '/terminal/tool-comparison' },
+            { label: 'Claude Code Deep-Dive', link: '/terminal/claude-code' },
+            { label: 'Praxis-Patterns', link: '/terminal/patterns' },
+          ],
+        },
+        {
           label: '🧠 Collective Context',
           items: [
             { label: 'Konzept & Architektur', link: '/cc/concept' },
