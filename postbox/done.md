@@ -15,3 +15,4 @@
 | #013 | Postbox-Cleanup: ## Nachrichten-Block (3 Einträge 2026-02-27) aus todo.md entfernt, in attachments/done/2026-02-27_NACHRICHTEN_koordination-fb-data.md archiviert | Claude Sonnet 4.6 | 83f4d24 | 2026-02-28 |
 | #014 | Neue Sektion "Agentic Coding im Terminal": 4 Seiten (why-terminal, tool-comparison, claude-code, patterns) + Sidebar-Update astro.config.mjs | Claude Sonnet 4.6 | 9282180 | 2026-02-28 |
 | #015 | Fact-Check (recherchiert + verifiziert): MCP-Pfad, --sub-agents Flag, Gemini 3.1 Pro, Aider install, claude --teleport — 3 Dateien korrigiert | Claude Sonnet 4.6 | f644241 | 2026-02-28 |
+| #016 | Neue Sektion 'OpenCode AI-Agent': 3 Seiten (overview, zed-integration, dual-agent) + Sidebar zwischen Agentic Coding Tools und Collective Context | Claude Sonnet 4.6 | 259b73b | 2026-02-28 |
