@@ -132,6 +132,7 @@ export default defineConfig({
           label: '🗂️ Referenz',
           items: [
             { label: 'Modell-Benchmarks 2026', link: '/reference/benchmarks' },
+            { label: 'Agentic Coding Sprachen 2026', link: '/reference/languages' },
             { label: 'Sitemap', link: '/sitemap' },
             { label: 'FAQ', link: '/faq' },
           ],
