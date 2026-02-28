@@ -54,6 +54,23 @@ Details & Common Pitfalls: `postbox/README.md`
 
 ---
 
+## MULTI-REPO-WORKFLOW
+
+Eine einzige Claude Code Instanz kann mehrere Repos verwalten —
+getrennte `.git/`-Verzeichnisse isolieren sie sauber voneinander.
+
+```
+Claude Code (eine Instanz)
+──────────────────────────────────────────────────────────────
+✓ Read/Write + git commit/push in Repo A
+✓ Read/Write + git commit/push in Repo B
+```
+
+Git-Operationen werden mit `git -C /absoluter/pfad/zum/repo/` gezielt.
+Postbox bleibt für async-Koordination mit anderen Agenten (ZED/Gemini) gültig.
+
+---
+
 ## OFFENE PUNKTE (nächste Session zuerst!)
 
 Vollständige Liste: `postbox/todo.md`
