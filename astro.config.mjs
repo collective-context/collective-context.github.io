@@ -56,7 +56,7 @@ export default defineConfig({
           ],
         },
         {
-          label: '💻 Agentic Coding im Terminal',
+          label: '💻 Agentic Coding Tools',
           items: [
             { label: 'Warum das Terminal?', link: '/terminal/why-terminal' },
             { label: 'Tool-Vergleich 2026', link: '/terminal/tool-comparison' },
