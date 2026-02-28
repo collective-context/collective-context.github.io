@@ -1,7 +1,9 @@
 ---
-title: "Agentic Coding Sprachen – TypeScript, Rust, Python & Co. im Vergleich 2026"
+title: "Agentic Coding Sprachen"
 description: "Welche Programmiersprache für agentic Coding-Tools 2026? Ein pragmatischer Vergleich von Python, TypeScript, Rust, Go und Zig mit realen Tool-Beispielen und Entscheidungstabelle."
 ---
+
+*TypeScript, Rust, Python & Co. im Vergleich*
 
 > Stand: März 2026. Die Wahl der Sprache hängt stark vom konkreten Projekt, Team-Know-how und Deployment-Ziel ab.
 
