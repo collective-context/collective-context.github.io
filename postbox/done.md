@@ -16,3 +16,4 @@
 | #014 | Neue Sektion "Agentic Coding im Terminal": 4 Seiten (why-terminal, tool-comparison, claude-code, patterns) + Sidebar-Update astro.config.mjs | Claude Sonnet 4.6 | 9282180 | 2026-02-28 |
 | #015 | Fact-Check (recherchiert + verifiziert): MCP-Pfad, --sub-agents Flag, Gemini 3.1 Pro, Aider install, claude --teleport — 3 Dateien korrigiert | Claude Sonnet 4.6 | f644241 | 2026-02-28 |
 | #016 | Neue Sektion 'OpenCode AI-Agent': 3 Seiten (overview, zed-integration, dual-agent) + Sidebar zwischen Agentic Coding Tools und Collective Context | Claude Sonnet 4.6 | 259b73b | 2026-02-28 |
+| #010 | LLM-Workflow-Guide: zed/pricing.md + reference/benchmarks.md (neu) + llm-routing.md stark erweitert | Claude Sonnet 4.6 | 87fa2f9 | 2026-02-28 |
