@@ -121,9 +121,10 @@ Intern: Ein Lead-Agent koordiniert, Unteragenten arbeiten parallel, Ergebnisse w
 MCP verbindet Claude Code mit externen Datenquellen und Services — ohne Code:
 
 ```json
-// ~/.claude/mcp_servers.json
+// .mcp.json  (Projektebene, git-versioniert — empfohlen)
+// oder: ~/.claude.json  (User-Ebene, Feld "mcpServers")
 {
-  "servers": {
+  "mcpServers": {
     "postgres": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-postgres", "postgresql://localhost/mydb"]
@@ -149,11 +150,9 @@ Claude Code läuft auf mehreren Oberflächen, die denselben Engine teilen:
 
 ```
 Terminal (Claude Code CLI)
-    ↕ /teleport
+    ↕ claude --teleport
 Web (claude.ai/code)
-    ↕ /desktop
-Desktop App
-    ↕ Remote Control
+    ↕ Desktop App
 iOS App (Claude)
 ```
 
@@ -163,10 +162,10 @@ iOS App (Claude)
 claude "Refaktoriere das gesamte Auth-Modul auf JWT, schreibe Tests, erstelle PR"
 
 # Zwischendurch ins Web wechseln (mobil weiterarbeiten)
-/teleport   # → URL die auf jedem Gerät öffnet
+claude --teleport   # → öffnet laufende Session im Browser, auf jedem Gerät
 
 # Diff visuell reviewen → Desktop App
-/desktop    # → öffnet Desktop-App mit visuellem Diff-Viewer
+# Im ZED Claude Code Tab: Inline Diffs direkt im Editor
 ```
 
 ## CI/CD Integration

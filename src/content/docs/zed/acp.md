@@ -77,7 +77,7 @@ Die ACP Registry ist das zentrale Verzeichnis aller kompatiblen Agenten. In ZED 
 | Agent | Typ | Modell | Status |
 |---|---|---|---|
 | **Claude Agent** | ACP External | Sonnet 4.6 (Max) | Stabil |
-| **Gemini CLI** | ACP External | Gemini 2.5 Pro | Stabil |
+| **Gemini CLI** | ACP External | Gemini 3.1 Pro | Stabil |
 | **Codex** | ACP External | GPT-5.2-Codex | Stabil |
 | **GitHub Copilot** | ACP External | GPT-4o | Stabil |
 | **Cline** | ACP External | Wählbar | Stabil |

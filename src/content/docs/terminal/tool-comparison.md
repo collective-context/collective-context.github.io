@@ -10,7 +10,7 @@ description: Claude Code, Codex CLI, Aider, Gemini CLI, OpenCode — Stärken, K
 | Tool | Anbieter | Modell(e) | Kosten | Open Source | Stärke |
 |------|----------|-----------|--------|-------------|--------|
 | **Claude Code** | Anthropic | Sonnet 4.6, Opus 4.6 | Max ~$100–200/M (Flat) | Teilweise | 200k Kontext, CLAUDE.md, MCP, Sub-Agents |
-| **Gemini CLI** | Google | Gemini 2.5 Pro | Free Tier + API | **Ja** (Apache 2.0) | 1M Token Context, Google-Ökosystem, gratis |
+| **Gemini CLI** | Google | Gemini 3.1 Pro | Free Tier + API | **Ja** (Apache 2.0) | 1M Token Context, Google-Ökosystem, gratis |
 | **Aider** | Paul Gauthier | Multi-Provider | API-Kosten | **Ja** (Apache 2.0) | Git-native, provider-agnostisch, 41k Stars |
 | **Codex CLI** | OpenAI | GPT-4o, o3 | API-Kosten | **Ja** (GitHub) | Sandbox-Execution, AGENTS.md nativ, Rust |
 | **OpenCode** | Community | Multi-Provider | API-Kosten | **Ja** | Leichtgewichtig, TUI, Rust |
@@ -29,10 +29,10 @@ cd projekt && claude
 
 **Stärken:**
 - **CLAUDE.md** als git-versioniertes Projekt-Gedächtnis — lädt automatisch in jede Session
-- **Sub-Agents**: Parallele Agenten für große Tasks (`claude --sub-agents`)
+- **Sub-Agents**: Parallele Agenten für große Tasks (Delegation via natürlicher Sprache oder `--agents '<json>'`)
 - **MCP-Integration**: Direkte Verbindung zu Datenbanken, Jira, Slack, Google Drive
 - **Hooks**: Shell-Befehle vor/nach jeder Aktion (Auto-Lint, Auto-Format, Pre-Commit)
-- **Cross-Surface**: `/teleport` zwischen Terminal ↔ Web ↔ Desktop ↔ iOS
+- **Cross-Surface**: `claude --teleport` zwischen Terminal ↔ Web ↔ Desktop ↔ iOS
 - **GitHub Actions**: Native CI/CD-Integration
 - **Composable**: Vollständig pipe-kompatibel
 
@@ -76,7 +76,7 @@ gemini
 **Von:** Paul Gauthier | **Lizenz:** Apache 2.0 | **GitHub:** [paul-gauthier/aider](https://github.com/paul-gauthier/aider)
 
 ```bash
-pip install aider-chat
+pip install aider-install && aider-install
 aider --model claude-sonnet-4-6   # oder gpt-4o, deepseek, etc.
 ```
 
