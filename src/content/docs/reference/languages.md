@@ -40,7 +40,7 @@ Python ist 2026 nach wie vor die dominante Sprache für alles, was mit Modellen,
 
 ---
 
-## TypeScript / Bun — Neue CLI-Generation
+## TypeScript/Bun — New CLI-Generation
 
 TypeScript hat sich als bevorzugte Sprache für die neue Welle agentic Terminal-Tools etabliert. Der Grund: Entwickler kennen es, npm liefert ein riesiges Ökosystem, und Bun macht den entscheidenden Unterschied gegenüber klassischem Node.js.
 
@@ -65,7 +65,7 @@ TypeScript hat sich als bevorzugte Sprache für die neue Welle agentic Terminal-
 
 ---
 
-## Rust — Performance und Distribution ohne Kompromisse
+## Rust — Performance ohne Kompromisse
 
 Rust ist die Sprache der Wahl, wenn ein Tool tatsächlich distribuierbar, schnell und ressourceneffizient sein soll. Kein Runtime, keine GC-Pausen, kein Interpreter. Das hat seinen Preis: die Einstiegshürde ist real, und ein Feature-Reach-Prototyp in Rust dauert länger als in Python oder TypeScript.
 
