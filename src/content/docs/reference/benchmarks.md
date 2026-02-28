@@ -103,12 +103,56 @@ Gleicher Preis, zwei separate Modell-IDs in ZED, stark unterschiedliche Qualitä
 
 ---
 
+## Weitere relevante Modelle (Open-Weight & Community — Feb/März 2026)
+
+Eine Ergänzung zum proprietären Stack — Modelle die für lokale, budget- oder datenschutzkritische Workflows besonders interessant sind.
+
+| Modell | SWE-bench | Kontext | API Input/Output /1M | Lokal |
+|---|---|---|---|---|
+| **DeepSeek V3.2** (685B MoE, MIT) | 65–66%\* / 73.1%\*\* | 128K | $0.28 / $0.42 | ◑ |
+| **Mistral Devstral Small 2** (24B, Apache 2.0) | **68.0%** | 256K | $0.10 / $0.30 | ✓ 14 GB |
+| **Qwen3-Coder-Next** (80B/3B aktiv, Apache 2.0) | **70.6%**† | 256K | $0.50 / $1.20 | ✓ 52 GB |
+| **GLM-4.7** (358B MoE, MIT) | **73.8%** | 200K | $0.60 / $2.20 | ◑ |
+| **Llama 4 Scout** (109B/17B aktiv, Apache 2.0) | nicht veröffentlicht | **10M** | ~$0.18 / $0.63 | ✓ 67 GB |
+
+\*DeepSeek V3.2: [vals.ai](https://vals.ai/benchmarks/swebench) unabhängig (Standardscaffold, Feb 2026). \*\*Hersteller-Selbstbericht mit eigenem Scaffold — 20–30 PP Unterschied möglich, wie bei Grok 4.1 Fast. †Qwen3-Coder-Next: Qwen-eigener SWE-Agent-Scaffold. ◑ = Ollama vorhanden, aber cloud-backed (Weights zu groß für Consumer-Hardware) oder via vLLM/SGLang.
+
+### Modell-Notizen
+
+**DeepSeek V3.2** (Dez 2025) — Erstes DeepSeek-Modell mit Thinking-in-Tools: Tool-Calls im Reasoning- und Non-Reasoning-Mode. Agentic Task Synthesis Pipeline (85.000+ Trainingsszenarien). TerminalBench 2.0: 46.4%. API bemerkenswert günstig ($0.28/$0.42/M). 685B Parameter — echter lokaler Betrieb erfordert extreme Hardware.
+→ [huggingface.co/deepseek-ai/DeepSeek-V3.2](https://huggingface.co/deepseek-ai/DeepSeek-V3.2) · [api-docs.deepseek.com](https://api-docs.deepseek.com)
+
+**Mistral Devstral 2** (Dez 2025) — Purpose-built für Software-Engineering-Agents: Multi-File-Exploration, GitHub-Issue-Resolution, Tool-Use. Small-Variante (24B) läuft auf einer RTX 4090 oder Mac mit 32 GB RAM. Begleitend: **Mistral Vibe CLI** (open-source Terminal-Agent, Apache 2.0). Die 123B-Variante: 72.2% SWE-bench.
+→ [mistral.ai/news/devstral-2-vibe-cli](https://mistral.ai/news/devstral-2-vibe-cli) · [ollama.com/library/devstral-2](https://ollama.com/library/devstral-2)
+
+**Qwen3-Coder-Next** (Feb 2026) — Ultra-sparse MoE: 80B Parameter, nur 3B aktiv pro Token — effizient wie ein kleines Modell. Kein Reasoning-Block (reiner Coding-Fokus). Schlägt DeepSeek V3.2 auf SWE-bench Multilingual (62.8% vs. 61.8%) und SWE-bench Pro (44.3% vs. 40.9%).
+→ [huggingface.co/Qwen/Qwen3-Coder-Next](https://huggingface.co/Qwen/Qwen3-Coder-Next) · [ollama.com/library/qwen3-coder-next](https://ollama.com/library/qwen3-coder-next)
+
+**GLM-4.7** (Dez 2025, Z.ai/Zhipu) — 73.8% SWE-bench (llm-stats.com, Feb 2026) — auf Augenhöhe mit Claude Sonnet 4.6. tau²-Bench: 87.4 (stärkstes Open-Weight bei Release). Weights auf HuggingFace, lokaler Betrieb via vLLM oder SGLang möglich.
+→ [huggingface.co/zai-org/GLM-4.7](https://huggingface.co/zai-org/GLM-4.7) · [ollama.com/library/glm-4.7](https://ollama.com/library/glm-4.7)
+
+**Llama 4 Scout** (Apr 2025, Meta) — Kein veröffentlichter SWE-bench-Score: für Agentic-Coding-Rankings derzeit nicht einordbar. Dennoch relevant: **10M Kontext-Fenster** (einzigartig), nativ multimodal (Text+Bild), Apache 2.0. `ollama pull llama4` (67 GB).
+→ [ai.meta.com/blog/llama-4-multimodal-intelligence](https://ai.meta.com/blog/llama-4-multimodal-intelligence/) · [ollama.com/library/llama4](https://ollama.com/library/llama4)
+
+### Ausblick: DeepSeek V4
+
+DeepSeek V4 ist **nicht veröffentlicht** (Stand: März 2026). Community-Berichte und Leaks (*The Information*, Feb 2026) erwarten einen Release in Q1-Q2 2026 — DeepSeek hat sich offiziell nicht geäußert. Ein stilles Update vom 11. Februar 2026 (Context Window + Knowledge Cutoff) wird als V4-Staging interpretiert, bleibt aber unbestätigt.
+
+> Diese Modelle sind besonders für lokale/offline- oder budget-orientierte Workflows interessant. **Benchmarks ändern sich rasant — Stand März 2026.**
+
+---
+
 ## Quellen
 
 - [ZED Docs: AI Models & Pricing](https://zed.dev/docs/ai/models)
 - [Anthropic Claude Pricing](https://platform.claude.com/docs/en/about-claude/pricing)
 - [xAI: Grok 4.1 Fast](https://x.ai/news/grok-4-1-fast)
 - [Google: Gemini 3 Flash](https://blog.google/products/gemini/gemini-3-flash/)
-- [SWE-bench Leaderboard](https://llm-stats.com/benchmarks/swe-bench-verified)
-- [Vals AI — Grok 4.1 Fast (unabhängig, Feb 2026)](https://vals.ai)
+- [SWE-bench Leaderboard — llm-stats.com](https://llm-stats.com/benchmarks/swe-bench-verified)
+- [Vals AI — SWE-bench Verified (unabhängig)](https://vals.ai/benchmarks/swebench)
 - [Artificial Analysis Intelligence Index](https://artificialanalysis.ai)
+- [DeepSeek V3.2 — HuggingFace](https://huggingface.co/deepseek-ai/DeepSeek-V3.2)
+- [Mistral Devstral 2 — mistral.ai](https://mistral.ai/news/devstral-2-vibe-cli)
+- [Qwen3-Coder-Next — HuggingFace](https://huggingface.co/Qwen/Qwen3-Coder-Next)
+- [GLM-4.7 — Z.ai / zai-org](https://huggingface.co/zai-org/GLM-4.7)
+- [Llama 4 — Meta AI Blog](https://ai.meta.com/blog/llama-4-multimodal-intelligence/)
