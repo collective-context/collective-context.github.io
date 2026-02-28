@@ -40,6 +40,11 @@ Diese AGENTS.md ist selbst eine **Vorlage** — kopierbar für tausende neue Pro
 7. **KEIN `npm run build` OHNE FREIGABE** — Build erzeugt `pagefind/`-Index.
 8. **`_archive/`-Verzeichnisse sind eingefroren** — kein Zugriff ohne explizite SysOps-Freigabe.
 9. **Git-Workflow:** → Lies `README.md#git-workflow` bevor du einen git-Befehl ausführst.
+10. **NACH JEDEM PUSH: GitHub Actions prüfen.**
+    `gh run list --repo collective-context/collective-context.github.io --limit 3`
+    Bei Failure sofort: `gh run view <ID> --repo ... --log-failed 2>&1 | tail -50`
+    Häufige Ursache: YAML-Frontmatter — Titel/Description mit `:` **müssen** in `"..."` stehen.
+    Beispiel: `title: "Dual-Agent: OpenCode + Claude Code"` ← korrekt
 
 ---
 
@@ -75,10 +80,9 @@ Postbox bleibt für async-Koordination mit anderen Agenten (ZED/Gemini) gültig.
 
 Vollständige Liste: `postbox/todo.md`
 
-- **#004** Duplikat bereinigen: `src/content/books/` vs `src/content/docs/books/`
-- **#005** AGENTS.md in github.io fertigstellen (diese Datei)
 - **#006** PDF-Export via Pandoc in CI/CD (Fälligkeit 2026-03-15)
 - **#007** Zed-Buch erweitern: ACP-Patterns, professionelle Agent-Orchestrierung
+- **#010** LLM-Workflow-Guide veröffentlichen (Briefing: `postbox/attachments/todo/`)
 
 ---
 
