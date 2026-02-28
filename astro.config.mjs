@@ -53,6 +53,7 @@ export default defineConfig({
             { label: 'Claude Code Tab Setup', link: '/zed/claude-code-tab' },
             { label: 'Gemini CLI Setup', link: '/zed/gemini-cli' },
             { label: 'Ollama (lokal)', link: '/zed/ollama' },
+            { label: 'ZED Pricing & BYOK', link: '/zed/pricing' },
           ],
         },
         {
@@ -130,6 +131,7 @@ export default defineConfig({
         {
           label: '🗂️ Referenz',
           items: [
+            { label: 'Modell-Benchmarks 2026', link: '/reference/benchmarks' },
             { label: 'Sitemap', link: '/sitemap' },
             { label: 'FAQ', link: '/faq' },
           ],
