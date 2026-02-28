@@ -63,6 +63,7 @@ export default defineConfig({
             { label: 'AGENTS.md Guide', link: '/cc/agents-md' },
             { label: 'Postbox Pattern', link: '/cc/postbox-pattern' },
             { label: 'LLM Routing Strategie', link: '/cc/llm-routing' },
+            { label: 'Quickstart Template', link: '/cc/quickstart-template' },
           ],
         },
         {
@@ -71,6 +72,7 @@ export default defineConfig({
             { label: 'Dual-Agent (Gemini + Claude)', link: '/patterns/dual-agent' },
             { label: 'Orchestra Pattern', link: '/patterns/orchestra' },
             { label: 'Pipeline Pattern', link: '/patterns/pipeline' },
+            { label: 'Multi-Repo Coordination', link: '/patterns/multi-repo' },
           ],
         },
         {
@@ -109,8 +111,9 @@ export default defineConfig({
           ],
         },
         {
-          label: '❓ Support',
+          label: '🗂️ Referenz',
           items: [
+            { label: 'Sitemap', link: '/sitemap' },
             { label: 'FAQ', link: '/faq' },
           ],
         },
