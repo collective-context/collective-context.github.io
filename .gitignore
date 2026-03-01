@@ -25,3 +25,9 @@ local-only/
 
 # Claude Code — Symlink auf AGENTS.md, lokal generiert
 CLAUDE.md
+
+# Backup-Verzeichnisse (lokal, kein Git)
+src/content_backup_*/
+
+# Leere Cron-Attachments (temporär, kein Git)
+postbox/attachments/cron/
