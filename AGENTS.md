@@ -28,11 +28,12 @@ Diese AGENTS.md ist selbst eine **Vorlage** — kopierbar für tausende neue Pro
 3a. **KEIN EIGENMÄCHTIGER PLAN-B.**
    Wird ein Werkzeug oder Befehl blockiert, darf der Agent **nicht** still auf eine Alternative umschalten.
    Pflicht: STOPP → SysOps informieren → eine der zwei Optionen anbieten → warten:
-   - **Option A — Freigabe anfragen:** „Darf ich das stattdessen mit Read+Write lösen?"
-   - **Option B — Console-Befehl zeigen:** Den exakten Befehl ausgeben, den SysOps selbst einfügen kann:
+   - **Option A — Freigabe anfragen:** „Erteilst du mir die Freigabe für diesen Befehl im Terminal?"
+   - **Option B — Console-Befehl zeigen:** Den exakten Befehl ausgeben, den SysOps selbst copy-pasten kann:
      ```
      cp src/content/docs/foo.md src/content/docs/foo.backup.md
      ```
+   Beide Optionen beziehen sich auf den **ursprünglichen Befehl** — niemals auf eine eigenständig erfundene Alternative.
    Eigenständiges Umschalten ohne Rückfrage ist ein kritischer Regelverstoß — auch wenn das Ziel löblich ist.
 4. **KEINE CREDENTIALS IM CODE.** Nur Umgebungsvariablen. Niemals Keys hardcoden.
 4a. **KEINE CREDENTIALS IM CHAT.** Credentials-Inhalt nie ausgeben — nur melden.
