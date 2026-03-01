@@ -213,6 +213,7 @@ Das [Postbox Pattern](/cc/postbox-pattern) macht Claude Code orchestrierbar — 
 
 - **4-Panel-Layout** — Projekte · Sessions · Reader · Notizen
 - **`[a]` Agent** — Session direkt fortsetzen mit automatischem CWD-Kontext
+- **`[o]` Open** — `/resume <uuid>` in Zwischenablage: in TUI surfen, in laufendem Claude Code einfügen
 - **`[r]` Refresh** — neue Sessions live nachladen ohne Neustart
 - **Unified Rename** — `/rename` in Claude Code und `[t]` in der TUI schreiben denselben nativen Record ins JSONL: Titel erscheint konsistent in Claude Code `/resume`, ZED History **und** der TUI — ohne Tricks, ohne Sync-Probleme
 - **Notizen** — pro Session eine `memory/<uuid>.md`, vorausgefüllt mit Transcript
@@ -224,6 +225,7 @@ python scripts/bin/claude_tui.py
 
 # Wichtigste Tasten
 [a]  Agent starten (--resume, richtiges CWD)
+[o]  /resume <uuid> → Clipboard  (in Claude Code einfügen)
 [t]  Titel setzen  ←→  /rename in Claude Code
 [r]  Refresh
 [e]  Notiz im Editor

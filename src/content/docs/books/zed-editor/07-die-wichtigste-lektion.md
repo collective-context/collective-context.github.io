@@ -66,8 +66,9 @@ Jede Zeile: ein JSON-Objekt. Menschenlesbar, maschinenverarbeitbar, archivierbar
 - **Titel** (`t` oder `/rename`) — Sessions umbenennen, sichtbar in TUI + Claude Code + ZED History
 - **Refresh** (`r`) — neue Sessions live nachladen ohne Neustart
 - **Löschen** (`d`) — mit Bestätigung ("delete" tippen)
-- **Vollbild-Modi** (`o`/`n`/`m`) — Reader-only, Notiz-only, oder Panels tauschen
+- **Vollbild-Modi** (`f`/`n`/`m`) — Reader-only (Full), Notiz-only, oder Panels tauschen
 > **`[a]` Agent** — **Claude Code Agent** mit `--resume <uuid>` direkt aus der Claude TUI-IDE starten, CWD wird automatisch aus den Session-Metadaten gelesen, die Session wird laufend automatisch gespeichert und die **Claude TUI-IDE** übernimmt wieder die Steuerung an der aufrufenden Stelle sobald **Claude Code** mit /exit verlassen wird.
+> **`[o]` Open** — `/resume <uuid>` in die Zwischenablage kopieren: in der TUI surfen, den Resume-Link direkt in einen laufenden Claude Code einfügen — was ZED's History-Panel (noch) nicht kann.
 
 Sessions umbenennen, löschen, annotieren, im Editor öffnen, direkt wieder aufnehmen — alles lokal, kein Cloud-Service.
 
