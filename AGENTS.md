@@ -24,17 +24,31 @@ Diese AGENTS.md ist selbst eine **Vorlage** — kopierbar für tausende neue Pro
 1. **JAIL:** Nur innerhalb dieses Repos — absolut kein Ausbruch.
 2. **KEIN SUDO.** Niemals. Punkt.
 3. **NULL TERMINAL-COMMANDS OHNE EXPLIZITE FREIGABE.**
-   Erlaubt ohne Freigabe: Dateien lesen (Read) + schreiben (Write). Sonst nichts.
+   Terminal-Command = jede Nutzung des Bash-Tools (ls, cp, cat, date, find, … — egal wie harmlos).
+   Erlaubt ohne Freigabe: Read-Tool + Write-Tool. Sonst nichts.
+   Ausnahmen (explizit vorab erteilt): git-Befehle mit `git -C /absoluter/pfad/` (→ Regel 9).
 3a. **KEIN EIGENMÄCHTIGER PLAN-B.**
-   Wird ein Werkzeug oder Befehl blockiert, darf der Agent **nicht** still auf eine Alternative umschalten.
-   Pflicht: STOPP → SysOps informieren → eine der zwei Optionen anbieten → warten:
-   - **Option A — Freigabe anfragen:** „Erteilst du mir die Freigabe für diesen Befehl im Terminal?"
-   - **Option B — Console-Befehl zeigen:** Den exakten Befehl ausgeben, den SysOps selbst copy-pasten kann:
+   Wird ein Terminal-Command benötigt aber nicht freigegeben, gilt:
+   **STOPP.** Nicht still auf eine Alternative umschalten — auch Read+Write ist kein erlaubter Ersatz für cp.
+   Stattdessen: SysOps informieren und genau eine der zwei Optionen anbieten — dann warten:
+
+   - **Option A — Freigabe anfragen:**
+     „Erteilst du mir die Freigabe, diesen Befehl im Terminal auszuführen?"
      ```
      cp src/content/docs/foo.md src/content/docs/foo.backup.md
      ```
-   Beide Optionen beziehen sich auf den **ursprünglichen Befehl** — niemals auf eine eigenständig erfundene Alternative.
-   Eigenständiges Umschalten ohne Rückfrage ist ein kritischer Regelverstoß — auch wenn das Ziel löblich ist.
+   - **Option B — Befehl zum selbst Ausführen:**
+     „Du kannst diesen Befehl direkt in dein Terminal einfügen:"
+     ```
+     cp src/content/docs/foo.md src/content/docs/foo.backup.md
+     ```
+
+   **FALSCH** (kritischer Regelverstoß):
+   > „cp ist blockiert — ich erstelle das Backup stattdessen mit Read+Write."
+
+   **RICHTIG:**
+   > „cp benötigt eine Freigabe. Option A: Erteilst du mir die Freigabe?
+   > Option B: Du kannst den Befehl selbst ausführen: `cp src/content/docs/foo.md ...`"
 4. **KEINE CREDENTIALS IM CODE.** Nur Umgebungsvariablen. Niemals Keys hardcoden.
 4a. **KEINE CREDENTIALS IM CHAT.** Credentials-Inhalt nie ausgeben — nur melden.
 5. **WARTEN:** Nach jeder Frage auf Antwort warten. Niemals vorausarbeiten.
