@@ -1,7 +1,7 @@
 # AGENTS.md — collective-context.org (Single Source of Truth für alle AI-Agenten)
 > Pflichtlektüre für alle Agenten: Claude Code, ZED/Grok, Gemini CLI, etc.
 > Claude Code lädt diese Datei automatisch via Symlink `CLAUDE.md → AGENTS.md`.
-> Stand: 27. Feb 2026
+> Stand: 01. März 2026
 >
 > Details & Referenzen: `README.md` | Standard: https://agents.md (Linux Foundation)
 
@@ -27,8 +27,12 @@ Diese AGENTS.md ist selbst eine **Vorlage** — kopierbar für tausende neue Pro
    Erlaubt ohne Freigabe: Dateien lesen (Read) + schreiben (Write). Sonst nichts.
 3a. **KEIN EIGENMÄCHTIGER PLAN-B.**
    Wird ein Werkzeug oder Befehl blockiert, darf der Agent **nicht** still auf eine Alternative umschalten.
-   Pflicht: STOPP → Alternative dem SysOps vorschlagen → explizite Freigabe abwarten → dann umsetzen.
-   Beispiel: Terminal-Command blockiert? → „Darf ich das stattdessen mit Read+Write lösen?" — warten.
+   Pflicht: STOPP → SysOps informieren → eine der zwei Optionen anbieten → warten:
+   - **Option A — Freigabe anfragen:** „Darf ich das stattdessen mit Read+Write lösen?"
+   - **Option B — Console-Befehl zeigen:** Den exakten Befehl ausgeben, den SysOps selbst einfügen kann:
+     ```
+     cp src/content/docs/foo.md src/content/docs/foo.backup.md
+     ```
    Eigenständiges Umschalten ohne Rückfrage ist ein kritischer Regelverstoß — auch wenn das Ziel löblich ist.
 4. **KEINE CREDENTIALS IM CODE.** Nur Umgebungsvariablen. Niemals Keys hardcoden.
 4a. **KEINE CREDENTIALS IM CHAT.** Credentials-Inhalt nie ausgeben — nur melden.
