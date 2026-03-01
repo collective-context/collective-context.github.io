@@ -207,14 +207,28 @@ jobs:
 
 **Wichtig:** Ein Claude Max Abo deckt gleichzeitig Claude Code CLI, Claude Code Web, ZED Claude Code Tab und Claude Pro ab — keine mehrfachen Abos nötig.
 
-## Eigene TUI mit dem Postbox Pattern
+## Eigene TUI-IDE: claude_tui.py
 
-Das [Postbox Pattern](/cc/postbox-pattern) macht Claude Code orchestrierbar — auch ohne GUI. Eine eigene TUI-Session-Verwaltung (wie [claude_tui.py](https://github.com/collective-context) aus unserem fb-data-Projekt) ergänzt den Terminal-Workflow um:
+Das [Postbox Pattern](/cc/postbox-pattern) macht Claude Code orchestrierbar — auch ohne GUI. `claude_tui.py` aus dem [fb-data-Projekt](https://github.com/edikte/fb-data) ist ein Open-Source Session-Browser im mutt-Stil, der den Claude Code Terminal-Workflow zur vollständigen IDE erweitert:
 
-- Session-Browser mit Volltextsuche
-- Notizen direkt in Session-Kontext
-- Clipboard-Integration für Handover-Dokumente
-- Projektübergreifende Navigation
+- **4-Panel-Layout** — Projekte · Sessions · Reader · Notizen
+- **`[a]` Agent** — Session direkt fortsetzen mit automatischem CWD-Kontext
+- **`[r]` Refresh** — neue Sessions live nachladen ohne Neustart
+- **Unified Rename** — `/rename` in Claude Code und `[t]` in der TUI schreiben denselben nativen Record ins JSONL: Titel erscheint konsistent in Claude Code `/resume`, ZED History **und** der TUI — ohne Tricks, ohne Sync-Probleme
+- **Notizen** — pro Session eine `memory/<uuid>.md`, vorausgefüllt mit Transcript
+- **Clipboard** — Notizen direkt via `wl-copy`/`xclip`/`xsel`
+
+```bash
+# Starten
+python scripts/bin/claude_tui.py
+
+# Wichtigste Tasten
+[a]  Agent starten (--resume, richtiges CWD)
+[t]  Titel setzen  ←→  /rename in Claude Code
+[r]  Refresh
+[e]  Notiz im Editor
+[?]  Hilfe
+```
 
 Das zeigt: Claude Code ist nicht nur ein Tool — es ist ein Baustein für eigene Entwicklungs-Infrastruktur.
 

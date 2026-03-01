@@ -63,12 +63,15 @@ Jede Zeile: ein JSON-Objekt. Menschenlesbar, maschinenverarbeitbar, archivierbar
 - **Reader** — vollständiger Transcript, gescrollt wie ein Pager (`jk`, `PgUp/PgDn`, `gG`)
 - **Notizen** (`e`) — pro Session eine `memory/<uuid>.md`, vorausgefüllt mit dem Transcript, im `$EDITOR` bearbeitbar
 - **Zwischenablage** (`c`) — Notiz direkt in Clipboard via `wl-copy`/`xclip`/`xsel`
-- **Custom-Titel** (`t`) — Sessions umbenennen, persistiert in `memory/titles.json`
+- **Titel** (`t` oder `/rename`) — Sessions umbenennen, sichtbar in TUI + Claude Code + ZED History
+- **Refresh** (`r`) — neue Sessions live nachladen ohne Neustart
 - **Löschen** (`d`) — mit Bestätigung ("delete" tippen)
 - **Vollbild-Modi** (`o`/`n`/`m`) — Reader-only, Notiz-only, oder Panels tauschen
 > **`[a]` Agent** — **Claude Code Agent** mit `--resume <uuid>` direkt aus der Claude TUI-IDE starten, CWD wird automatisch aus den Session-Metadaten gelesen, die Session wird laufend automatisch gespeichert und die **Claude TUI-IDE** übernimmt wieder die Steuerung an der aufrufenden Stelle sobald **Claude Code** mit /exit verlassen wird.
 
 Sessions umbenennen, löschen, annotieren, im Editor öffnen, direkt wieder aufnehmen — alles lokal, kein Cloud-Service.
+
+**Das Titel-Problem ist gelöst.** `/rename` und `[t]` schreiben denselben nativen Record ins JSONL — der Titel erscheint danach konsistent in Claude Code `/resume`, ZED History und der TUI-IDE.
 
 **Drittens — und das ist die eigentliche Lektion:**
 
