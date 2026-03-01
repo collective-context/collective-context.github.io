@@ -355,7 +355,7 @@ Jede Zeile: ein JSON-Objekt. Menschenlesbar, maschinenverarbeitbar, archivierbar
 
 **Daraus entstand** `claude_tui.py` — eine mutt-artige "Claude TUI-IDE":
 
-![Claude TUI Screenshot](/claude-tui.png)
+![Claude TUI Screenshot](/img/claude-tui.png)
 
 **Was das Tool schon kann:**
 
