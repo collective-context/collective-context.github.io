@@ -54,7 +54,8 @@ github.io/
 │           ├── books/zed-editor/          ← 7 Kapitel + ganzes-buch.md
 │           └── _archive/v1-2025/          ← ⛔ EINGEFROREN
 ├── postbox/                               ← Multi-Agenten Task-Board
-├── public/                                ← Statische Assets
+├── public/
+│   └── img/                               ← ⭐ Bilder hierher! (siehe public/img/README.md)
 ├── pagefind/                              ← ⛔ GENERIERT — nie manuell editieren
 └── .github/workflows/deploy.yml           ← CI/CD → GitHub Pages
 ```
@@ -101,6 +102,8 @@ Deploy läuft automatisch via `.github/workflows/deploy.yml` bei jedem Push auf 
 
 ## Bekannte Fehler / Nie wieder
 
+- **Bilder in `src/assets/` ablegen:** Führt zu `[ImageNotFound]` Build-Fehlern aus `.md`-Dateien.
+  Bilder immer nach **`public/img/`** und im Markdown als `/img/datei.png` einbinden.
 - **pagefind/ manuell committen:** Wird vom Build generiert. Nie anfassen.
 - **`_archive/` lesen ohne Freigabe:** Eingefroren = kein Zugriff ohne SysOps-Auftrag.
 - **URLs erfinden:** Nie aus Beschreibungen ableiten — immer per WebFetch prüfen.
@@ -120,4 +123,4 @@ Deploy läuft automatisch via `.github/workflows/deploy.yml` bei jedem Push auf 
 
 ---
 
-*Letzte Aktualisierung: 27. Februar 2026*
+*Letzte Aktualisierung: 1. März 2026*
