@@ -3,82 +3,106 @@ title: Quick Start — ZED + Claude Code Tab
 description: In 5 Minuten zum laufenden Collective Context Setup
 ---
 
+import { Aside, LinkCard, Steps } from '@astrojs/starlight/components';
+
 ## Voraussetzungen
 
 - Linux / macOS / Windows (ZED läuft auf allen)
 - Claude Max Abo (claude.ai) — für Flat Rate
 - Node.js 18+ (für den ACP-Adapter)
 
-## Schritt 1: ZED installieren
+<Steps>
 
-Download unter: https://zed.dev/download
+1. **ZED installieren**
 
-ZED ist kostenlos und Open Source (GPL). Kein Account erforderlich für die Basis-Nutzung.
+   Download unter: [zed.dev/download](https://zed.dev/download)
 
-## Schritt 2: Claude Code Tab aktivieren
+   ZED ist kostenlos und Open Source (GPL). Kein Account erforderlich für die Basis-Nutzung.
 
-1. Agent Panel öffnen: `Ctrl+?`
-2. `+` Button klicken → **Claude Agent** (aus ACP Registry auswählen)
-3. ZED installiert `@zed-industries/claude-agent-acp` automatisch
-4. `/login` eingeben → "Log in with Claude.ai" → OAuth im Browser abschließen
-5. Fertig — Claude Code Tab ist aktiv.
+2. **Claude Code Tab aktivieren**
 
-## Schritt 3: CLAUDE.md anlegen
+   - Agent Panel öffnen: `Ctrl+?`
+   - `+` Button klicken → **Claude Agent** (aus ACP Registry auswählen)
+   - ZED installiert `@zed-industries/claude-agent-acp` automatisch
+   - `/login` eingeben → "Log in with Claude.ai" → OAuth im Browser abschließen
+   - Fertig — Claude Code Tab ist aktiv.
 
-Im Projekt-Root eine Datei `CLAUDE.md` anlegen:
+3. **CLAUDE.md anlegen**
 
-```markdown
-# CLAUDE.md
+   Im Projekt-Root eine Datei `CLAUDE.md` anlegen:
 
-## Projekt
-[Kurzbeschreibung des Projekts, max. 3 Sätze]
+   ```markdown
+   # CLAUDE.md
 
-## Entscheidungen (nicht mehr hinterfragen)
-- [Architektur-Entscheidung 1]
-- [Architektur-Entscheidung 2]
+   ## Projekt
+   [Kurzbeschreibung des Projekts, max. 3 Sätze]
 
-## Was Claude NICHT tun soll
-- [Anti-Pattern 1 aus schlechter Erfahrung]
-- [Anti-Pattern 2]
+   ## Entscheidungen (nicht mehr hinterfragen)
+   - [Architektur-Entscheidung 1]
+   - [Architektur-Entscheidung 2]
 
-## Commit-Format
-feat: / fix: / docs: (Conventional Commits)
-```
+   ## Was Claude NICHT tun soll
+   - [Anti-Pattern 1 aus schlechter Erfahrung]
+   - [Anti-Pattern 2]
 
-CLAUDE.md wird **automatisch** in jede neue Session geladen — kein manueller Upload nötig.
+   ## Commit-Format
+   feat: / fix: / docs: (Conventional Commits)
+   ```
 
-## Schritt 4: Ersten Task starten
+   <Aside type="tip">
+   CLAUDE.md wird **automatisch** in jede neue Session geladen — kein manueller Upload nötig.
+   </Aside>
 
-Im Agent Panel (Claude Code Tab aktiv):
+4. **Ersten Task starten**
 
-```
-Lies CLAUDE.md und erkläre mir die Projektstruktur
-```
+   Im Agent Panel (Claude Code Tab aktiv):
 
-Claude liest automatisch CLAUDE.md, AGENTS.md (falls vorhanden) und scannt den Codebase.
+   ```
+   Lies CLAUDE.md und erkläre mir die Projektstruktur
+   ```
 
-## Schritt 5 (optional): Postbox für Multi-Agent
+   Claude liest automatisch CLAUDE.md, AGENTS.md (falls vorhanden) und scannt den Codebase.
 
-Für den [Dual-Agent Workflow](/patterns/dual-agent) mit Gemini CLI:
+5. **Postbox für Multi-Agent einrichten** *(optional)*
 
-```bash
-mkdir postbox
-touch postbox/todo.md postbox/done.md
-```
+   Für den [Dual-Agent Workflow](/patterns/dual-agent) mit Gemini CLI:
 
-```markdown
-# postbox/todo.md
+   ```bash
+   mkdir postbox
+   touch postbox/todo.md postbox/done.md
+   ```
 
-## Offene Tasks
+   ```markdown
+   # postbox/todo.md
 
-| ID | Task | Priorität | Quelle |
-|----|------|-----------|--------|
-| #001 | Beispiel-Task | hoch | Gemini |
-```
+   ## Offene Tasks
+
+   | ID | Task | Priorität | Quelle |
+   |----|------|-----------|--------|
+   | #001 | Beispiel-Task | hoch | Gemini |
+   ```
+
+</Steps>
 
 ## Nächste Schritte
 
-- [Was ist ACP? — Konzeptueller Hintergrund](/quickstart/what-is-acp)
-- [Claude Code Tab — alle Features im Detail](/zed/claude-code-tab)
-- [CLAUDE.md Best Practices](/cc/claude-md)
-- [Dual-Agent Pattern einrichten](/patterns/dual-agent)
+<LinkCard
+  title="Was ist ACP?"
+  href="/quickstart/what-is-acp"
+  description="Konzeptueller Hintergrund — wie das Agent Client Protocol funktioniert."
+/>
+<LinkCard
+  title="Claude Code Tab — alle Features"
+  href="/zed/claude-code-tab"
+  description="Deep-Dive in den ZED Claude Code Tab: Diffs, Hooks, MCP, Sub-Agents."
+/>
+<LinkCard
+  title="CLAUDE.md Best Practices"
+  href="/cc/claude-md"
+  description="Das Projekt-Gedächtnis richtig schreiben — Struktur, Tiefe, Anti-Patterns."
+/>
+<LinkCard
+  title="Dual-Agent Pattern einrichten"
+  href="/patterns/dual-agent"
+  description="Gemini CLI als Scanner + Claude Code als Fixer — der produktivste Workflow."
+/>
