@@ -3,32 +3,36 @@ title: Claude Code — Deep Dive
 description: Installation, CLAUDE.md, Hooks, Sub-Agents, MCP, CI/CD und Cross-Surface-Workflows — alles was professionelle Teams über Claude Code wissen müssen.
 ---
 
+import { LinkCard, TabItem, Tabs } from '@astrojs/starlight/components';
+
 > Claude Code ist mehr als ein Chat-Interface im Terminal. Es ist ein vollständiger Coding-Agent mit Filesystem-Zugriff, Shell-Execution, git-Integration und einem offenen Ökosystem für Erweiterungen.
 
 ## Installation
 
-**macOS / Linux / WSL (empfohlen — auto-updates):**
-```bash
-curl -fsSL https://claude.ai/install.sh | bash
-```
+<Tabs>
+  <TabItem label="macOS / Linux / WSL">
+    ```bash title="Empfohlen — mit auto-updates"
+    curl -fsSL https://claude.ai/install.sh | bash
+    ```
 
-**Homebrew (kein auto-update):**
-```bash
-brew install --cask claude-code
-brew upgrade claude-code   # manuell aktualisieren
-```
-
-**Windows PowerShell:**
-```powershell
-irm https://claude.ai/install.ps1 | iex
-```
-
-**Erster Start:**
-```bash
-cd dein-projekt
-claude
-# → Browser-Login bei claude.ai → OAuth → fertig
-```
+    ```bash title="Erster Start"
+    cd dein-projekt
+    claude
+    # → Browser-Login bei claude.ai → OAuth → fertig
+    ```
+  </TabItem>
+  <TabItem label="Homebrew">
+    ```bash title="Homebrew — kein auto-update"
+    brew install --cask claude-code
+    brew upgrade claude-code   # manuell aktualisieren
+    ```
+  </TabItem>
+  <TabItem label="Windows">
+    ```powershell title="Windows PowerShell"
+    irm https://claude.ai/install.ps1 | iex
+    ```
+  </TabItem>
+</Tabs>
 
 ## CLAUDE.md: Das Projekt-Gedächtnis
 
@@ -146,27 +150,38 @@ Nach Konfiguration kann Claude Code direkt:
 
 ## Cross-Surface Workflows
 
-Claude Code läuft auf mehreren Oberflächen, die denselben Engine teilen:
+Claude Code läuft auf mehreren Oberflächen, die denselben Engine teilen. Mit `claude --teleport` wechselst du eine laufende Session nahtlos zwischen den Oberflächen.
 
-```
-Terminal (Claude Code CLI)
-    ↕ claude --teleport
-Web (claude.ai/code)
-    ↕ Desktop App
-iOS App (Claude)
-```
+<Tabs>
+  <TabItem label="Terminal">
+    Voller Filesystem-Zugriff, Pipe-Composability, headless CI/CD-fähig.
 
-**Typischer Workflow:**
-```bash
-# Langen Task im Terminal starten
-claude "Refaktoriere das gesamte Auth-Modul auf JWT, schreibe Tests, erstelle PR"
+    ```bash title="Langen Task starten"
+    claude "Refaktoriere das gesamte Auth-Modul auf JWT, schreibe Tests, erstelle PR"
+    ```
 
-# Zwischendurch ins Web wechseln (mobil weiterarbeiten)
-claude --teleport   # → öffnet laufende Session im Browser, auf jedem Gerät
+    ```bash title="Session ins Web übertragen"
+    claude --teleport   # → öffnet laufende Session im Browser, auf jedem Gerät
+    ```
+  </TabItem>
+  <TabItem label="Web (claude.ai)">
+    Session History in der Sidebar, strategische Planung ohne lokale Dateien.
 
-# Diff visuell reviewen → Desktop App
-# Im ZED Claude Code Tab: Inline Diffs direkt im Editor
-```
+    Ideal für: Architektur-Diskussionen, Code-Reviews ohne Filesystem-Zugriff, mobil weiterarbeiten.
+
+    Sessions sind nach `claude --teleport` aus dem Terminal sofort im Browser zugänglich.
+  </TabItem>
+  <TabItem label="ZED Claude Code Tab">
+    Inline Diffs direkt im Editor — accept/reject per Hunk ohne Terminal-Wechsel.
+
+    Der ZED Tab greift direkt auf das lokale Dateisystem zu und lädt CLAUDE.md automatisch. Ideal für interaktive Entwicklung mit visuellem Feedback.
+  </TabItem>
+  <TabItem label="iOS App">
+    Claude App auf iPhone/iPad: Fortsetzung laufender Sessions, Code lesen und kommentieren, unterwegs Feedback geben.
+
+    Voller Funktionsumfang ohne Filesystem-Zugriff — perfekt für Reviews und Planung.
+  </TabItem>
+</Tabs>
 
 ## CI/CD Integration
 
@@ -236,6 +251,5 @@ Das zeigt: Claude Code ist nicht nur ein Tool — es ist ein Baustein für eigen
 
 ---
 
-*Weiter: [Praxis-Patterns](/terminal/patterns) · [Tool-Vergleich](/terminal/tool-comparison)*
-
-*Quelle: [Claude Code Docs](https://code.claude.com/docs/en/overview) · [GitHub](https://github.com/anthropics/claude-code)*
+<LinkCard title="Praxis-Patterns" href="/terminal/patterns" description="Solo-Agent, Dual-Agent, Review-Pipeline, CI/CD — konkrete Workflow-Beispiele aus der Praxis." />
+<LinkCard title="Tool-Vergleich 2026" href="/terminal/tool-comparison" description="Claude Code vs. Gemini CLI vs. Aider vs. Codex CLI — Stärken, Kosten, Einsatzszenarien." />

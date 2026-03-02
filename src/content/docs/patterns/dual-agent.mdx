@@ -3,6 +3,8 @@ title: Dual-Agent Pattern
 description: Gemini CLI als Scanner + Claude Code Tab als Fixer — koordiniert via postbox/
 ---
 
+import { Aside, LinkCard, Steps } from '@astrojs/starlight/components';
+
 ## Übersicht
 
 Das Dual-Agent Pattern ist die einfachste und gleichzeitig effektivste Form von Multi-Agent-Koordination im CC-Stack. Dokumentiert aus der Praxis (Medium, Juli 2025).
@@ -31,55 +33,57 @@ Schreibt Findings in todo.md        Übernimmt offene Tasks
 
 ## Setup
 
-### 1. Postbox initialisieren
+<Steps>
+1. **Postbox initialisieren**
 
-```bash
-mkdir -p postbox
-echo "# Todo — Offene Tasks" > postbox/todo.md
-echo "" >> postbox/todo.md
-echo "| ID | Task | Priorität | Quelle | Datei:Zeile |" >> postbox/todo.md
-echo "|----|------|-----------|--------|-------------|" >> postbox/todo.md
-echo "" >> postbox/todo.md
+   ```bash
+   mkdir -p postbox
+   echo "# Todo — Offene Tasks" > postbox/todo.md
+   echo "" >> postbox/todo.md
+   echo "| ID | Task | Priorität | Quelle | Datei:Zeile |" >> postbox/todo.md
+   echo "|----|------|-----------|--------|-------------|" >> postbox/todo.md
+   echo "" >> postbox/todo.md
 
-echo "# Done — Erledigte Tasks" > postbox/done.md
-echo "" >> postbox/done.md
-echo "| ID | Task | Agent | Commit | Datum |" >> postbox/done.md
-echo "|----|------|-------|--------|-------|" >> postbox/done.md
+   echo "# Done — Erledigte Tasks" > postbox/done.md
+   echo "" >> postbox/done.md
+   echo "| ID | Task | Agent | Commit | Datum |" >> postbox/done.md
+   echo "|----|------|-------|--------|-------|" >> postbox/done.md
 
-git add postbox/ && git commit -m "feat: postbox pattern initialisiert"
-```
+   git add postbox/ && git commit -m "feat: postbox pattern initialisiert"
+   ```
 
-### 2. Gemini CLI als Scanner starten (im ZED Agent Panel)
+2. **Gemini CLI als Scanner starten** *(im ZED Agent Panel)*
 
-```
-Du bist der Scanner-Agent für dieses Projekt. Lies zuerst AGENTS.md.
+   ```
+   Du bist der Scanner-Agent für dieses Projekt. Lies zuerst AGENTS.md.
 
-Deine Aufgaben:
-1. Scanne src/ vollständig nach [Bugs / Code-Smells / TODO-Kommentaren / deprecated APIs]
-2. Schreibe jeden Fund als neue Zeile in postbox/todo.md
-   Format: | #ID | [Beschreibung] | [hoch/mittel/niedrig] | Gemini-Scan | [Datei:Zeile] |
-3. Löse NIEMALS selbst einen Task — nur scannen und dokumentieren
-4. Beginne sofort nach dem Schreiben mit dem nächsten Scan-Durchlauf
+   Deine Aufgaben:
+   1. Scanne src/ vollständig nach [Bugs / Code-Smells / TODO-Kommentaren / deprecated APIs]
+   2. Schreibe jeden Fund als neue Zeile in postbox/todo.md
+      Format: | #ID | [Beschreibung] | [hoch/mittel/niedrig] | Gemini-Scan | [Datei:Zeile] |
+   3. Löse NIEMALS selbst einen Task — nur scannen und dokumentieren
+   4. Beginne sofort nach dem Schreiben mit dem nächsten Scan-Durchlauf
 
-Starte jetzt mit dem ersten Scan.
-```
+   Starte jetzt mit dem ersten Scan.
+   ```
 
-### 3. Claude Code Tab als Fixer starten
+3. **Claude Code Tab als Fixer starten**
 
-```
-Du bist der Fixer-Agent. Lies zuerst CLAUDE.md.
+   ```
+   Du bist der Fixer-Agent. Lies zuerst CLAUDE.md.
 
-Deine Aufgaben:
-1. Lies postbox/todo.md
-2. Wähle den offenen Task mit höchster Priorität
-3. Trage deinen Namen unter "In Bearbeitung" ein
-4. Fixe den Code, schreibe Tests wenn sinnvoll
-5. Committe mit: fix: [Task-Beschreibung] (#ID)
-6. Verschiebe den Task nach postbox/done.md (mit Commit-Hash)
-7. Beginne sofort mit dem nächsten Task
+   Deine Aufgaben:
+   1. Lies postbox/todo.md
+   2. Wähle den offenen Task mit höchster Priorität
+   3. Trage deinen Namen unter "In Bearbeitung" ein
+   4. Fixe den Code, schreibe Tests wenn sinnvoll
+   5. Committe mit: fix: [Task-Beschreibung] (#ID)
+   6. Verschiebe den Task nach postbox/done.md (mit Commit-Hash)
+   7. Beginne sofort mit dem nächsten Task
 
-Starte jetzt.
-```
+   Starte jetzt.
+   ```
+</Steps>
 
 ## Praktisches Beispiel
 
@@ -118,10 +122,12 @@ Der Mensch prüft todo.md, setzt Prioritäten, löscht Falsch-Positive — und l
 
 ## Häufige Fehler vermeiden
 
+<Aside type="caution">
 **Scanner löst Tasks** → Systemprompt explizit: "Never solve. Only scan."
 
 **Fixer setzt keine Commit-Referenz** → done.md ohne Hash ist nutzlos für Debugging
 
 **Zu viele Tasks auf einmal** → Gemini schreibt 50 Einträge, Claude kommt nicht nach → Scan-Intervall oder Batch-Größe limitieren
+</Aside>
 
-[Weiter: Orchestra Pattern](/patterns/orchestra)
+<LinkCard title="Weiter: Orchestra Pattern" href="/patterns/orchestra" description="Mehrere spezialisierte Agenten in koordinierter Zusammenarbeit." />

@@ -3,6 +3,8 @@ title: FAQ
 description: Häufig gestellte Fragen zu Collective Context 2.0
 ---
 
+import { Aside, Badge } from '@astrojs/starlight/components';
+
 ## Allgemein
 
 ### Was ist Collective Context?
@@ -55,7 +57,7 @@ Alternativen:
 
 Beide nutzen Claude Max Flat Rate und laden CLAUDE.md automatisch.
 
-:::note[Session History: ZED ist mehr als ein Editor]
+<Aside type="note" title="Session History: ZED ist mehr als ein Editor">
 ZED liest die Claude Code Sessions direkt aus `~/.claude/projects/` und zeigt
 sie im **History-Panel** (rechte Sidebar) an — vollständig, mit Titeln und Timestamps.
 
@@ -69,12 +71,12 @@ Das ermöglicht Workflows die über jede Web-UI hinausgehen:
 
 **ZED 2026 ist kein Editor mit KI-Addon — es ist das professionelle Interface
 mit dem Human SysOps ihre LLMs orchestrieren.**
-:::
+</Aside>
 
 ### Kann ich Ollama statt Claude Max verwenden?
 
 Ja, aber mit Einschränkungen:
-- **Community ACP Adapter**: Beta-Status (Stand Feb 2026), nicht für Produktions-Einsatz
+- **Community ACP Adapter**: <Badge text="Beta" variant="caution" /> (Stand Feb 2026), nicht für Produktions-Einsatz
 - **Indirekt via Script**: Claude Code Tab führt Scripts aus, die intern Ollama nutzen — das funktioniert stabil
 - **Qualität**: Ollama-Modelle sind gut für Tier-C-Tasks, für komplexe Implementierungen empfehlen wir Cloud-Modelle
 

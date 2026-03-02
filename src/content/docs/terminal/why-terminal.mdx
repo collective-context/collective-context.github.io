@@ -3,7 +3,11 @@ title: Warum das Terminal?
 description: Sechs Gründe warum professionelle Entwickler 2026 auf Terminal-basiertes Agentic Coding setzen — und was GUI-IDEs strukturell nicht leisten können.
 ---
 
-> **KAIZEN-These:** Das Terminal hat 50 Jahre Komposabilität gelernt. GUI-IDEs haben 20 Jahre Abstraktionsschichten gebaut. 2026 gewinnt Komposabilität.
+import { Aside, LinkCard } from '@astrojs/starlight/components';
+
+<Aside type="tip" title="KAIZEN-These">
+Das Terminal hat 50 Jahre Komposabilität gelernt. GUI-IDEs haben 20 Jahre Abstraktionsschichten gebaut. 2026 gewinnt Komposabilität.
+</Aside>
 
 ## 1. Unix-Philosophie: Composability
 
@@ -131,4 +135,5 @@ Fairness: Für bestimmte Workflows sind GUI-IDEs überlegen.
 
 ---
 
-*Weiter: [Tool-Vergleich 2026](/terminal/tool-comparison) · [Claude Code Deep-Dive](/terminal/claude-code)*
+<LinkCard title="Tool-Vergleich 2026" href="/terminal/tool-comparison" description="Claude Code, Gemini CLI, Aider, Codex CLI, OpenCode — Stärken und Kosten im direkten Vergleich." />
+<LinkCard title="Claude Code Deep-Dive" href="/terminal/claude-code" description="Hooks, MCP, Sub-Agents, CLAUDE.md und Cross-Surface-Workflows im Detail." />

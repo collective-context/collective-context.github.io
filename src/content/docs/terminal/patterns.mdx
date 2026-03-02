@@ -3,6 +3,8 @@ title: Terminal-Patterns in der Praxis
 description: Fünf bewährte Muster für Agentic Coding im Terminal — von Solo-Agent bis CI/CD-Pipeline, mit echten Befehlen aus der Praxis.
 ---
 
+import { LinkCard, TabItem, Tabs } from '@astrojs/starlight/components';
+
 > Diese Patterns entstanden aus der Praxis des [who@/B2B-Projekts](https://collective-context.org) und anderen produktiven CC-Deployments. Kein Pseudocode — echte Befehle.
 
 ## Pattern 1: Solo-Agent (Feature-Entwicklung)
@@ -69,39 +71,47 @@ Vollständige Dokumentation: [Dual-Agent Pattern](/patterns/dual-agent) · [Post
 
 Pipe-basiertes Review: Code geht rein, strukturierter Bericht kommt raus.
 
-```bash
-# Security-Review aller geänderten Dateien
-git diff origin/main --name-only | \
-  claude -p "Review jede Datei auf OWASP Top 10.
-             Format: Datei | Severity | Problem | Zeile | Fix-Vorschlag.
-             Exit 1 wenn Critical gefunden."
+<Tabs>
+  <TabItem label="Security">
+    ```bash title="OWASP Top 10 Review"
+    git diff origin/main --name-only | \
+      claude -p "Review jede Datei auf OWASP Top 10.
+                 Format: Datei | Severity | Problem | Zeile | Fix-Vorschlag.
+                 Exit 1 wenn Critical gefunden."
+    ```
 
-# Dependency-Audit
-pip list --outdated | \
-  claude -p "Prüfe auf bekannte CVEs. Empfehle Update-Reihenfolge nach Risiko."
-
-# SQL-Review
-grep -r "cursor.execute\|raw_query\|f\"SELECT" src/ | \
-  claude -p "Identifiziere potentielle SQL-Injection-Stellen. Zeige sicheres Äquivalent."
-
-# API-Kompatibilitäts-Check vor Release
-git diff v1.0..HEAD -- "*.py" | \
-  claude -p "Identifiziere Breaking Changes in der Public API.
-             Liste alle Methoden-Signaturen die sich geändert haben."
-```
-
-**In GitHub Actions:**
-```yaml
-- name: AI Security Gate
-  run: |
-    RESULT=$(git diff origin/main --name-only | \
-      claude -p "Security review. Output: PASS oder FAIL:[reason]")
-    if [[ "$RESULT" == FAIL:* ]]; then
-      echo "❌ Security issues: ${RESULT#FAIL:}"
-      exit 1
-    fi
-    echo "✅ Security review passed"
-```
+    ```yaml title=".github/workflows/security-gate.yml"
+    - name: AI Security Gate
+      run: |
+        RESULT=$(git diff origin/main --name-only | \
+          claude -p "Security review. Output: PASS oder FAIL:[reason]")
+        if [[ "$RESULT" == FAIL:* ]]; then
+          echo "❌ Security issues: ${RESULT#FAIL:}"
+          exit 1
+        fi
+        echo "✅ Security review passed"
+    ```
+  </TabItem>
+  <TabItem label="Dependencies">
+    ```bash title="Dependency-Audit mit CVE-Check"
+    pip list --outdated | \
+      claude -p "Prüfe auf bekannte CVEs. Empfehle Update-Reihenfolge nach Risiko."
+    ```
+  </TabItem>
+  <TabItem label="SQL">
+    ```bash title="SQL-Injection-Check"
+    grep -r "cursor.execute\|raw_query\|f\"SELECT" src/ | \
+      claude -p "Identifiziere potentielle SQL-Injection-Stellen. Zeige sicheres Äquivalent."
+    ```
+  </TabItem>
+  <TabItem label="API-Kompatibilität">
+    ```bash title="Breaking Changes vor Release"
+    git diff v1.0..HEAD -- "*.py" | \
+      claude -p "Identifiziere Breaking Changes in der Public API.
+                 Liste alle Methoden-Signaturen die sich geändert haben."
+    ```
+  </TabItem>
+</Tabs>
 
 ---
 
@@ -251,4 +261,6 @@ claude "Scanne src/ auf Bugs UND fixe sie sofort"
 
 ---
 
-*Zurück: [Claude Code Deep-Dive](/terminal/claude-code) · [Dual-Agent Pattern](/patterns/dual-agent) · [Postbox Pattern](/cc/postbox-pattern)*
+<LinkCard title="Claude Code Deep-Dive" href="/terminal/claude-code" description="Hooks, MCP, Sub-Agents, CLAUDE.md — alle Features im Detail." />
+<LinkCard title="Dual-Agent Pattern" href="/patterns/dual-agent" description="Gemini CLI als Scanner + Claude Code als Fixer — koordiniert via postbox/." />
+<LinkCard title="Postbox Pattern" href="/cc/postbox-pattern" description="Shared Task State zwischen Agenten — todo, done, cron und Attachments." />

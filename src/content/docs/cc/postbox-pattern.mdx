@@ -3,23 +3,25 @@ title: Postbox Pattern
 description: Shared Task State zwischen Agenten via postbox/ — todo, done, cron und Attachments
 ---
 
+import { Aside, FileTree, LinkCard, Steps } from '@astrojs/starlight/components';
+
 ## Das Postbox-Konzept
 
 Das Postbox Pattern ist der einfachste Mechanismus für **asynchrone Koordination zwischen mehreren AI-Agenten** ohne API-Overhead oder Message-Passing-Infrastruktur.
 
 **Kernidee:** Drei Dateien und ein Attachments-Verzeichnis im Dateisystem fungieren als geteiltes Task-Board mit Scheduler.
 
-```
-postbox/
-├── todo.md              ← Offene Tasks (alle Agenten lesen/schreiben)
-├── done.md              ← Erledigte Tasks (Audit-Log mit Commit-Hashes)
-├── cron.md              ← Termingebundene & wiederkehrende Erinnerungen
-├── attachments/
-│   ├── todo/            ← Aktive Briefings zu offenen Tasks (_TODO_ Dateien)
-│   ├── cron/            ← Aktive Arbeitsanweisungen zu Cron-Einträgen (_CRON_ Dateien)
-│   └── done/            ← Archivierte Briefings (nie löschen)
-└── README.md            ← Rollen, Formate, Regeln für alle Agenten
-```
+<FileTree>
+- postbox/
+  - **todo.md** — Offene Tasks (alle Agenten lesen/schreiben)
+  - **done.md** — Erledigte Tasks (Audit-Log mit Commit-Hashes)
+  - **cron.md** — Termingebundene & wiederkehrende Erinnerungen
+  - attachments/
+    - todo/ — Aktive Briefings zu offenen Tasks (_TODO_ Dateien)
+    - cron/ — Aktive Arbeitsanweisungen zu Cron-Einträgen (_CRON_ Dateien)
+    - done/ — Archivierte Briefings (nie löschen)
+  - **README.md** — Rollen, Formate, Regeln für alle Agenten
+</FileTree>
 
 ## Warum Dateisystem statt API?
 
@@ -102,15 +104,15 @@ Für komplexe Tasks reicht eine Zeile in `todo.md` nicht aus. Das Attachment ent
 
 **Namenskonvention:** `postbox/attachments/TYP/DATUM_TYP_beschreibung.md`
 
-```
-postbox/attachments/
-├── todo/
-│   └── 2026-02-27_TODO_T001_login-fix.md        ← Briefing zu offenem Task
-├── cron/
-│   └── 2026-02-27_CRON_jahres-review.md          ← Arbeitsanweisung zu Cron-Eintrag
-└── done/
-    └── 2026-02-24_TODO_T000_setup.md             ← Archiviert: nicht löschen
-```
+<FileTree>
+- postbox/attachments/
+  - todo/
+    - 2026-02-27_TODO_T001_login-fix.md — Briefing zu offenem Task
+  - cron/
+    - 2026-02-27_CRON_jahres-review.md — Arbeitsanweisung zu Cron-Eintrag
+  - done/
+    - 2026-02-24_TODO_T000_setup.md — Archiviert: nicht löschen
+</FileTree>
 
 **Lifecycle:**
 - `_TODO_`: Attachment anlegen → `attachments/todo/` → in `todo.md` verlinken → Task erledigt → `git mv` nach `attachments/done/`
@@ -161,49 +163,66 @@ SysOps reviewed — setzt Prioritäten, löscht False Positives
 Fixer arbeitet kuratierte Liste ab (Fällig: sofort, höchste Priorität zuerst)
 ```
 
-**Praktischer Tipp:** Ein Task pro Projekt oder Datei in `todo.md` — nicht ein Task pro Bug. Lange Task-Listen verursachen Rückstau. Komplexe Tasks bekommen ein Attachment mit der Aufschlüsselung.
+<Aside type="tip" title="Praktischer Tipp">
+Ein Task pro Projekt oder Datei in `todo.md` — nicht ein Task pro Bug. Lange Task-Listen verursachen Rückstau. Komplexe Tasks bekommen ein Attachment mit der Aufschlüsselung.
+</Aside>
 
 ---
 
 ## Initialisierung
 
-```bash
-mkdir -p postbox/attachments/{todo,cron,done}
+<Steps>
+1. **Verzeichnisstruktur anlegen**
 
-cat > postbox/todo.md << 'EOF'
-# Todo — Offene Tasks
+   ```bash
+   mkdir -p postbox/attachments/{todo,cron,done}
+   touch postbox/attachments/todo/.gitkeep
+   touch postbox/attachments/cron/.gitkeep
+   touch postbox/attachments/done/.gitkeep
+   ```
 
-| ID | Task | Priorität | Fällig | Quelle | Briefing |
-|----|------|-----------|--------|--------|---------|
+2. **todo.md und done.md initialisieren**
 
-## In Bearbeitung
+   ```bash
+   cat > postbox/todo.md << 'EOF'
+   # Todo — Offene Tasks
 
-| ID | Task | Agent | Seit |
-|----|------|-------|------|
-EOF
+   | ID | Task | Priorität | Fällig | Quelle | Briefing |
+   |----|------|-----------|--------|--------|---------|
 
-cat > postbox/done.md << 'EOF'
-# Done — Erledigte Tasks
-> Audit-Log. Nie löschen, nie editieren — nur anhängen.
+   ## In Bearbeitung
 
-| ID | Task | Agent | Commit | Datum |
-|----|------|-------|--------|-------|
-EOF
+   | ID | Task | Agent | Seit |
+   |----|------|-------|------|
+   EOF
 
-cat > postbox/cron.md << 'EOF'
-# Cron — Termingebundene & Wiederkehrende Erinnerungen
+   cat > postbox/done.md << 'EOF'
+   # Done — Erledigte Tasks
+   > Audit-Log. Nie löschen, nie editieren — nur anhängen.
 
-| ID | Schedule | Aktion | Priorität | Attachment | Status |
-|----|----------|--------|-----------|------------|--------|
-EOF
+   | ID | Task | Agent | Commit | Datum |
+   |----|------|-------|--------|-------|
+   EOF
+   ```
 
-touch postbox/attachments/todo/.gitkeep
-touch postbox/attachments/cron/.gitkeep
-touch postbox/attachments/done/.gitkeep
+3. **cron.md initialisieren**
 
-git add postbox/
-git commit -m "feat: postbox pattern initialisiert"
-```
+   ```bash
+   cat > postbox/cron.md << 'EOF'
+   # Cron — Termingebundene & Wiederkehrende Erinnerungen
+
+   | ID | Schedule | Aktion | Priorität | Attachment | Status |
+   |----|----------|--------|-----------|------------|--------|
+   EOF
+   ```
+
+4. **Ersten Commit machen**
+
+   ```bash
+   git add postbox/
+   git commit -m "feat: postbox pattern initialisiert"
+   ```
+</Steps>
 
 ---
 
@@ -221,4 +240,5 @@ git commit -m "feat: postbox pattern initialisiert"
 
 ---
 
-*Verwandte Patterns: [Dual-Agent Pattern](/patterns/dual-agent) · [Multi-Repo Coordination](/patterns/multi-repo)*
+<LinkCard title="Dual-Agent Pattern" href="/patterns/dual-agent" description="Gemini CLI als Scanner + Claude Code Tab als Fixer — der produktivste Multi-Agent-Workflow." />
+<LinkCard title="Multi-Repo Coordination" href="/patterns/multi-repo" description="Eine Claude Code Instanz koordiniert mehrere Repositories via Postbox." />

@@ -3,6 +3,8 @@ title: Agent Client Protocol (ACP)
 description: Der offene Standard von Zed Industries — LSP für AI-Agenten
 ---
 
+import { Badge, LinkCard } from '@astrojs/starlight/components';
+
 ## Was ist ACP?
 
 **Agent Client Protocol (ACP)** ist ein offener Standard von Zed Industries (Apache 2.0 Lizenz), der es ermöglicht, **jeden AI-Agenten mit jedem kompatiblen Editor zu verbinden** — ohne bespoke Integration für jedes Tool-Paar.
@@ -76,13 +78,13 @@ Die ACP Registry ist das zentrale Verzeichnis aller kompatiblen Agenten. In ZED 
 
 | Agent | Typ | Modell | Status |
 |---|---|---|---|
-| **Claude Agent** | ACP External | Sonnet 4.6 (Max) | Stabil |
-| **Gemini CLI** | ACP External | Gemini 3.1 Pro | Stabil |
-| **Codex** | ACP External | GPT-5.2-Codex | Stabil |
-| **GitHub Copilot** | ACP External | GPT-4o | Stabil |
-| **Cline** | ACP External | Wählbar | Stabil |
-| **OpenCode** | ACP External | Wählbar | Beta |
-| **Ollama Adapter** | ACP External | Lokal | Community |
+| **Claude Agent** | ACP External | Sonnet 4.6 (Max) | <Badge text="Stabil" variant="success" /> |
+| **Gemini CLI** | ACP External | Gemini 3.1 Pro | <Badge text="Stabil" variant="success" /> |
+| **Codex** | ACP External | GPT-5.2-Codex | <Badge text="Stabil" variant="success" /> |
+| **GitHub Copilot** | ACP External | GPT-4o | <Badge text="Stabil" variant="success" /> |
+| **Cline** | ACP External | Wählbar | <Badge text="Stabil" variant="success" /> |
+| **OpenCode** | ACP External | Wählbar | <Badge text="Beta" variant="caution" /> |
+| **Ollama Adapter** | ACP External | Lokal | <Badge text="Community" variant="note" /> |
 
 ## ACP-kompatible Editoren (Stand Februar 2026)
 
@@ -103,4 +105,4 @@ Das Collective Context-Prinzip — mehrere Agenten teilen einen gemeinsamen Kont
 3. Kein API-Overhead für Agenten-Koordination — nur das Dateisystem
 4. Neuer Agent einbinden = eine ACP-Installation, kein Shell-Skript
 
-[Weiter: Claude Code Tab einrichten](/zed/claude-code-tab)
+<LinkCard title="Claude Code Tab einrichten" href="/zed/claude-code-tab" description="Hooks, MCP, Sub-Agents, Inline Diffs — alle Features des ZED Claude Code Tabs erklärt." />
