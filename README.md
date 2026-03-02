@@ -1,3 +1,12 @@
+# collective-context.org
+
+**Du suchst die Website?** → [**collective-context.org**](https://collective-context.org)
+
+> Diese Seite hier ist die technische Projekt-Dokumentation für Entwickler und AI-Agenten.
+> Für Inhalte, Guides und Dokumentation bitte direkt die Website besuchen.
+
+---
+
 # collective-context.org — Technische Referenz
 
 > **Pflichtlektüre vor jeder Session:** `AGENTS.md` (Regeln, Rollen, Workflow)
