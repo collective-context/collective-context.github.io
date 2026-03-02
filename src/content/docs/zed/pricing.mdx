@@ -3,7 +3,11 @@ title: ZED Pricing & BYOK
 description: ZED Pro Abrechnung, Token-Preise, BYOK-Kalkulation und Kosten pro Session — alle relevanten Modelle auf einen Blick.
 ---
 
-> Stand: Februar 2026. ZED berechnet Token-basiert mit 10% Aufschlag auf den Anbieter-Listenpreis.
+import { Aside, LinkCard, TabItem, Tabs } from '@astrojs/starlight/components';
+
+<Aside type="caution" title="Stand: Februar 2026">
+ZED berechnet Token-basiert mit 10% Aufschlag auf den Anbieter-Listenpreis. Preise können sich ändern — offizielle Quelle: [zed.dev/docs/ai/models](https://zed.dev/docs/ai/models).
+</Aside>
 
 ## ZED Pro Abrechnung
 
@@ -57,20 +61,40 @@ BYOK eliminiert den 10%-Aufschlag. Bei ~50 Sessions/Monat ist die reine Kostener
 
 ## ZED First-Party Agent vs. Claude Code Tab
 
-| | ZED First-Party Agent | Claude Code Tab |
-|---|---|---|
-| **Abrechnung** | Token-basiert (+10%) | Flat Rate (Claude Max) |
-| **Modell-Wahl** | Beliebig (75+ Modelle) | Claude Sonnet/Opus |
-| **Kosten bei intensiver Nutzung** | Steigen linear | Flat Rate, keine Überraschungen |
-| **Kosten bei geringer Nutzung** | Sehr günstig ($0.003–$0.06/Session) | $100+/Monat auch bei wenig Nutzung |
-| **Empfehlung** | Gezielte Tasks, günstiger Einstieg | Professioneller Alltag, viele Sessions |
+<Tabs>
+  <TabItem label="ZED First-Party Agent">
+    Token-basierte Abrechnung mit 10% ZED-Aufschlag — flexibel, 75+ Modelle frei wählbar.
 
+    | | Wert |
+    |---|---|
+    | **Abrechnung** | Token-basiert (+10% ZED-Aufschlag) |
+    | **Modell-Wahl** | Beliebig (75+ Modelle via ZED) |
+    | **Kosten bei intensiver Nutzung** | Steigen linear mit Sessions |
+    | **Kosten bei geringer Nutzung** | Sehr günstig ($0.003–$0.06/Session) |
+    | **Empfehlung** | Gezielte Tasks, günstiger Einstieg |
+
+    Ideal für: Sporadische Nutzung, Experimentieren mit verschiedenen Modellen, Kostenkontrolle.
+  </TabItem>
+  <TabItem label="Claude Code Tab">
+    Flat Rate via Claude Max Abo — keine Token-Überraschungen, unbegrenzte Nutzung.
+
+    | | Wert |
+    |---|---|
+    | **Abrechnung** | Flat Rate (Claude Max ~$100–200/M) |
+    | **Modell-Wahl** | Claude Sonnet 4.6 / Opus 4.6 |
+    | **Kosten bei intensiver Nutzung** | Flat Rate, keine Überraschungen |
+    | **Kosten bei geringer Nutzung** | $100+/Monat auch bei wenig Nutzung |
+    | **Empfehlung** | Professioneller Alltag, viele Sessions |
+
+    Ideal für: Hauptwerkzeug für interaktive Entwicklung, Team-Einsatz, tägliche Multi-File-Tasks.
+  </TabItem>
+</Tabs>
+
+<Aside type="tip">
 **Faustregel:** Wer ZED hauptsächlich für interaktive Entwicklung mit vielen Sessions nutzt, amortisiert Claude Max schnell. Wer ZED selektiv für spezifische Tasks einsetzt, bleibt mit Token-basierter Abrechnung günstiger.
+</Aside>
 
 ---
 
-*Vollständige Modell-Preistabellen und Benchmark-Daten: [Benchmark-Referenz](/reference/benchmarks)*
-
-*Routing-Entscheidungen: [LLM Routing Strategie](/cc/llm-routing)*
-
-*Quelle: [ZED Docs: AI Models & Pricing](https://zed.dev/docs/ai/models) · [ZED Blog: Token-based Pricing](https://zed.dev/blog/pricing-change-llm-usage-is-now-token-based)*
+<LinkCard title="Benchmark-Referenz" href="/reference/benchmarks" description="Vollständige Modell-Preistabellen und Benchmark-Daten für alle ZED-Modelle." />
+<LinkCard title="LLM Routing Strategie" href="/cc/llm-routing" description="Welches Modell für welchen Task — pragmatisches Routing im CC-Stack." />

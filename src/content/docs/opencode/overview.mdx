@@ -3,7 +3,11 @@ title: OpenCode — Der Open-Source AI Coding Agent
 description: OpenCode ist ein MIT-lizenzierter, provider-agnostischer AI Coding Agent mit ~113k GitHub-Stars, TUI-First-Design und nativer ZED/ACP-Integration.
 ---
 
-> OpenCode ist kein weiteres Claude-Wrapper-Tool. Es ist ein unabhängiger, offener Coding-Agent — entwickelt von Softwareentwicklern für Softwareentwickler, ohne Vendor-Lock-in.
+import { Aside, Card, CardGrid, LinkCard, Steps } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+OpenCode ist kein weiteres Claude-Wrapper-Tool. Es ist ein unabhängiger, offener Coding-Agent — entwickelt von Softwareentwicklern für Softwareentwickler, ohne Vendor-Lock-in.
+</Aside>
 
 ## Was ist OpenCode?
 
@@ -28,6 +32,21 @@ curl -fsSL https://opencode.ai/install | bash
 ---
 
 ## Warum OpenCode 2026 Ihre Aufmerksamkeit verdient
+
+<CardGrid>
+  <Card title="Null Vendor-Lock-in" icon="open-book">
+    75+ LLM-Provider über [models.dev](https://models.dev) — frei wählbar, ohne Tool-Wechsel.
+  </Card>
+  <Card title="~113k GitHub-Stars" icon="star">
+    Größte Community unter den Open-Source Coding Agents. Oh-My-OpenCode baut drauf auf.
+  </Card>
+  <Card title="TUI-First, ~40 MB RAM" icon="laptop">
+    Von Neovim-Nutzern gebaut. SSH-fähig, Electron-frei, pipe-kompatibel.
+  </Card>
+  <Card title="Native ZED + ACP" icon="approve-check">
+    Offiziell in der ZED ACP Registry — gleichrangig mit Claude Code Tab und Gemini CLI.
+  </Card>
+</CardGrid>
 
 ### 1. Null Vendor-Lock-in — echte Modell-Freiheit
 
@@ -119,26 +138,36 @@ Ein AGENTS.md-Projekt läuft mit Claude Code, Gemini CLI **und** OpenCode — de
 
 ## Quick Start
 
-```bash
-# 1. Installieren
-curl -fsSL https://opencode.ai/install | bash
+<Steps>
+1. **Installieren:**
 
-# 2. Provider konfigurieren (oder Ollama für offline)
-export ANTHROPIC_API_KEY=sk-ant-...
-# oder: OPENAI_API_KEY, GEMINI_API_KEY, etc.
+   ```bash
+   curl -fsSL https://opencode.ai/install | bash
+   # oder: npm, Homebrew, Scoop, AUR
+   ```
 
-# 3. Im Projekt-Verzeichnis starten
-cd mein-projekt
-opencode
+2. **Provider konfigurieren** (oder Ollama für offline):
 
-# 4. AGENTS.md wird automatisch geladen — kein weiterer Setup
-```
+   ```bash
+   export ANTHROPIC_API_KEY=sk-ant-...
+   # oder: OPENAI_API_KEY, GEMINI_API_KEY, GROQ_API_KEY, etc.
+   ```
 
-```bash
-# Mit Ollama (vollständig offline, zero API-Kosten)
-ollama pull qwen3:14b
-opencode --model ollama/qwen3:14b
-```
+3. **Im Projekt-Verzeichnis starten:**
+
+   ```bash
+   cd mein-projekt
+   opencode
+   # AGENTS.md wird automatisch geladen — kein weiterer Setup
+   ```
+
+4. **Optional: vollständig offline mit Ollama:**
+
+   ```bash
+   ollama pull qwen3:14b
+   opencode --model ollama/qwen3:14b
+   ```
+</Steps>
 
 ---
 
@@ -158,6 +187,5 @@ OpenCode ist kein Ersatz für Claude Code — es ist **eine weitere Option** im 
 
 ---
 
-*Weiter: [OpenCode in ZED via ACP](/opencode/zed-integration) · [Dual-Agent Patterns](/opencode/dual-agent)*
-
-*Quelle: [opencode.ai](https://opencode.ai/) · [GitHub anomalyco/opencode](https://github.com/anomalyco/opencode) · [ZED ACP Registry](https://zed.dev/acp)*
+<LinkCard title="OpenCode in ZED via ACP" href="/opencode/zed-integration" description="OpenCode als ACP-Agent im ZED Editor einrichten — Schritt für Schritt." />
+<LinkCard title="Dual-Agent Patterns mit OpenCode" href="/opencode/dual-agent" description="OpenCode als Scanner oder Fixer im Multi-Agent-Workflow." />

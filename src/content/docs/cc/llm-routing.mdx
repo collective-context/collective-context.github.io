@@ -3,7 +3,11 @@ title: LLM Routing Strategie
 description: Welches Modell für welchen Task — pragmatisches Routing im CC-Stack mit ZED, Claude Code und Ollama.
 ---
 
-> Ziel ist nicht ideologische Reinheit, sondern **optimaler Output pro Dollar** — unter Berücksichtigung von Privacy, Kontext-Größe und Task-Typ.
+import { Aside, LinkCard, TabItem, Tabs } from '@astrojs/starlight/components';
+
+<Aside type="tip" title="Pragmatismus-Prinzip">
+Ziel ist nicht ideologische Reinheit, sondern **optimaler Output pro Dollar** — unter Berücksichtigung von Privacy, Kontext-Größe und Task-Typ. **Data &gt; Ideology:** Was in der Praxis funktioniert, gewinnt.
+</Aside>
 
 ## Kurzregel
 
@@ -17,25 +21,38 @@ Privacy-kritische Analyse, Offline          →  Ollama lokal
 
 ## Tier-Modell
 
-```
-Tier A — Komplexe Tasks (Claude Code Tab)
-├── Architektur-Entscheidungen
-├── Komplexes Debugging, Greenfield-Entwicklung
-├── Multi-File Refactoring, Testsuiten schreiben
-└── Modell: Claude Sonnet 4.6 / Gemini 3.1 Pro
+<Tabs>
+  <TabItem label="Tier A — Komplex">
+    **Claude Code Tab** — Flat Rate, 200K Kontext
 
-Tier B — Standard-Entwicklung (ZED First-Party Agent)
-├── Code lesen & verstehen, gezielte Fixes
-├── Tests ausführen & interpretieren
-├── Git Commits, DevOps-Tipps
-└── Modell: Grok 4.1 Fast (Reasoning) oder Gemini 3 Flash
+    Einsatz:
+    - Architektur-Entscheidungen
+    - Komplexes Debugging, Greenfield-Entwicklung
+    - Multi-File Refactoring, Testsuiten schreiben
 
-Tier C — Privacy & Repetitiv (Ollama lokal)
-├── Credentials-nahe Analyse
-├── Interne Dokumentation
-├── Massendaten-Extraktion, Bulk-Scans
-└── Modell: qwen3:14b, llama3.3, gemma3
-```
+    Modell: **Claude Sonnet 4.6** / Gemini 3.1 Pro
+  </TabItem>
+  <TabItem label="Tier B — Standard">
+    **ZED First-Party Agent** — Token-basiert, günstig
+
+    Einsatz:
+    - Code lesen & verstehen, gezielte Fixes
+    - Tests ausführen & interpretieren
+    - Git Commits, DevOps-Tipps
+
+    Modell: **Grok 4.1 Fast** (Lesen) oder **Gemini 3 Flash** (Schreiben)
+  </TabItem>
+  <TabItem label="Tier C — Privacy">
+    **Ollama lokal** — $0, offline, privacy-first
+
+    Einsatz:
+    - Credentials-nahe Analyse
+    - Interne Dokumentation
+    - Massendaten-Extraktion, Bulk-Scans
+
+    Modell: **qwen3:14b**, llama3.3, gemma3
+  </TabItem>
+</Tabs>
 
 ---
 
@@ -133,12 +150,6 @@ Stärke                   Lesen, Agentic     Code schreiben
 
 Das Routing ist **nicht dogmatisch**. Wenn ein Modell heute besser für einen Task ist — nutzen wir es. Wenn es morgen ein besseres gibt — wechseln wir.
 
-**Data > Ideology:** Was in der Praxis funktioniert, gewinnt.
-
----
-
-*Preistabellen & Benchmarks: [Modell-Benchmarks 2026](/reference/benchmarks)*
-
-*ZED-Abrechnung & BYOK: [ZED Pricing](/zed/pricing)*
-
-*[Dual-Agent Pattern](/patterns/dual-agent) · [Postbox Pattern](/cc/postbox-pattern)*
+<LinkCard title="Modell-Benchmarks 2026" href="/reference/benchmarks" description="Preistabellen und Benchmark-Daten für alle CC-Stack-Modelle." />
+<LinkCard title="ZED Pricing & BYOK" href="/zed/pricing" description="ZED Pro Abrechnung, BYOK-Kalkulation und Kosten pro Session." />
+<LinkCard title="Dual-Agent Pattern" href="/patterns/dual-agent" description="Gemini CLI als Scanner + Claude Code als Fixer — koordiniert via postbox/." />

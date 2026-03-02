@@ -3,6 +3,8 @@ title: Claude Code Tab Setup
 description: Der ZED Claude Code Tab — Referenz-Implementierung von ACP mit Claude Max Flat Rate
 ---
 
+import { Aside, FileTree, LinkCard, Steps } from '@astrojs/starlight/components';
+
 ## Was ist der Claude Code Tab?
 
 Der **ZED Claude Code Tab** ist Claude Code CLI (Anthropic), eingebettet in ZED über einen ACP-Adapter von Zed Industries. Er läuft als eigenständiger Prozess auf der lokalen Workstation — ZED stellt nur die UI.
@@ -11,22 +13,17 @@ Der **ZED Claude Code Tab** ist Claude Code CLI (Anthropic), eingebettet in ZED 
 
 ## Installation
 
-```bash
-# In ZED:
-# 1. Agent Panel öffnen
-Ctrl+?
+<Steps>
+1. **Agent Panel öffnen** — `Ctrl+?`
 
-# 2. Neuen Agenten hinzufügen
-+ → Claude Agent (aus ACP Registry auswählen)
+2. **Neuen Agenten hinzufügen** — `+` klicken → **Claude Agent** aus der ACP Registry auswählen
 
-# ZED installiert automatisch:
-# @zed-industries/claude-agent-acp
+   ZED installiert automatisch: `@zed-industries/claude-agent-acp`
 
-# 3. Authentifizieren
-/login
-→ "Log in with Claude.ai" anklicken
-→ OAuth im Browser abschließen (Claude Max Abo erforderlich)
-```
+3. **Authentifizieren** — `/login` eingeben → „Log in with Claude.ai" → OAuth im Browser abschließen
+
+   Claude Max Abo (~€90+/M) erforderlich — deckt Tab + Web + CLI als Flat Rate ab.
+</Steps>
 
 ## Features im Detail
 
@@ -113,16 +110,16 @@ vollständig zugänglich — das eröffnet weit mehr als jede Web-UI bieten kann
 
 **Claude Code CLI speichert jede Session vollständig** unter:
 
-```
-~/.claude/projects/<projekt-slug>/
-├── <uuid>.jsonl          ← kompletter Session-Transcript
-├── <uuid>/
-│   └── subagents/        ← Sub-Agenten-Transcripts
-└── memory/
-    ├── MEMORY.md         ← persistentes Agenten-Gedächtnis (auto-geladen)
-    ├── titles.json       ← Custom-Titel für Sessions
-    └── <uuid>.md         ← Session-spezifische Notizen
-```
+<FileTree>
+- ~/.claude/projects/projekt-slug/
+  - \<uuid\>.jsonl — kompletter Session-Transcript
+  - \<uuid\>/
+    - subagents/ — Sub-Agenten-Transcripts
+  - memory/
+    - **MEMORY.md** — persistentes Agenten-Gedächtnis (auto-geladen)
+    - titles.json — Custom-Titel für Sessions
+    - \<uuid\>.md — Session-spezifische Notizen
+</FileTree>
 
 Jede `.jsonl`-Datei enthält den vollständigen Verlauf: Human-Turns, Assistant-Antworten,
 alle Tool-Calls mit Ein- und Ausgabe, Timestamps, Sub-Agenten.
@@ -136,13 +133,14 @@ Tools für die Session-Verwaltung:
 
 ## Bekannte Limitierungen
 
-- Kein Context-Window-Indicator im Panel (GitHub Discussion #49472, Feb 2026)
-- `/compact` noch nicht als Slash-Command verfügbar
-  - Workaround: "Schreibe ein Handover-Dokument für die nächste Session"
+<Aside type="caution" title="Known Issues (Stand Feb 2026)">
+- Kein Context-Window-Indicator im Panel ([GitHub Discussion #49472](https://github.com/zed-industries/zed/discussions/49472))
+- `/compact` noch nicht als Slash-Command verfügbar — Workaround: „Schreibe ein Handover-Dokument für die nächste Session"
 - Agent Teams (mehrere Claude-Instanzen pro Session) noch nicht unterstützt
+</Aside>
 
 ## Nächste Schritte
 
-- [Gemini CLI hinzufügen](/zed/gemini-cli) — für den Dual-Agent Workflow
-- [CLAUDE.md Guide](/cc/claude-md) — den Shared Context optimal nutzen
-- [Dual-Agent Pattern](/patterns/dual-agent) — Gemini CLI + Claude Code Tab koordinieren
+<LinkCard title="Gemini CLI hinzufügen" href="/zed/gemini-cli" description="Gemini CLI als zweiten ACP-Agenten einrichten — für den Dual-Agent Workflow." />
+<LinkCard title="CLAUDE.md Best Practices" href="/cc/claude-md" description="Den Shared Context optimal strukturieren — Konventionen und Anti-Patterns." />
+<LinkCard title="Dual-Agent Pattern" href="/patterns/dual-agent" description="Gemini CLI als Scanner + Claude Code Tab als Fixer koordinieren." />

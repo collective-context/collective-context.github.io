@@ -3,6 +3,8 @@ title: AGENTS.md Guide
 description: Das CLAUDE.md-Äquivalent für Gemini CLI, Codex und andere ACP-Agenten — schlank, universell, kopierbar
 ---
 
+import { Aside, LinkCard, Steps } from '@astrojs/starlight/components';
+
 ## Was ist AGENTS.md?
 
 AGENTS.md ist der offene Standard für Agent-Kontext-Dateien — analog zu CLAUDE.md, aber für alle ACP-Agenten außer Claude. Unterstützt von:
@@ -25,12 +27,33 @@ Standard-Spezifikation: [agents.md](https://agents.md/) (Linux Foundation / Agen
 
 **Single Source of Truth:** Eine Datei pflegen, nicht zwei. Die empfohlene Konfiguration:
 
-```bash
-# AGENTS.md ist die Quelle — CLAUDE.md ist der Symlink
-mv CLAUDE.md AGENTS.md          # oder direkt AGENTS.md anlegen
-ln -s AGENTS.md CLAUDE.md       # Claude liest CLAUDE.md → landet bei AGENTS.md
-echo "CLAUDE.md" >> .gitignore  # Symlink nicht versionieren
-```
+<Steps>
+1. **AGENTS.md als Quelle einrichten** (falls noch nicht vorhanden):
+
+   ```bash
+   mv CLAUDE.md AGENTS.md   # bestehende CLAUDE.md umbenennen
+   ```
+
+2. **Symlink anlegen** — Claude liest `CLAUDE.md`, landet bei `AGENTS.md`:
+
+   ```bash
+   ln -s AGENTS.md CLAUDE.md
+   ```
+
+3. **Symlink aus git ausschließen:**
+
+   ```bash
+   echo "CLAUDE.md" >> .gitignore
+   git add AGENTS.md .gitignore
+   git commit -m "feat: AGENTS.md als Single Source of Truth eingerichtet"
+   ```
+</Steps>
+
+<Aside type="caution" title="Symlink-Richtung nicht verwechseln">
+`ln -s AGENTS.md CLAUDE.md` ist korrekt — AGENTS.md ist die **Quelle**, CLAUDE.md der Symlink.
+
+`ln -s CLAUDE.md AGENTS.md` ist **falsch** — dann zeigt AGENTS.md auf CLAUDE.md, das nicht existiert.
+</Aside>
 
 **Warum so und nicht umgekehrt?** `AGENTS.md` ist der offene Standard der Community (Linux Foundation, unterstützt von Google, OpenAI, Sourcegraph, GitHub Copilot). Claude ist eine der wenigen Ausnahmen die `CLAUDE.md` bevorzugt — aber die Entwicklungsrichtung ist eindeutig. Mit dem Symlink funktioniert heute Claude, und morgen jedes weitere Tool das `AGENTS.md` implementiert.
 
@@ -155,6 +178,7 @@ Vollständige Liste: `postbox/todo.md`
 
 ## Häufige Fehler
 
+<Aside type="caution">
 **Symlink falsch herum** → `ln -s CLAUDE.md AGENTS.md` ist falsch. AGENTS.md ist die Quelle, CLAUDE.md der Symlink.
 
 **AGENTS.md zu lang** → Agenten überfliegen ab Seite 2. Ziel: ≤100 Zeilen. Technische Details in README.md auslagern, mit Anker: `→ Lies README.md#git-workflow`.
@@ -162,7 +186,7 @@ Vollständige Liste: `postbox/todo.md`
 **Projekt-spezifische Workflows im Universal Template** → Templates müssen für jedes Projekt kopierbar bleiben. Workflows wie Multi-Repo-Koordination gehören in `docs/patterns/`, nicht ins Template.
 
 **OFFENE PUNKTE nie aktualisiert** → Der Abschnitt verliert seinen Wert. Agenten erwarten hier die wichtigsten nächsten Schritte — nicht einen veralteten Stand von vor drei Wochen.
+</Aside>
 
----
-
-*Weiter: [Postbox Pattern](/cc/postbox-pattern) · [Multi-Repo Coordination](/patterns/multi-repo)*
+<LinkCard title="Postbox Pattern" href="/cc/postbox-pattern" description="Shared Task State zwischen Agenten — todo, done, cron und Attachments." />
+<LinkCard title="Multi-Repo Coordination" href="/patterns/multi-repo" description="Zwei Agent-Instanzen, zwei Repos, kein git-Konflikt." />
