@@ -39,7 +39,7 @@ Nginx (pro Domain)
 ## Kundenverzeichnis-Struktur nach Setup
 
 ```
-/var/www/who.at/
+/var/www/you.int.cy/
 ├── htdocs/                    ← Document Root (wird via rsync befüllt)
 ├── conf/
 │   ├── nginx/
@@ -95,7 +95,7 @@ host = 127.0.0.1
 
 ```bash
 # Einmalig beim Kunden-Setup:
-ln -s /var/www/scripts /var/www/who.at/scripts
+ln -s /var/www/scripts /var/www/you.int.cy/scripts
 ```
 
 `/var/www/scripts/` enthält alle geteilten Scripts (github-sync.py, zukünftige Tools).
@@ -125,8 +125,8 @@ WantedBy=multi-user.target
 
 ```bash
 # Aktivieren:
-systemctl enable --now github-sync@who.at
-systemctl enable --now github-sync@example.com
+systemctl enable --now github-sync@you.int.cy
+systemctl enable --now github-sync@example.int.cy
 ```
 
 > **Problem:** Alle Domains teilen Port 8080 → Port-Konflikt.
@@ -139,14 +139,14 @@ systemctl enable --now github-sync@example.com
 ```
 1. Kunde kauft Combo-Paket bei cBUZZ.IO (€9,90/Mo)
 2. SysOps provisioniert Domain via WordOps:
-      wo site create who.at --mysql --php83
+      wo site create you.int.cy --mysql --php83
 3. Setup-Script (todo: provision.sh) legt an:
-      - /var/www/who.at/conf/nginx/scripts.conf
-      - /var/www/who.at/conf/github-sync.conf  (leer)
-      - /var/www/who.at/scripts → /var/www/scripts/ (Symlink)
-      - systemd github-sync@who.at starten
+      - /var/www/you.int.cy/conf/nginx/scripts.conf
+      - /var/www/you.int.cy/conf/github-sync.conf  (leer)
+      - /var/www/you.int.cy/scripts → /var/www/scripts/ (Symlink)
+      - systemd github-sync@you.int.cy starten
 
-4. Kunde öffnet: https://who.at/scripts/admin
+4. Kunde öffnet: https://you.int.cy/scripts/admin
 5. Trägt ein:
       Repo-URL:  https://github.com/Jo-Felsch/key-it
       Branch:    main
@@ -164,7 +164,7 @@ systemctl enable --now github-sync@example.com
 ```
 GitHub → Repository → Settings → Webhooks → Add webhook
 
-Payload URL:   https://who.at/scripts/webhook
+Payload URL:   https://you.int.cy/scripts/webhook
 Content type:  application/json
 Secret:        (dasselbe wie im Admin-Panel eingetragen)
 Events:        ✓ Just the push event
