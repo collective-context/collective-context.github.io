@@ -1,14 +1,12 @@
 ---
-title: "GitHub Sync — Deploy mit einem Push"
+title: "GitHub Seiten auf Hosting@ /cBUZZ.IO syncen"
 description: "Statische Website auf GitHub? Automatisch live auf deinem cBUZZ.IO LEMP-Server — ohne FTP, ohne manuelles Hochladen."
 ---
 
 import { Aside, Steps, Card, CardGrid } from '@astrojs/starlight/components';
 
-# GitHub Sync — Deploy mit einem Push
-
 **Du pflegst deine Website auf GitHub. Wir deployen sie automatisch.**
-Kein FTP. Kein manuelles Hochladen. Kein Warten.
+Kein SFTP. Kein manuelles Hochladen. Kein Warten.
 
 ---
 
@@ -41,9 +39,11 @@ Bisher hieß das: exportieren, SFTP öffnen, Dateien hochladen, warten, prüfen.
 
 ## Was du brauchst
 
-- Ein **cBUZZ.IO Combo-Paket** (€9,90/Mo) — beinhaltet LEMP-Stack, SSH und rsync
+- Ein **cBUZZ.IO Combo Paket** (€9,90/Mo) oder 
+- Oder ein **cBUZZ.IO Unlimited Paket** (€19,90/Mo)
+- Beide haben den LEMP-Stack mit SFTP und rsync integriert
 - Ein **öffentliches GitHub-Repository** mit deiner statischen Website
-- 5 Minuten für die Einrichtung
+- 5 Minuten für die Einrichtung ● https://cBUZZ.IO/hosting
 
 ---
 
@@ -119,6 +119,49 @@ Geplante Erweiterungen:
 - **Build-Hook**: `publii build` oder `npm run build` vor dem Sync ausführen
 - **Deploy-Log** im Admin-Panel: letzter Status + Zeitstempel
 - **Multi-Repo**: Theme-Repo + Content-Repo getrennt verwalten
+
+---
+
+## Kompatibilität mit Vercel
+
+**Ja — cBUZZ.IO und Vercel können gleichzeitig laufen.** Beide holen sich die Dateien aus demselben GitHub-Repository.
+
+### Was ist Vercel?
+
+[Vercel](https://vercel.com/) ist eine Cloud-Plattform für Frontend-Deployment, entwickelt von den Machern von Next.js. Vercel ist besonders populär bei Entwicklern, weil es:
+
+- **Automatisch deployt** — jeder Push auf GitHub löst einen Build aus
+- **Kostenlos für Einzelpersonen** — großzügiges Free-Tier mit `*.vercel.app`-Subdomain
+- **CDN weltweit** — Seiten werden von Edge-Standorten ausgeliefert
+- **Serverless Functions** — kleine Backend-Funktionen direkt im Frontend-Repo
+
+Typisches Beispiel: [`key-it.vercel.app`](https://key-it.vercel.app/) — eine Website die auf GitHub liegt und von Vercel automatisch gebaut und gehostet wird.
+
+### Vercel + cBUZZ.IO: zwei Welten, ein Repo
+
+| | **Vercel** | **cBUZZ.IO Hosting@** |
+|---|---|---|
+| Domain | `*.vercel.app` (kostenlos) | Eigene Domain, z.B. `keyit-solutions.int.cy` |
+| Standort | USA/Global CDN | 🇪🇺 EU-Server, DSGVO-konform |
+| Zweck | Schnelle Previews, Entwicklung | Produktiv-Hosting mit eigenem Domain |
+| Kosten | Free bis €20/Mo | ab €9,90/Mo |
+| SFTP/SSH | ✗ | ✓ |
+
+**Workflow für Kunden wie Jo Felsch (key-it):**
+
+```
+GitHub: github.com/Jo-Felsch/key-it
+          │
+          ├─ → Vercel → key-it.vercel.app       (Preview / Entwicklung)
+          │
+          └─ → cBUZZ.IO → keyit-solutions.int.cy (Produktion, EU, eigene Domain)
+```
+
+Du pushst einmal — beide Plattformen deployen gleichzeitig, unabhängig voneinander.
+
+<Aside type="tip" title="Für Next.js / Build-Projekte">
+Wenn dein Repo einen Build-Schritt benötigt (z.B. `npm run build` bei Next.js oder Astro), aktiviere unseren **Build-Hook** (aktuell in Entwicklung). Damit läuft vor dem rsync automatisch dein Build — genau wie bei Vercel, nur auf deinem EU-Server.
+</Aside>
 
 ---
 
