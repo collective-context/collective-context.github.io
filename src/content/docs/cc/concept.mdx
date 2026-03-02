@@ -3,6 +3,8 @@ title: Konzept & Architektur
 description: Das Kernkonzept von Collective Context — Shared State via Dateisystem
 ---
 
+import { Aside, Badge, FileTree, LinkCard } from '@astrojs/starlight/components';
+
 ## Das Kernproblem
 
 LLMs sind zustandslose Funktionen. Jede neue Session startet bei null. Wenn mehrere Agenten an demselben Projekt arbeiten — Claude, Gemini, Grok, Ollama — reden sie aneinander vorbei. Jeder kennt nur seinen eigenen Kontext.
@@ -13,16 +15,16 @@ LLMs sind zustandslose Funktionen. Jede neue Session startet bei null. Wenn mehr
 
 Der einzige State, der zwischen allen Agenten geteilt werden kann, ist das **Dateisystem des Projekts**. Darin liegen:
 
-```
-projekt/
-├── CLAUDE.md          ← Automatisch in JEDE Session aller ACP-Agenten geladen
-├── AGENTS.md          ← Kompatibles Äquivalent für Gemini CLI, Codex, OpenCode
-├── .claude/
-│   └── agents/        ← Spezialisierte Sub-Agenten-Definitionen
-└── postbox/
-    ├── todo.md        ← Offene Tasks (Shared State zwischen Agenten)
-    └── done.md        ← Erledigte Tasks mit Commit-Referenzen
-```
+<FileTree>
+- projekt/
+  - **CLAUDE.md** ← Automatisch in JEDE Session aller ACP-Agenten geladen
+  - **AGENTS.md** ← Kompatibles Äquivalent für Gemini CLI, Codex, OpenCode
+  - .claude/
+    - agents/ ← Spezialisierte Sub-Agenten-Definitionen
+  - postbox/
+    - **todo.md** ← Offene Tasks (Shared State zwischen Agenten)
+    - **done.md** ← Erledigte Tasks mit Commit-Referenzen
+</FileTree>
 
 **CLAUDE.md ist der Collective Context.** Sie ist die einzige Datei, die standardmäßig in jede einzelne Conversation mit dem Agenten geht — egal welches Modell, egal welcher ACP-Client.
 
@@ -56,11 +58,13 @@ Session 2: Claude Code Tab liest CLAUDE.md → Fehler X wiederholt sich nicht
 Session 3: Gemini CLI liest AGENTS.md → dasselbe Wissen, anderes Modell
 ```
 
-> "Anytime we see Claude do something incorrectly we add it to the CLAUDE.md, so Claude knows not to do it next time. Every mistake becomes a rule." — Boris Cherny, Creator of Claude Code
+<Aside type="tip" title="Boris Cherny, Creator of Claude Code">
+„Anytime we see Claude do something incorrectly we add it to the CLAUDE.md, so Claude knows not to do it next time. Every mistake becomes a rule."
+</Aside>
 
 **Frontier-Modelle (Sonnet, Gemini Pro) folgen ca. 150–200 Instruktionen mit guter Konsistenz.** CLAUDE.md sollte deshalb prägnant bleiben — nur das Nicht-Offensichtliche dokumentieren.
 
-## Empfohlene Stack-Konfiguration
+## Empfohlene Stack-Konfiguration <Badge text="CC 2.0" variant="success" />
 
 ```
 ZED Editor (Fundament)
@@ -90,4 +94,4 @@ Stattdessen: **Asynchrones Shared State via Dateisystem.**
 - Vorteil: Kein Single Point of Failure
 - Nachteil: Keine Echtzeit-Koordination (ist aber in der Praxis selten nötig)
 
-[Weiter: CLAUDE.md Guide](/cc/claude-md)
+<LinkCard title="Weiter: CLAUDE.md Guide" href="/cc/claude-md" description="Das Projekt-Gedächtnis strukturieren — Konventionen, Tiefe, Anti-Patterns." />
