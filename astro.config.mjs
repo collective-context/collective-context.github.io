@@ -94,6 +94,12 @@ export default defineConfig({
           ],
         },
         {
+          label: '⚡ CC APPs & Tools',
+          items: [
+            { label: 'GitHub Sync', link: '/apps/github-sync' },
+          ],
+        },
+        {
           label: '📚 Case Studies',
           items: [
             { label: 'Übersicht', link: '/case-studies/' },
