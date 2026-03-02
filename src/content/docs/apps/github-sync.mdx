@@ -3,8 +3,6 @@ title: "GitHub Seiten auf Hosting@ /cBUZZ.IO syncen"
 description: "Statische Website auf GitHub? Automatisch live auf deinem cBUZZ.IO LEMP-Server — ohne FTP, ohne manuelles Hochladen."
 ---
 
-import { Aside, Steps, Card, CardGrid } from '@astrojs/starlight/components';
-
 **Du pflegst deine Website auf GitHub. Wir deployen sie automatisch.**
 Kein SFTP. Kein manuelles Hochladen. Kein Warten.
 
@@ -12,7 +10,7 @@ Kein SFTP. Kein manuelles Hochladen. Kein Warten.
 
 ## Das Problem, das wir lösen
 
-Du baust deine Website mit [Publii](https://getpublii.com/), Jekyll, Hugo oder einem anderen Static Site Generator — und willst sie auf deinem **cBUZZ.IO Hosting-Server** live haben.
+Du baust deine Website mit [Publii](#was-ist-publii), [Vercel](#kompatibilität-mit-vercel), Jekyll, Hugo oder einem anderen Static Site Generator — und willst sie auf deinem **cBUZZ.IO Hosting-Server** live haben.
 
 Bisher hieß das: exportieren, SFTP öffnen, Dateien hochladen, warten, prüfen.
 
@@ -119,6 +117,27 @@ Geplante Erweiterungen:
 - **Build-Hook**: `publii build` oder `npm run build` vor dem Sync ausführen
 - **Deploy-Log** im Admin-Panel: letzter Status + Zeitstempel
 - **Multi-Repo**: Theme-Repo + Content-Repo getrennt verwalten
+
+---
+
+## Was ist Publii?
+
+[Publii](https://getpublii.com/) ist ein Desktop-CMS für statische Websites — entwickelt für Content-Creator, die volle Kontrolle über ihre Inhalte wollen, ohne Server-Kenntnisse zu brauchen.
+
+Was Publii besonders macht:
+
+- **Offline-First** — du schreibst und gestaltest lokal auf deinem Computer, ohne Internet
+- **Kein Server nötig** — Publii generiert fertige HTML/CSS/JS-Dateien auf deiner Festplatte
+- **Einfache Oberfläche** — wie WordPress, aber ohne Datenbank, ohne PHP, ohne Sicherheitslücken
+- **Git-kompatibel** — der fertige Export kann direkt in ein GitHub-Repository gepusht werden
+
+**Typischer Publii-Workflow mit cBUZZ.IO:**
+
+```
+Publii (Desktop) → Export als HTML → git push → cBUZZ.IO deployt automatisch
+```
+
+Du arbeitest lokal in Publii, klickst auf "Synchronisieren zu GitHub" — und unsere GitHub Sync-Integration übernimmt den Rest.
 
 ---
 
