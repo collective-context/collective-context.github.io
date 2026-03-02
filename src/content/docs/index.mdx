@@ -19,6 +19,8 @@ hero:
 
 ---
 
+import { Aside, FileTree, LinkCard, Steps } from '@astrojs/starlight/components';
+
 <figure style="margin: -2rem 0 2rem; text-align: center;">
   <img src="/og-image.jpg" alt="Collective Context (CC) — Mehrere AI-Agenten im Einklang" style="width: 100%; max-width: 960px; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.18);" />
   <figcaption style="margin-top: 0.75rem; font-size: 1.15rem; font-style: italic; opacity: 0.85;">
@@ -84,13 +86,12 @@ Der **ZED Claude Code Tab** ist die Referenz-Implementierung:
 | **Playwright** | Lokal ausführbar |
 | **Ollama** | Indirekt via Script-Ausführung |
 
-```bash
-# Setup in 30 Sekunden
-# 1. ZED installieren: https://zed.dev/download
-# 2. Agent Panel öffnen: Ctrl+?
-# 3. + → Claude Agent (aus ACP Registry)
-# 4. /login → OAuth mit claude.ai (Claude Max)
-```
+<Steps>
+1. [ZED installieren](https://zed.dev/download) — kostenlos, Open Source (GPL)
+2. Agent Panel öffnen: `Ctrl+?`
+3. `+` klicken → **Claude Agent** aus ACP Registry auswählen
+4. `/login` → OAuth mit claude.ai (Claude Max Abo)
+</Steps>
 
 ---
 
@@ -98,16 +99,18 @@ Der **ZED Claude Code Tab** ist die Referenz-Implementierung:
 
 **CLAUDE.md ist das geteilte Gedächtnis aller Agenten im Projekt.**
 
-```
-projekt/
-├── CLAUDE.md        ← Automatisch in JEDE Session aller Claude-Instanzen
-├── AGENTS.md        ← Kompatibel: Gemini CLI, Codex, OpenCode
-└── postbox/
-    ├── todo.md      ← Offene Tasks (Shared State)
-    └── done.md      ← Erledigte Tasks
-```
+<FileTree>
+- projekt/
+  - **CLAUDE.md** ← Automatisch in JEDE Session aller Claude-Instanzen
+  - **AGENTS.md** ← Kompatibel: Gemini CLI, Codex, OpenCode
+  - postbox/
+    - **todo.md** ← Offene Tasks (Shared State)
+    - **done.md** ← Erledigte Tasks
+</FileTree>
 
-> "Anytime we see Claude do something incorrectly we add it to the CLAUDE.md, so Claude knows not to do it next time. Every mistake becomes a rule." — Boris Cherny, Creator of Claude Code
+<Aside type="tip" title="Boris Cherny, Creator of Claude Code">
+„Anytime we see Claude do something incorrectly we add it to the CLAUDE.md, so Claude knows not to do it next time. Every mistake becomes a rule."
+</Aside>
 
 ---
 
@@ -154,11 +157,11 @@ Claude Max Abo (~€90+/M) deckt Claude Code Tab + Claude Code Web + Claude Pro 
 
 ## Dokumentation
 
-- [ZED ACP Setup Guide](/zed/acp)
-- [Claude Code Tab im Detail](/zed/claude-code-tab)
-- [CLAUDE.md schreiben — Best Practices](/cc/claude-md)
-- [Dual-Agent Pattern](/patterns/dual-agent)
-- [Case Studies](/case-studies/)
+<LinkCard title="ZED ACP Setup Guide" href="/zed/acp" description="Agent Client Protocol — das LSP für AI-Agenten." />
+<LinkCard title="Claude Code Tab im Detail" href="/zed/claude-code-tab" description="Hooks, MCP, Sub-Agents, Inline Diffs — alle Features erklärt." />
+<LinkCard title="CLAUDE.md Best Practices" href="/cc/claude-md" description="Das Projekt-Gedächtnis strukturieren — Konventionen und Anti-Patterns." />
+<LinkCard title="Dual-Agent Pattern" href="/patterns/dual-agent" description="Gemini CLI + Claude Code — Scanner und Fixer im Tandem." />
+<LinkCard title="Case Studies" href="/case-studies/" description="Echte Workflows aus der Praxis — was funktioniert, was nicht." />
 
 ---
 
