@@ -215,7 +215,7 @@ Noch nicht in ZED's UI implementiert:
 - Model Selection innerhalb von ZED
 
 Vollständig außerhalb von ZED zugänglich: alle Sessions als `.jsonl` im Filesystem —
-mit eigenen Tools wie `hufi-tui.py` und `claude_memory.py` verwaltbar.
+mit eigenen Tools wie `xed-tui.py` (XED /TUI) und `claude_memory.py` verwaltbar.
 → [Storage-Architektur](/books/zed-editor/06-storage-architektur/)
 
 ---
@@ -286,7 +286,7 @@ Aus diesem Format lässt sich ein vollständiger Session-Browser bauen:
 
 ```bash
 # Terminal-Browser (mutt-artig)
-python scripts/bin/hufi-tui/hufi-tui.py
+python scripts/bin/xed-tui.py
 
 # CLI
 python scripts/claude_memory.py threads   # Liste aller Sessions
@@ -294,7 +294,7 @@ python scripts/claude_memory.py read #7   # Session lesen
 python scripts/claude_memory.py backup fb-data  # Backup
 ```
 
-→ Referenz: [hufi-tui.py im fb-data Repo](https://github.com/collective-context)
+→ Referenz: [XED /TUI im fb-data Repo](https://github.com/edikte/fb-data)
 
 ## Backup-Empfehlung
 
@@ -343,7 +343,7 @@ Das ist keine Selbstverständlichkeit — es muss bewusst praktiziert werden.
 
 ## Wenige Stunden später ...
 
-Die Lektion bleibt gültig — aber die Geschichte hat eine Fortsetzung, die größer ist. Von der Idee bis zum produktionsfähigen **Claude TUI IDE** Agentic Coding Tool vergingen nur wenige Stunden. Wie war das möglich?
+Die Lektion bleibt gültig — aber die Geschichte hat eine Fortsetzung, die größer ist. Von der Idee bis zum produktionsfähigen **XED /TUI** Agentic Coding Tool vergingen nur wenige Stunden. Wie war das möglich?
 
 **Erstens:** ZED zeigt die Claude Code Sessions längst im **History-Panel**.
 Es liest `~/.claude/projects/` direkt — clever, still, ohne Aufsehen.
@@ -353,9 +353,9 @@ Was wir stundenlang gesucht haben, war die ganze Zeit da.
 Jede `.jsonl` unter `~/.claude/projects/<slug>/` ist ein vollständiger Transcript.
 Jede Zeile: ein JSON-Objekt. Menschenlesbar, maschinenverarbeitbar, archivierbar.
 
-**Daraus entstand** `hufi-tui.py` — eine mutt-artige "Claude TUI-IDE":
+**Daraus entstand** `xed-tui.py` — eine mutt-artige "XED /TUI":
 
-![Claude TUI Screenshot](/img/claude-tui.png)
+![XED /TUI Screenshot](/img/xed-tui.png)
 
 **Was das Tool schon kann:**
 
@@ -368,7 +368,7 @@ Jede Zeile: ein JSON-Objekt. Menschenlesbar, maschinenverarbeitbar, archivierbar
 - **Refresh** (`r`) — neue Sessions live nachladen ohne Neustart
 - **Löschen** (`d`) — mit Bestätigung ("delete" tippen)
 - **Vollbild-Modi** (`f`/`n`/`m`) — Reader-only (Full), Notiz-only, oder Panels tauschen
-> **`[a]` Agent** — **Claude Code Agent** mit `--resume <uuid>` direkt aus der Claude TUI-IDE starten, CWD wird automatisch aus den Session-Metadaten gelesen, die Session wird laufend automatisch gespeichert und die **Claude TUI-IDE** übernimmt wieder die Steuerung an der aufrufenden Stelle sobald **Claude Code** mit /exit verlassen wird.
+> **`[a]` Agent** — **Claude Code Agent** mit `--resume <uuid>` direkt aus **XED /TUI** starten, CWD wird automatisch aus den Session-Metadaten gelesen, die Session wird laufend automatisch gespeichert und **XED /TUI** übernimmt wieder die Steuerung an der aufrufenden Stelle sobald **Claude Code** mit /exit verlassen wird.
 > **`[o]` Open** — `/resume <uuid>` in die Zwischenablage: in der TUI surfen, den Resume-Link direkt in einen laufenden Claude Code einfügen — was ZED's History-Panel (noch) nicht kann.
 
 Sessions umbenennen, löschen, annotieren, im Editor öffnen, direkt wieder aufnehmen — alles lokal, kein Cloud-Service.
