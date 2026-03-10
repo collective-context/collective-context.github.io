@@ -41,24 +41,24 @@ export default defineConfig({
           label: '🚀 Start',
           items: [
             { label: 'Home', link: '/' },
-            { label: 'Quick Start (5 Minuten)', link: '/quickstart/setup' },
-            { label: 'Was ist ACP?', link: '/quickstart/what-is-acp' },
+            { label: 'Für wen ist das?', link: '/quickstart/what-is-acp' },
           ],
         },
         {
-          label: '🏗️ ZED + ACP Fundament',
+          label: '🔧 Setup',
           items: [
-            { label: 'ZED Editor Overview', link: '/zed/overview' },
-            { label: 'Agent Client Protocol (ACP)', link: '/zed/acp' },
-            { label: 'Claude Code Tab Setup', link: '/zed/claude-code-tab' },
-            { label: 'Gemini CLI Setup', link: '/zed/gemini-cli' },
-            { label: 'Ollama (lokal)', link: '/zed/ollama' },
-            { label: 'ZED Pricing & BYOK', link: '/zed/pricing' },
+            { label: '1. ZED Editor', link: '/zed/overview' },
+            { label: '2. Claude Code Tab', link: '/zed/claude-code-tab' },
+            { label: '3. XED /TUI Orchester', link: '/setup/xed-tui' },
+            { label: '4. Gemini CLI (optional)', link: '/zed/gemini-cli' },
+            { label: '5. Ollama lokal (optional)', link: '/zed/ollama' },
+            { label: 'Pricing & BYOK', link: '/zed/pricing' },
           ],
         },
         {
-          label: '💻 Agentic Coding Tools',
+          label: '💡 Konzepte',
           items: [
+            { label: 'Was ist ACP?', link: '/zed/acp' },
             { label: 'Warum das Terminal?', link: '/terminal/why-terminal' },
             { label: 'Tool-Vergleich 2026', link: '/terminal/tool-comparison' },
             { label: 'Claude Code Deep-Dive', link: '/terminal/claude-code' },
@@ -97,6 +97,7 @@ export default defineConfig({
           label: '⚡ CC APPs & Tools',
           items: [
             { label: 'GitHub Sync', link: '/apps/github-sync' },
+            { label: 'XED /TUI ↗', link: 'https://tui.xed.dev' },
           ],
         },
         {

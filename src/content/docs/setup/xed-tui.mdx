@@ -1,0 +1,103 @@
+---
+title: "3. XED /TUI — Session-Orchester"
+description: Claude Code Sessions durchsuchen, lesen und fortsetzen — im Terminal oder als ZED Tab.
+---
+
+## Was ist XED /TUI?
+
+XED /TUI ist ein 4-Panel Terminal-Browser für Claude Code Sessions.
+Es liest die `.jsonl`-Dateien die Claude Code in `~/.claude/projects/` anlegt
+und macht sie durchsuchbar, lesbar und verwaltbar — direkt im Terminal.
+
+**Keine Abhängigkeiten** — nur Python 3.11+ (stdlib).
+**Kein Netzwerk** — alles lokal, kein API-Key nötig.
+**Kein Lock-in** — MIT-Lizenz, liest Standard-JSONL.
+
+---
+
+## Warum nach Schritt 2?
+
+Nach der Installation von Claude Code Tab (Schritt 2) entstehen Sessions.
+Jede Session ist ein Gespräch mit Claude — gespeichert als `.jsonl` Datei.
+
+Das Problem: Nach einer Woche hast du 20+ Sessions über 3 Projekte verteilt.
+Welche Session hatte den Datenbankfehler gelöst? Wo war die Architektur-Diskussion?
+
+XED /TUI löst das: `xed-tui` → `/schema` → Enter → gefunden in 2 Sekunden.
+
+---
+
+## Installation
+
+```bash
+curl -fsSL https://tui.xed.dev/install.sh | bash
+```
+
+Oder manuell: `pipx install xed-tui` · `uv tool install xed-tui`
+
+Installiert `xed-tui` nach `~/.local/bin/` — direkt neben `claude`.
+
+---
+
+## Zwei Wege zu starten
+
+### Standalone im Terminal
+
+```bash
+xed-tui
+```
+
+Funktioniert überall wo ein Terminal läuft — lokal, via SSH, auf einem Server.
+Perfekt für Headless-Maschinen oder Remote-Arbeit.
+
+### Als ZED Terminal Tab
+
+Im ZED Editor: `` Ctrl+` `` (Backtick) → neues Terminal → `xed-tui`
+
+So hast du Claude Code Tab (Agent) und XED /TUI (Session-Browser)
+nebeneinander im selben Editor. Der Workflow:
+
+1. XED /TUI: alte Session finden und lesen
+2. `[a]` drücken → Claude Code startet mit `--resume <uuid>`
+3. Nahtlos weiterarbeiten wo du aufgehört hast
+
+---
+
+## Die wichtigsten Tasten
+
+| Taste | Aktion |
+|---|---|
+| `↑↓` | Sessions durchblättern |
+| `Enter` | Session lesen (Markdown-Rendering) |
+| `/` | Suche über alle Sessions und Notizen |
+| `a` | Session in Claude Code fortsetzen |
+| `e` | Notiz zur Session schreiben |
+| `#` | Tags setzen und filtern |
+| `?` | Hilfe (DE / EN / FR / JA / ES) |
+
+---
+
+## Warum "Orchester"?
+
+XED /TUI organisiert deine AI-Sessions wie ein Dirigent sein Orchester:
+Jede Session ist ein Instrument. Du siehst alle auf einen Blick,
+wählst aus welche spielt, und setzt genau dort fort wo die Musik aufgehört hat.
+
+In der Praxis bedeutet das:
+- **Morgens:** `xed-tui --continue` → letzter Stand sofort da
+- **Suchen:** `/bugfix` → alle Sessions mit "bugfix" im Titel oder Notizen
+- **Fortsetzen:** `a` → Claude Code startet mit dem richtigen Projekt-Verzeichnis
+- **Dokumentieren:** `e` → Notiz schreiben, wird beim nächsten Öffnen automatisch mit neuen Turns ergänzt
+
+---
+
+## Weiterführende Links
+
+- **Landing Page:** [tui.xed.dev](https://tui.xed.dev) — Installation in 12 Sprachen
+- **Wiki:** [GitHub Wiki](https://github.com/XED-dev/TUI/wiki) — vollständige Dokumentation
+- **Quellcode:** [github.com/XED-dev/TUI](https://github.com/XED-dev/TUI) — MIT-Lizenz
+- **PyPI:** [pypi.org/project/xed-tui](https://pypi.org/project/xed-tui/)
+
+---
+
+→ Nächster Schritt: [4. Gemini CLI (optional)](/zed/gemini-cli)
