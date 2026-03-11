@@ -10,7 +10,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Collective Context',
-      description: 'Mehrere AI-Agenten. Ein gemeinsamer Kontext. Powered by ZED + ACP.',
+      description: 'AI-Agenten bauen deine Website. Du behältst die Kontrolle.',
       defaultLocale: 'de',
       locales: {
         root: { label: 'Deutsch', lang: 'de' },

@@ -1,126 +1,66 @@
 ---
 title: Für wen ist Collective Context?
-description: Developers, Freelancer und Teams die mit AI-Agenten im Terminal arbeiten.
+description: Webagenturen, Redakteure, Freelancer und Developer — AI-Workflows im Terminal.
 ---
 
-## Du arbeitest mit Claude Code, Gemini CLI oder anderen Terminal-Agenten?
+## Du arbeitest mit AI-Tools und willst produktiver werden?
 
-Dann ist Collective Context für dich. Wir dokumentieren die Werkzeuge,
-Patterns und Best Practices für professionelles Agentic Coding im Terminal.
-
-**Was du hier findest:**
-
-- **🔧 Setup:** ZED Editor + Claude Code Tab + XED /TUI in 15 Minuten installieren
-- **💡 Konzepte:** Warum Terminal? Was ist ACP? Welche Tools gibt es 2026?
-- **🎭 Patterns:** Bewährte Multi-Agent-Workflows (Orchestra, Pipeline, Dual-Agent)
-- **📖 Bibliothek:** Bücher und Deep-Dives zum Nachschlagen
-
-→ [Setup starten →](/zed/overview/)
+Dann bist du hier richtig. Collective Context dokumentiert Werkzeuge
+und Workflows für alle, die AI-Agenten professionell einsetzen —
+vom ersten `curl` bis zum Multi-Agent-Orchester.
 
 ---
 
-## Was ist ACP?
+## 🏢 Webagenturen & Freelancer
 
-## Das Problem vor ACP
+**Dein Szenario:** Du baust Websites für Kunden. Bisher: manuell coden
+oder Website-Builder klicken. Jetzt: Claude Code generiert die Site,
+GitHub Sync deployed sie automatisch auf den Server.
 
-Vor ACP musste jeder AI-Agent einzeln in jeden Editor integriert werden:
+**Was du brauchst:**
+- Claude Code (Terminal-Agent) → [Schritt 1](/setup/claude-code/)
+- XED /TUI (Session-Browser) → [Schritt 2](/setup/xed-tui/)
+- Hosting mit GitHub Sync → [Hosting@ /Pakete](https://cbuzz.io/hosting/)
 
-```
-Ohne ACP (vorher):
-─────────────────────
-ZED ←→ Claude (custom Integration)
-ZED ←→ Gemini (custom Integration)
-tmux ←→ Aider (custom Integration)
-VS Code ←→ Copilot (custom Integration)
-```
+**Zeitaufwand:** 4 Minuten Setup, dann produktiv.
 
-Das bedeutete: n Agenten × m Editoren = n×m individuelle Integrationen. Proprietäre APIs, kein gemeinsamer Standard, kein Wechsel ohne Neukonfiguration.
+---
 
-## Die Lösung: ACP
+## ✏️ Redakteure & Content-Teams
 
-**Agent Client Protocol (ACP)** ist ein offener Standard von Zed Industries (Apache 2.0 Lizenz). Er funktioniert wie das Language Server Protocol (LSP) — nur für AI-Agenten.
+**Dein Szenario:** Du produzierst Content — Blog-Posts, Newsletter,
+Landing Pages. Bisher: im CMS tippen. Jetzt: Claude Code liest deine
+Ghost-Posts, optimiert sie für SEO/Tonalität/Übersetzung, und
+veröffentlicht sie automatisch via Admin API.
 
-```
-Mit ACP (jetzt):
-──────────────────────────
-ZED ←→ ACP ←→ Claude Code
-ZED ←→ ACP ←→ Gemini CLI
-ZED ←→ ACP ←→ Codex
-ZED ←→ ACP ←→ Ollama (via Adapter)
-ZED ←→ ACP ←→ Cline
-ZED ←→ ACP ←→ [jeder neue Agent]
-```
+**Was du brauchst:**
+- Claude Code + Ghost MCP → [Schritt 1](/setup/claude-code/#claude-code--ghost-publisher)
+- Ghost Publisher auf deinem Server → [Hosting@ /Unlimited](https://cbuzz.io/hosting/)
 
-**ACP ist LSP für AI-Agenten** — genau wie LSP die Sprachintelligenz aus monolithischen IDEs befreit hat, befreit ACP die Agent-Integration aus proprietären Silos.
+**Zeitaufwand:** 4 Minuten Setup + 10 Minuten Ghost-MCP konfigurieren.
 
-## Wie ACP funktioniert
+---
 
-```
-ZED Editor (ACP Client)
-├── Agent Panel (Ctrl+?)
-│   ├── Zed First-Party Agent (Grok, Gemini, Claude via API)
-│   ├── Claude Code Tab    ← ACP External Agent
-│   ├── Gemini CLI         ← ACP External Agent
-│   ├── Codex              ← ACP External Agent
-│   └── [weitere via ACP Registry]
-│
-├── Filesystem Access      ← Alle Agenten lesen dasselbe Projekt
-├── CLAUDE.md              ← Automatisch in alle Claude-Sessions
-├── AGENTS.md              ← Kompatibel mit Gemini CLI, OpenCode
-└── MCP Servers            ← Tool-Erweiterungen für alle Agenten
-```
+## 💻 Developer
 
-Jeder ACP-kompatible Agent erhält:
-- Zugriff auf das lokale Dateisystem
-- Inline Diff-Anzeige im Editor
-- Tool-Calls via MCP-Server
-- Gemeinsamen Projektkontext
+**Dein Szenario:** Du entwickelst Software und willst mehrere AI-Agenten
+parallel einsetzen — Claude Code für Fixes, Gemini CLI für Code-Scans,
+Ollama für lokale Privacy-Tasks.
 
-## ACP vs. MCP — Was ist der Unterschied?
+**Was du brauchst:**
+- Den vollständigen Setup-Track → [Schritte 1–5](/quickstart/setup/)
+- Konzepte verstehen → [Was ist ACP?](/zed/acp/) · [Warum Terminal?](/terminal/why-terminal/)
+- Patterns anwenden → [Dual-Agent](/patterns/dual-agent/) · [Orchestra](/patterns/orchestra/)
 
-| Protokoll | Zweck | Ebene |
-|---|---|---|
-| **ACP** | Verbindet Agenten mit Editoren | Agent ↔ Editor |
-| **MCP** | Verbindet Agenten mit Tools | Agent ↔ Tools |
+**Zeitaufwand:** 15 Minuten Setup, dann unbegrenzte Möglichkeiten.
 
-ACP regelt, wie der Agent mit dem Editor kommuniziert (Dateizugriff, Diffs, UI).
-MCP regelt, welche Tools der Agent nutzen kann (Datenbanken, APIs, Browser).
+---
 
-Beide Protokolle ergänzen sich: Ein ACP-Agent kann MCP-Server nutzen.
+## Was alle gemeinsam haben
 
-## ACP-Ecosystem (Stand Februar 2026)
+- **Terminal** — du arbeitest in einem Terminal (Linux, macOS, WSL)
+- **Claude Code** — Anthropics AI-Agent ist das Kern-Tool
+- **Lokale Dateien** — alles bleibt auf deinem Rechner, kein Cloud-Lock-in
+- **Open Source** — MIT/Apache 2.0, kein proprietärer Vendor
 
-### Verfügbare Agenten
-
-| Agent | Modell | Status |
-|---|---|---|
-| **Claude Agent** (ACP) | Sonnet 4.6 (Max) | Stabil |
-| **Gemini CLI** | Gemini 2.5 Pro | Stabil |
-| **Codex** | GPT-5.2-Codex | Stabil |
-| **GitHub Copilot** | GPT-4o | Stabil |
-| **Cline** | Wählbar | Stabil |
-| **OpenCode** | Wählbar | Beta |
-| **Ollama Adapter** | Lokal | Community |
-
-### Kompatible Editoren
-
-| Editor | ACP-Status |
-|---|---|
-| **ZED** | Referenz-Implementierung |
-| **Neovim** (CodeCompanion) | Stabil |
-| **JetBrains** | Coming soon |
-| **Obsidian** | Community Plugin |
-| **VS Code** | Community |
-
-## Warum ACP für Collective Context?
-
-Das Collective Context-Projekt basiert auf einem einfachen Prinzip: **Mehrere AI-Agenten teilen einen gemeinsamen Kontext** (das Dateisystem und CLAUDE.md).
-
-ACP ist der fehlende Baustein, der das ohne tmux-Glue-Code und Shell-Skripte möglich macht:
-
-1. **Standardisiert**: Ein Protokoll für alle Agenten
-2. **Editor-integriert**: Inline Diffs statt Terminal-Output
-3. **Offen**: Apache 2.0, kein Vendor Lock-in
-4. **Erweiterbar**: Neuer Agent = eine ACP-Implementierung
-
-[Weiter: ZED Editor Overview](/zed/overview)
+→ [Setup starten: Schritt 1 — Claude Code](/setup/claude-code/)

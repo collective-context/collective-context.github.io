@@ -1,9 +1,9 @@
 ---
 title: Collective Context (CC)
-description: Mehrere AI-Agenten. Ein gemeinsamer Kontext. Powered by ZED + ACP.
+description: AI-Agenten bauen deine Website. Du behältst die Kontrolle.
 template: splash
 hero:
-  tagline: Mehrere AI-Agenten. Ein gemeinsamer Kontext. Powered by ZED + ACP.
+  tagline: AI-Agenten bauen deine Website. Du behältst die Kontrolle.
   actions:
     - text: Setup starten →
       link: /setup/claude-code/
@@ -13,166 +13,92 @@ hero:
       link: /setup/xed-tui/
       icon: external
       variant: secondary
-    - text: Was ist ACP?
+    - text: Für wen?
       link: /quickstart/what-is-acp/
       icon: external
       variant: minimal
 ---
 
----
+import { Card, CardGrid } from '@astrojs/starlight/components';
 
-import { Aside, FileTree, LinkCard, Steps } from '@astrojs/starlight/components';
+## Was du damit tun kannst
 
-<figure style="margin: -2rem 0 2rem; text-align: center;">
-  <img src="/og-image.jpg" alt="Collective Context (CC) — Mehrere AI-Agenten im Einklang" style="width: 100%; max-width: 960px; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.18);" />
-  <figcaption style="margin-top: 0.75rem; font-size: 1.15rem; font-style: italic; opacity: 0.85;">
-    Collective Context (CC) — Wie ein Orchester mit vielen Stimmen und einem gemeinsamen Kontext.
-  </figcaption>
-</figure>
+<CardGrid>
+  <Card title="🏢 Webagenturen & Freelancer" icon="rocket">
+    Claude Code generiert Websites — HTML, CSS, JavaScript —
+    und deployed sie per GitHub Sync auf euren LEMP-Server.
+    Kein manueller Upload, kein SFTP.
 
-## CC 2.0 — Der Paradigmenwechsel
+    → [Setup starten (4 min)](/setup/claude-code/)
+  </Card>
 
-> Die Stärke der Innovation ist wie ein Kunstwerk; sie wird lebendig, wenn visionäre Ideen und neuartige Werkzeuge zusammenfließen. An alle Entwickler dieser Welt: Lasst uns gemeinsam zu neuen Ufern aufbrechen.
+  <Card title="✏️ Redakteure & Content-Teams" icon="pencil">
+    Claude Code schreibt und optimiert Ghost-Posts via Admin API.
+    SEO, Übersetzungen, Tonalität — automatisiert, ohne CMS-Login.
 
-Das **Collective Context**-Projekt dokumentiert, wie mehrere AI-Agenten einen **gemeinsamen Kontext teilen** — ohne proprietären Lock-in, ohne tmux-Magie, ohne manuelle Session-Verwaltung.
+    → [Ghost + Claude Code](/setup/claude-code/#claude-code--ghost-publisher)
+  </Card>
 
-**Das Fundament ab 2026: ZED Editor + Agent Client Protocol (ACP)**
+  <Card title="💻 Developer" icon="laptop">
+    Multi-Agent-Workflows: Claude Code + Gemini CLI + Ollama lokal.
+    Orchestriert mit XED /TUI. Alles im Terminal, alles Open Source.
 
----
-
-## Evolution statt Revolution
-
-Wir haben den Stack gewechselt. Die Vision ist dieselbe geblieben.
-
-**Vorher (2025):** tmux + Aider + OpenRouter + CCC Commander
-**Jetzt (2026):** ZED Editor + ACP + Claude Code Tab + Gemini CLI + Ollama
-
-Was sich nicht geändert hat:
-- KAIZEN-Prinzip: Schrittweise Verbesserung, nicht Neuerfindung
-- Pragmatismus über Purismus
-- Hybrid: Cloud-LLMs + lokale Modelle
-- Open Source: Apache 2.0 (ACP), MIT (unsere Docs)
-- Privacy-First: Ollama für credential-sichere lokale Tasks
+    → [Konzepte & Patterns](/zed/acp/)
+  </Card>
+</CardGrid>
 
 ---
 
-## Was ist ACP?
-
-**Agent Client Protocol (ACP)** ist ein offener Standard von Zed Industries — das LSP für AI-Agenten.
+## Der Workflow — in 60 Sekunden erklärt
 
 ```
-ZED Editor (ACP Client)
-├── Claude Code Tab   ← Claude Max, Flat Rate, Filesystem-Zugriff
-├── Gemini CLI        ← Parallele Scan-Tasks
-├── Codex             ← OpenAI's Coding Agent
-└── Ollama Adapter    ← Lokal, Privacy-First
-    ↕
-    CLAUDE.md / AGENTS.md (Shared Context für alle)
+Du gibst Claude Code einen Auftrag im Terminal:
+  "Erstelle eine Landing Page mit Hero, Features und Footer."
+
+Claude Code schreibt die Dateien und committed sie in GitHub.
+
+GitHub Sync deployed automatisch auf deinen Server.
+
+Fertig. Deine Website ist live.
 ```
 
-Jeder Agent, der ACP spricht, kann in jedem ACP-kompatiblen Editor laufen. Einmal integriert — überall verfügbar.
+Alles was du brauchst: **Claude Code** (Schritt 1) + **XED /TUI** (Schritt 2)
+um deine Sessions zu organisieren. Optional: **ZED Editor** als IDE.
+
+→ [Setup starten — Schritt 1: Claude Code](/setup/claude-code/)
 
 ---
 
-## Der ZED Claude Code Tab
+## Was ist Collective Context?
 
-Der **ZED Claude Code Tab** ist die Referenz-Implementierung:
+Collective Context dokumentiert wie AI-Agenten im Terminal zusammenarbeiten —
+mit geteiltem Projektgedächtnis (`CLAUDE.md`), offenen Standards (`ACP`),
+und ohne proprietären Lock-in.
 
-| Feature | Wert |
-|---|---|
-| **Kosten** | Claude Max Abo (Flat Rate — kein Token-Pricing) |
-| **Modell** | Claude Sonnet 4.6 |
-| **Filesystem** | Direkt auf lokale Workstation |
-| **Diffs** | Inline im Editor (accept/reject per Hunk) |
-| **CLAUDE.md** | Automatisch in jede Session geladen |
-| **Playwright** | Lokal ausführbar |
-| **Ollama** | Indirekt via Script-Ausführung |
+**Für Einsteiger:** [Setup (4 min)](/setup/claude-code/) →
+installiere Claude Code und XED /TUI, starte sofort.
 
-<Steps>
-1. [ZED installieren](https://zed.dev/download) — kostenlos, Open Source (GPL)
-2. Agent Panel öffnen: `Ctrl+?`
-3. `+` klicken → **Claude Agent** aus ACP Registry auswählen
-4. `/login` → OAuth mit claude.ai (Claude Max Abo)
-</Steps>
+**Für Fortgeschrittene:** [Konzepte](/zed/acp/) →
+ACP, Dual-Agent Patterns, Multi-Agent-Orchestrierung.
+
+**Open Source** · EU-Hosting kompatibel · DSGVO-konform
 
 ---
 
-## CLAUDE.md als Collective Context
+## Tools im Ökosystem
 
-**CLAUDE.md ist das geteilte Gedächtnis aller Agenten im Projekt.**
-
-<FileTree>
-- projekt/
-  - **CLAUDE.md** ← Automatisch in JEDE Session aller Claude-Instanzen
-  - **AGENTS.md** ← Kompatibel: Gemini CLI, Codex, OpenCode
-  - postbox/
-    - **todo.md** ← Offene Tasks (Shared State)
-    - **done.md** ← Erledigte Tasks
-</FileTree>
-
-<Aside type="tip" title="Boris Cherny, Creator of Claude Code">
-„Anytime we see Claude do something incorrectly we add it to the CLAUDE.md, so Claude knows not to do it next time. Every mistake becomes a rule."
-</Aside>
+| Tool | Was es tut | Link |
+|---|---|---|
+| **Claude Code** | AI-Agent im Terminal — baut Websites, schreibt Content | [Setup →](/setup/claude-code/) |
+| **XED /TUI** | Session-Browser — suchen, lesen, fortsetzen | [tui.xed.dev ↗](https://tui.xed.dev) |
+| **ZED Editor** | IDE mit Claude Code Tab (optional) | [Setup →](/zed/overview/) |
+| **GitHub Sync** | Automatisches Deploy auf LEMP-Server | [Docs →](/apps/github-sync/) |
 
 ---
 
-## Dual-Agent Pattern
+## Weiter lernen
 
-```
-Gemini CLI (Scanner)          Claude Code Tab (Fixer)
-─────────────────────         ─────────────────────────
-Scannt Codebase               Monitort postbox/todo.md
-↓                             ↓
-Schreibt in todo.md           Fixiert Code + committed
-↓                             ↓
-Weiter scannen                Verschiebt Task → done.md
-```
-
-Zwei Agenten, ein gemeinsames Dateisystem, kein API-Overhead.
-
----
-
-## Kosten-Vergleich
-
-| Setup | Monatlich | Modell-Optionen | Privacy |
-|---|---|---|---|
-| Nur Cloud (proprietär) | ~$150 | 1 Provider | Nein |
-| CC 2.0 Hybrid | ~$80 | Unbegrenzt | Ja |
-| CC 2.0 Full Local | ~$30 | 300+ via Ollama | Ja |
-
-Claude Max Abo (~€90+/M) deckt Claude Code Tab + Claude Code Web + Claude Pro ab — Flat Rate.
-
----
-
-## Roadmap
-
-- ZED ACP-Fundament (Claude Code Tab) — abgeschlossen
-- CLAUDE.md Collective Context Spec — abgeschlossen
-- Dual-Agent Pattern dokumentiert — abgeschlossen
-- MCP Server Integration Guide — geplant
-- Ollama ACP Adapter — geplant
-- Community Forum — geplant
-
-[Zur vollständigen Roadmap](/roadmap/)
-
----
-
-## Dokumentation
-
-<LinkCard title="ZED ACP Setup Guide" href="/zed/acp" description="Agent Client Protocol — das LSP für AI-Agenten." />
-<LinkCard title="Claude Code Tab im Detail" href="/zed/claude-code-tab" description="Hooks, MCP, Sub-Agents, Inline Diffs — alle Features erklärt." />
-<LinkCard title="CLAUDE.md Best Practices" href="/cc/claude-md" description="Das Projekt-Gedächtnis strukturieren — Konventionen und Anti-Patterns." />
-<LinkCard title="Dual-Agent Pattern" href="/patterns/dual-agent" description="Gemini CLI + Claude Code — Scanner und Fixer im Tandem." />
-<LinkCard title="Case Studies" href="/case-studies/" description="Echte Workflows aus der Praxis — was funktioniert, was nicht." />
-
----
-
-## Pragmatische Philosophie
-
-**KAIZEN-Prinzip in Action:**
-- **Evolution > Revolution**: Schrittweise Verbesserung
-- **Data > Ideology**: Was in der Praxis funktioniert, gewinnt
-- **Pragmatism > Purism**: Hybrid aus Cloud + Local ist optimal
-- **Open Standard > Proprietary**: ACP ist Apache 2.0
-
-[GitHub](https://github.com/collective-context) · Community Forum: Coming soon
+→ [Für wen ist das?](/quickstart/what-is-acp/) — Zielgruppen und Einstiegspunkte
+→ [Konzepte: Was ist ACP?](/zed/acp/) — Das Protokoll hinter Multi-Agent-Workflows
+→ [Case Studies](/case-studies/) — Echte Workflows aus der Praxis
+→ [Bibliothek](/books/) — Das ZED Editor Buch und Deep-Dives
