@@ -47,9 +47,9 @@ export default defineConfig({
         {
           label: '🔧 Setup',
           items: [
-            { label: '1. ZED Editor', link: '/zed/overview' },
-            { label: '2. Claude Code Tab', link: '/zed/claude-code-tab' },
-            { label: '3. XED /TUI Orchester', link: '/setup/xed-tui' },
+            { label: '1. Claude Code', link: '/setup/claude-code' },
+            { label: '2. XED /TUI Orchester', link: '/setup/xed-tui' },
+            { label: '3. ZED Editor (optional)', link: '/zed/overview' },
             { label: '4. Gemini CLI (optional)', link: '/zed/gemini-cli' },
             { label: '5. Ollama lokal (optional)', link: '/zed/ollama' },
             { label: 'Pricing & BYOK', link: '/zed/pricing' },

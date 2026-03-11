@@ -1,0 +1,136 @@
+---
+title: "1. Claude Code"
+description: Der AI-Agent der Websites baut, Content schreibt und Code generiert — direkt im Terminal.
+---
+
+## Was ist Claude Code?
+
+Claude Code ist Anthropics AI-Agent für das Terminal. Ein einziger Befehl —
+und du hast einen Assistenten der Code schreibt, Dateien bearbeitet,
+Git-Commits macht und Tests ausführt. Alles lokal, alles im Terminal.
+
+**Was Claude Code für unsere Zielgruppe tut:**
+
+- **Webagenturen:** Websites generieren (HTML, CSS, JS) und per GitHub Sync deployen
+- **Redakteure:** Ghost-Posts lesen, umschreiben, neu veröffentlichen — via Admin API
+- **Freelancer:** Portfolio-Seiten und Landing Pages aus einer Textbeschreibung bauen
+- **Developer:** Code schreiben, refactoren, debuggen, testen
+
+Claude Code ist kein Chat-Fenster — es ist ein Agent der auf deinem Rechner
+arbeitet und echte Dateien verändert.
+
+---
+
+## Installation
+
+Ein Befehl. Keine Abhängigkeiten.
+
+**Linux / macOS / Windows WSL:**
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+**Windows WSL installieren:** (Voraussetzung: Windows 10 (Build 19041+) oder Windows 11, 64-Bit-Prozessor)
+
+```powershell
+wsl --install
+```
+
+**Homebrew (macOS/Linux):**
+```bash
+brew install --cask claude-code
+```
+
+Dann einmal starten:
+```bash
+claude
+```
+
+Das erstellt `~/.claude/projects/` — das Verzeichnis in dem alle deine
+AI-Sessions gespeichert werden. XED /TUI (Schritt 2) liest genau
+diese Dateien.
+
+---
+
+## Was du brauchst
+
+| Voraussetzung | Details |
+|---|---|
+| **Terminal** | Bash, Zsh, Git |
+| **Claude-Konto** | Pro ($20/M), Max ($100–200/M), oder Teams/Enterprise |
+| **Internet** | Für die API-Kommunikation mit Anthropic |
+
+Kein Node.js nötig (der native Installer bringt alles mit).
+Kein ZED nötig — Claude Code ist ein Terminal-Tool.
+
+---
+
+## Dein erster Auftrag
+
+Navigiere in ein beliebiges Projektverzeichnis und starte Claude:
+
+```bash
+cd ~/mein-projekt
+claude
+```
+
+Dann beschreibe was du brauchst:
+
+> "Erstelle eine responsive Landing Page mit Hero-Section,
+> Feature-Grid und Footer. Nutze Bootstrap 5 via CDN.
+> Speichere als index.html."
+
+Claude Code schreibt die Datei, zeigt dir den Diff, und fragt
+ob du die Änderung übernehmen willst. Deine erste Session ist
+jetzt in `~/.claude/projects/` gespeichert.
+
+---
+
+## Claude Code + Hosting@ /Partner
+
+Der typische Workflow für Hosting@ Partner:
+
+```
+Claude Code (lokal)
+  → generiert/aktualisiert Website-Dateien
+  → committed ins GitHub-Repo
+      ↓
+GitHub Sync (automatisch)
+  → Deploy auf deinen Hosting@ /LEMP-Server
+      ↓
+Nginx serviert die fertige Site
+  → kein SFTP, kein manueller Upload nötig
+```
+
+Das funktioniert mit jedem Hosting@ /Paket das GitHub Sync unterstützt:
+Connect (ab €4,9/M), Combo (€9,9/M), Unlimited (€19,9/M).
+
+→ [Hosting@ /Pakete](https://cBUZZ.IO/hosting/)
+
+---
+
+## Claude Code + Ghost Publisher
+
+Für Redakteure und Content-Teams:
+
+```
+Claude Code + Ghost MCP
+  → GET /admin/posts/{slug}
+  → Content an LLM übergeben (Umschreiben, SEO, Übersetzung)
+  → PUT /admin/posts/{id} mit neuem Content
+  → Post sofort live — kein Cache-Problem, kein CMS-Login nötig
+```
+
+Ghost Publisher ist ab dem Hosting@ /Unlimited Paket (€19,9/M) verfügbar.
+
+---
+
+## Weiterführende Links
+
+- **Claude Code Docs:** [code.claude.com](https://code.claude.com)
+- **Nächster Schritt:** [2. XED /TUI Orchester →](/setup/xed-tui/) — um deine Sessions zu organisieren
+- **ZED Integration:** [3. ZED Editor (optional) →](/zed/overview/) — Claude Code + XED /TUI unter einem IDE-Dach
+
+---
+
+→ Nächster Schritt: [2. XED /TUI Orchester →](/setup/xed-tui/)
