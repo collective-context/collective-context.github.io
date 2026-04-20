@@ -1,7 +1,7 @@
 # AGENTS.md — collective-context.org (Single Source of Truth für alle AI-Agenten)
 > Pflichtlektüre für alle Agenten: Claude Code, ZED/Grok, Gemini CLI, etc.
 > Claude Code lädt diese Datei automatisch via Symlink `CLAUDE.md → AGENTS.md`.
-> Stand: 01. März 2026
+> Stand: 16. April 2026
 >
 > Details & Referenzen: `README.md` | Standard: https://agents.md (Linux Foundation)
 
@@ -49,6 +49,13 @@ Diese AGENTS.md ist selbst eine **Vorlage** — kopierbar für tausende neue Pro
    **RICHTIG:**
    > „cp benötigt eine Freigabe. Option A: Erteilst du mir die Freigabe?
    > Option B: Du kannst den Befehl selbst ausführen: `cp src/content/docs/foo.md ...`"
+3b. **KEINE DELETIONS DURCH AI-AGENTEN.** Absolut verboten sind
+    `rm`, `rmdir`, `shred`, `unlink`, `find -delete`, `find -exec rm`,
+    `shutil.rmtree`, `Path.unlink`, `fs.rm` und sprachliche Äquivalente.
+    Nur der Human DevOps löscht. Wenn etwas weg muss: STOPP, Befehl
+    vorschlagen, warten. Keine Ausnahmen — auch nicht für Build-Artefakte
+    (`dist/`, `build/`, `__pycache__/`, `node_modules/`). Moderne Build-
+    Werkzeuge überschreiben idempotent.
 4. **KEINE CREDENTIALS IM CODE.** Nur Umgebungsvariablen. Niemals Keys hardcoden.
 4a. **KEINE CREDENTIALS IM CHAT.** Credentials-Inhalt nie ausgeben — nur melden.
 5. **WARTEN:** Nach jeder Frage auf Antwort warten. Niemals vorausarbeiten.
